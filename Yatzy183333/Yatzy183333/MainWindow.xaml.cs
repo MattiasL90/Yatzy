@@ -15,12 +15,13 @@ using System.Windows.Shapes;
 
 namespace Yatzy183333
 {
-
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        int[] dices = new int[5];
+        int[] savedDice = new int[5];
         public MainWindow()
         {
             InitializeComponent();
