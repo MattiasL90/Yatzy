@@ -41,14 +41,12 @@ namespace Yatzy183333
                 setDices();
             }
         }
-
         public void updateDg()
         {
             Player p = new Player();
             dgList.ItemsSource = null;
             dgList.ItemsSource = p.player;
         }
-
 
         public void setLabels()
         {
