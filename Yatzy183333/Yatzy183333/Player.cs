@@ -9,6 +9,7 @@ namespace Yatzy183333
     class Player
     {
         public int id { get; set; }
+        public string name { get; set; }
         public int ones { get; set; }
         public int twos { get; set; }
         public int trees { get; set; }
