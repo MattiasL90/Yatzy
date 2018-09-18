@@ -7,18 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="dgList" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="253"/>
-        <Label x:Name="lblOne" Content="Label" HorizontalAlignment="Left" Margin="304,52,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
-        <Label x:Name="lblTwo" Content="Label" HorizontalAlignment="Left" Margin="366,52,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
-        <Label x:Name="lblThree" Content="Label" HorizontalAlignment="Left" Margin="428,52,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
-        <Label x:Name="lblFour" Content="Label" HorizontalAlignment="Left" Margin="490,52,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
-        <Label x:Name="lblFive" Content="Label" HorizontalAlignment="Left" Margin="552,52,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
-        <CheckBox x:Name="cbOne" Content="" HorizontalAlignment="Left" Margin="304,89,0,0" VerticalAlignment="Top" Width="35"/>
-        <CheckBox x:Name="cbTwo" Content="" HorizontalAlignment="Left" Margin="366,89,0,0" VerticalAlignment="Top" Width="35"/>
-        <CheckBox x:Name="cbThree" Content="" HorizontalAlignment="Left" Margin="428,89,0,0" VerticalAlignment="Top" Width="35"/>
-        <CheckBox x:Name="cbFour" Content="" HorizontalAlignment="Left" Margin="490,89,0,0" VerticalAlignment="Top" Width="35"/>
-        <CheckBox x:Name="cbFive" Content="" HorizontalAlignment="Left" Margin="552,89,0,0" VerticalAlignment="Top" Width="35"/>
-        <Button x:Name="btnRoll" Content="Slå" HorizontalAlignment="Left" Margin="398,223,0,0" VerticalAlignment="Top" Width="75" Click="btnRoll_Click"/>
+        <DataGrid x:Name="dgList" HorizontalAlignment="Left" Height="184" Margin="29,69,0,0" VerticalAlignment="Top" Width="737"/>
+        <Label x:Name="lblOne" Content="Label" HorizontalAlignment="Left" Margin="226,264,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
+        <Label x:Name="lblTwo" Content="Label" HorizontalAlignment="Left" Margin="288,264,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
+        <Label x:Name="lblThree" Content="Label" HorizontalAlignment="Left" Margin="350,264,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
+        <Label x:Name="lblFour" Content="Label" HorizontalAlignment="Left" Margin="412,264,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
+        <Label x:Name="lblFive" Content="Label" HorizontalAlignment="Left" Margin="474,264,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
+        <CheckBox x:Name="cbOne" Content="" HorizontalAlignment="Left" Margin="226,302,0,0" VerticalAlignment="Top" Width="35"/>
+        <CheckBox x:Name="cbTwo" Content="" HorizontalAlignment="Left" Margin="288,302,0,0" VerticalAlignment="Top" Width="35"/>
+        <CheckBox x:Name="cbThree" Content="" HorizontalAlignment="Left" Margin="350,302,0,0" VerticalAlignment="Top" Width="35"/>
+        <CheckBox x:Name="cbFour" Content="" HorizontalAlignment="Left" Margin="412,302,0,0" VerticalAlignment="Top" Width="35"/>
+        <CheckBox x:Name="cbFive" Content="" HorizontalAlignment="Left" Margin="474,302,0,0" VerticalAlignment="Top" Width="35"/>
+        <Button x:Name="btnRoll" Content="Slå" HorizontalAlignment="Left" Margin="288,364,0,0" VerticalAlignment="Top" Width="75" Click="btnRoll_Click"/>
+        <Button x:Name="btnSave" Content="Spara" HorizontalAlignment="Left" Margin="412,364,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Window>
