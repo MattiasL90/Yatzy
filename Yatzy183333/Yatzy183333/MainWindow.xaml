@@ -5,21 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yatzy183333"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="1031.429">
+        Title="MainWindow" Height="474.643" Width="1031.429">
     <Grid>
         <DataGrid x:Name="dgList" HorizontalAlignment="Left" Height="184" Margin="29,69,0,0" VerticalAlignment="Top" Width="968"/>
-        <Label x:Name="lblOne" Content="Label" HorizontalAlignment="Left" Margin="366,266,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
-        <Label x:Name="lblTwo" Content="Label" HorizontalAlignment="Left" Margin="428,266,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
-        <Label x:Name="lblThree" Content="Label" HorizontalAlignment="Left" Margin="490,266,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
-        <Label x:Name="lblFour" Content="Label" HorizontalAlignment="Left" Margin="552,266,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
-        <Label x:Name="lblFive" Content="Label" HorizontalAlignment="Left" Margin="614,266,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
-        <CheckBox x:Name="cbOne" Content="" HorizontalAlignment="Left" Margin="366,304,0,0" VerticalAlignment="Top" Width="35"/>
-        <CheckBox x:Name="cbTwo" Content="" HorizontalAlignment="Left" Margin="428,304,0,0" VerticalAlignment="Top" Width="35"/>
-        <CheckBox x:Name="cbThree" Content="" HorizontalAlignment="Left" Margin="490,304,0,0" VerticalAlignment="Top" Width="35"/>
-        <CheckBox x:Name="cbFour" Content="" HorizontalAlignment="Left" Margin="552,304,0,0" VerticalAlignment="Top" Width="35"/>
-        <CheckBox x:Name="cbFive" Content="" HorizontalAlignment="Left" Margin="614,304,0,0" VerticalAlignment="Top" Width="35"/>
-        <Button x:Name="btnRoll" Content="Slå" HorizontalAlignment="Left" Margin="410,366,0,0" VerticalAlignment="Top" Width="75" Click="btnRoll_Click"/>
-        <Button x:Name="btnSave" Content="Spara" HorizontalAlignment="Left" Margin="534,366,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label x:Name="lblOne" Content="Label" HorizontalAlignment="Left" Margin="365,293,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
+        <Label x:Name="lblTwo" Content="Label" HorizontalAlignment="Left" Margin="427,293,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
+        <Label x:Name="lblThree" Content="Label" HorizontalAlignment="Left" Margin="489,293,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
+        <Label x:Name="lblFour" Content="Label" HorizontalAlignment="Left" Margin="551,293,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
+        <Label x:Name="lblFive" Content="Label" HorizontalAlignment="Left" Margin="613,293,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
+        <CheckBox x:Name="cbOne" Content="" HorizontalAlignment="Left" Margin="365,331,0,0" VerticalAlignment="Top" Width="35"/>
+        <CheckBox x:Name="cbTwo" Content="" HorizontalAlignment="Left" Margin="427,331,0,0" VerticalAlignment="Top" Width="35"/>
+        <CheckBox x:Name="cbThree" Content="" HorizontalAlignment="Left" Margin="489,331,0,0" VerticalAlignment="Top" Width="35"/>
+        <CheckBox x:Name="cbFour" Content="" HorizontalAlignment="Left" Margin="551,331,0,0" VerticalAlignment="Top" Width="35"/>
+        <CheckBox x:Name="cbFive" Content="" HorizontalAlignment="Left" Margin="613,331,0,0" VerticalAlignment="Top" Width="35"/>
+        <Button x:Name="btnRoll" Content="Slå" HorizontalAlignment="Left" Margin="449,381,0,0" VerticalAlignment="Top" Width="75" Click="btnRoll_Click"/>
+        <Button x:Name="btnSave" Content="Spara" HorizontalAlignment="Left" Margin="269,381,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" IsEnabled="False"/>
+        <RadioButton x:Name="rbOnes" Content="Ettor" HorizontalAlignment="Left" Margin="29,281,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbTwos" Content="Tvåor" HorizontalAlignment="Left" Margin="29,301,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbThrees" Content="Treor" HorizontalAlignment="Left" Margin="29,321,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbFours" Content="Fyror" HorizontalAlignment="Left" Margin="29,341,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbFives" Content="Femmor" HorizontalAlignment="Left" Margin="29,361,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbSixes" Content="Sexor" HorizontalAlignment="Left" Margin="29,381,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbPair" Content="Par" HorizontalAlignment="Left" Margin="119,284,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbTwopair" Content="Två Par" HorizontalAlignment="Left" Margin="119,304,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbTriads" Content="Triss" HorizontalAlignment="Left" Margin="119,321,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbQuads" Content="Fyrtal" HorizontalAlignment="Left" Margin="119,341,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbHouse" Content="Kåk" HorizontalAlignment="Left" Margin="192,284,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbLadderl" Content="Liten Stege" HorizontalAlignment="Left" Margin="192,301,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbLadderb" Content="Stor Stege" HorizontalAlignment="Left" Margin="192,321,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbChance" Content="Chans" HorizontalAlignment="Left" Margin="192,341,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbYatzy" Content="Yatzy" HorizontalAlignment="Left" Margin="192,361,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
