@@ -21,10 +21,25 @@ namespace Yatzy183333
     public partial class MainWindow : Window
     {
         int[] dices = new int[5];
-        int[] savedDice = new int[5];
+        bool[] savedDice = new bool[5];
+        int round = 0;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnRoll_Click(object sender, RoutedEventArgs e)
+        {
+            if (round == 0)
+            {
+                Game g = new Game();
+                dices = g.RollDices(savedDice, dices);
+                lblOne.Content = dices[0];
+                lblTwo.Content = dices[1];
+                lblThree.Content = dices[2];
+                lblFour.Content = dices[3];
+                lblFive.Content = dices[4];
+            }
         }
     }
 }
