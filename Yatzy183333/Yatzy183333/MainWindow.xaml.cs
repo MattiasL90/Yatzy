@@ -20,9 +20,78 @@ namespace Yatzy183333
     /// </summary>
     public partial class MainWindow : Window
     {
+        int[] dices = new int[5];
+        bool[] savedDice = new bool[5];
+        int round = 0;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnRoll_Click(object sender, RoutedEventArgs e)
+        {
+            Game g = new Game();
+
+            if (round > 0)
+            {
+                if (cbOne.IsChecked == true)
+                {
+                    savedDice[0] = true;
+                }
+                else
+                {
+                    savedDice[0] = false;
+                }
+                if (cbTwo.IsChecked == true)
+                {
+                    savedDice[1] = true;
+                }
+                else
+                {
+                    savedDice[1] = false;
+                }
+                if (cbThree.IsChecked == true)
+                {
+                    savedDice[2] = true;
+                }
+                else
+                {
+                    savedDice[2] = false;
+                }
+                if (cbFour.IsChecked == true)
+                {
+                    savedDice[3] = true;
+                }
+                else
+                {
+                    savedDice[3] = false;
+                }
+                if (cbFive.IsChecked == true)
+                {
+                    savedDice[4] = true;
+                }
+                else
+                {
+                    savedDice[4] = false;
+                }
+            }
+
+            dices = g.rollDices(savedDice, dices);
+            lblOne.Content = dices[0];
+            lblTwo.Content = dices[1];
+            lblThree.Content = dices[2];
+            lblFour.Content = dices[3];
+            lblFive.Content = dices[4];
+            round++;
+            if (round == 2)
+            {
+                round = 0;
+                savedDice[0] = false;
+                savedDice[1] = false;
+                savedDice[2] = false;
+                savedDice[3] = false;
+                savedDice[4] = false;
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Yatzy183333
 {
     class Game
     {
-        public int[] RollDices(bool[] savedDices, int[] dices)
+        public int[] rollDices(bool[] savedDices, int[] dices)
         {
             Random random = new Random();
             for (int i = 0; i < dices.Count(); i++)
