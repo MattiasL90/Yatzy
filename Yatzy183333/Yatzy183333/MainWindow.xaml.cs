@@ -40,12 +40,18 @@ namespace Yatzy183333
                 round = 0;
                 setDices();
             }
+            updateDg();
         }
         public void updateDg()
         {
             Player p = new Player();
             dgList.ItemsSource = null;
             dgList.ItemsSource = p.player;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         public void setLabels()
@@ -112,5 +118,6 @@ namespace Yatzy183333
                 }
             }
         }
+
     }
 }
