@@ -63,6 +63,27 @@ namespace Yatzy183333
             }
             btnSave.IsEnabled = false;
             btnRoll.IsEnabled = true;
+
+            if (cbOne.IsChecked==true) {
+                cbOne.IsChecked = false;
+            }
+            if (cbTwo.IsChecked == true)
+            {
+                cbTwo.IsChecked = false;
+            }
+            if (cbThree.IsChecked == true)
+            {
+                cbThree.IsChecked = false;
+            }
+            if (cbFour.IsChecked == true)
+            {
+                cbFour.IsChecked = false;
+            }
+            if (cbFive.IsChecked == true)
+            {
+                cbFive.IsChecked = false;
+            }
+
         }
 
         public int checkScore()
