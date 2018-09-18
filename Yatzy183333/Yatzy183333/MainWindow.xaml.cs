@@ -42,7 +42,6 @@ namespace Yatzy183333
             }
         }
 
-
         public void setLabels()
         {
             lblOne.Content = dices[0];
