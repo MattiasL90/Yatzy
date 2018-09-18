@@ -31,7 +31,38 @@ namespace Yatzy183333
         private void btnRoll_Click(object sender, RoutedEventArgs e)
         {
             Game g = new Game();
+            checkDices();
+            dices = g.rollDices(savedDice, dices);
+            setLabels();
+            round++;
+            if (round == 2)
+            {
+                round = 0;
+                setDices();
+            }
+        }
 
+
+        public void setLabels()
+        {
+            lblOne.Content = dices[0];
+            lblTwo.Content = dices[1];
+            lblThree.Content = dices[2];
+            lblFour.Content = dices[3];
+            lblFive.Content = dices[4];
+        }
+
+        public void setDices()
+        {
+            savedDice[0] = false;
+            savedDice[1] = false;
+            savedDice[2] = false;
+            savedDice[3] = false;
+            savedDice[4] = false;
+        }
+
+        public void checkDices()
+        {
             if (round > 0)
             {
                 if (cbOne.IsChecked == true)
@@ -74,23 +105,6 @@ namespace Yatzy183333
                 {
                     savedDice[4] = false;
                 }
-            }
-
-            dices = g.rollDices(savedDice, dices);
-            lblOne.Content = dices[0];
-            lblTwo.Content = dices[1];
-            lblThree.Content = dices[2];
-            lblFour.Content = dices[3];
-            lblFive.Content = dices[4];
-            round++;
-            if (round == 2)
-            {
-                round = 0;
-                savedDice[0] = false;
-                savedDice[1] = false;
-                savedDice[2] = false;
-                savedDice[3] = false;
-                savedDice[4] = false;
             }
         }
     }

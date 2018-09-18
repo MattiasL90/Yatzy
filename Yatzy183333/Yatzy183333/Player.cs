@@ -12,7 +12,7 @@ namespace Yatzy183333
         public string name { get; set; }
         public int ones { get; set; }
         public int twos { get; set; }
-        public int trees { get; set; }
+        public int threes { get; set; }
         public int fours { get; set; }
         public int fives { get; set; }
         public int sixes { get; set; }
@@ -29,5 +29,11 @@ namespace Yatzy183333
         public int total { get; set; }
 
         public List<Player> player = new List<Player>();
+
+
+        public override string ToString()
+        {
+            return $"{name} {ones} {twos} {threes} {fours} {fives} {sixes} {bonus} {pair} {twopair} {triads} {quads} {house} {ladderl} {chance} {yatzy} {total}";
+        }
     }
 }

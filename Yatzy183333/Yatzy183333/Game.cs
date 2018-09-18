@@ -60,7 +60,7 @@ namespace Yatzy183333
                 foreach (Player y in p.player)
                 {
                     if (p.id == id)
-                        p.trees = score;
+                        p.threes = score;
                 }
             }
             else if (type == 4)
