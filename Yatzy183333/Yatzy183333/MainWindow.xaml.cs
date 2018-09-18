@@ -66,20 +66,16 @@ namespace Yatzy183333
             if (cbOne.IsChecked==true) {
                 cbOne.IsChecked = false;
             }
-            if (cbTwo.IsChecked == true)
-            {
+            if (cbTwo.IsChecked == true){
                 cbTwo.IsChecked = false;
             }
-            if (cbThree.IsChecked == true)
-            {
+            if (cbThree.IsChecked == true){
                 cbThree.IsChecked = false;
             }
-            if (cbFour.IsChecked == true)
-            {
+            if (cbFour.IsChecked == true){
                 cbFour.IsChecked = false;
             }
-            if (cbFive.IsChecked == true)
-            {
+            if (cbFive.IsChecked == true){
                 cbFive.IsChecked = false;
             }
 
