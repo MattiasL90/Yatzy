@@ -165,7 +165,6 @@ namespace Yatzy183333
                 if (p.id == id)
                     p.total = p.total + score;
             }
-            //sfsa
         }
     }
 }
