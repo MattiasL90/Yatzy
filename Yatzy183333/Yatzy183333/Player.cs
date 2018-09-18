@@ -30,6 +30,11 @@ namespace Yatzy183333
 
         public List<Player> player = new List<Player>();
 
+        //public Player()
+        //{
+        //    player = new List<Player>();
+        //}
+
 
         public override string ToString()
         {

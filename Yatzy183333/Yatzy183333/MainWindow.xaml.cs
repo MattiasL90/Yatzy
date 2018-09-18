@@ -23,10 +23,11 @@ namespace Yatzy183333
         int[] dices = new int[5];
         bool[] savedDice = new bool[5];
         int round = 0;
-        int player = 1;
+        int players = 1;
         public MainWindow()
         {
             InitializeComponent();
+            updateDg();
         }
 
         private void btnRoll_Click(object sender, RoutedEventArgs e)
@@ -51,14 +52,14 @@ namespace Yatzy183333
             int type = checkSave();
             Game g = new Game();
             int score = checkScore();
-            g.saveScore(score, type, player);
-            if (player < 3)
+            g.saveScore(score, type, players);
+            if (players < 3)
             {
-                player++;
+                players++;
             }
-            else if (player == 3)
+            else if (players == 3)
             {
-                player = 1;
+                players = 1;
             }
             btnSave.IsEnabled = false;
             btnRoll.IsEnabled = true;

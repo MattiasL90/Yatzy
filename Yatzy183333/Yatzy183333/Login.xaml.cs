@@ -31,7 +31,6 @@ namespace Yatzy183333
             string nameThree = tbThree.Text;
             Player p = new Player();
             p.addPlayer(nameOne, 1);
-
             p.addPlayer(nameTwo, 2);
             p.addPlayer(nameThree, 3);
 
