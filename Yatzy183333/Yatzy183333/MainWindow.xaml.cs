@@ -42,6 +42,14 @@ namespace Yatzy183333
             }
         }
 
+        public void updateDg()
+        {
+            Player p = new Player();
+            dgList.ItemsSource = null;
+            dgList.ItemsSource = p.player;
+        }
+
+
         public void setLabels()
         {
             lblOne.Content = dices[0];
