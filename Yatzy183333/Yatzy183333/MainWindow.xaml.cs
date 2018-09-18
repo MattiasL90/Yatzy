@@ -30,15 +30,41 @@ namespace Yatzy183333
 
         private void btnRoll_Click(object sender, RoutedEventArgs e)
         {
-            if (round == 0)
+            Game g = new Game();
+
+            if (round > 0)
             {
-                Game g = new Game();
-                dices = g.RollDices(savedDice, dices);
-                lblOne.Content = dices[0];
-                lblTwo.Content = dices[1];
-                lblThree.Content = dices[2];
-                lblFour.Content = dices[3];
-                lblFive.Content = dices[4];
+                if (cbOne.IsChecked == true)
+                {
+                    savedDice[0] = true;
+                }
+                if (cbTwo.IsChecked == true)
+                {
+                    savedDice[1] = true;
+                }
+                if (cbThree.IsChecked == true)
+                {
+                    savedDice[2] = true;
+                }
+                if (cbFour.IsChecked == true)
+                {
+                    savedDice[3] = true;
+                }
+                if (cbFive.IsChecked == true)
+                {
+                    savedDice[4] = true;
+                }
+            }
+            dices = g.rollDices(savedDice, dices);
+            lblOne.Content = dices[0];
+            lblTwo.Content = dices[1];
+            lblThree.Content = dices[2];
+            lblFour.Content = dices[3];
+            lblFive.Content = dices[4];
+            round++;
+            if (round == 2)
+            {
+                round = 0;
             }
         }
     }
