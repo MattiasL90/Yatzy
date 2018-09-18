@@ -8,6 +8,7 @@ namespace Yatzy183333
 {
     class Player
     {
+        public List<Player> player = new List<Player>();
         public int id { get; set; }
         public string name { get; set; }
         public int ones { get; set; }
@@ -28,7 +29,6 @@ namespace Yatzy183333
         public int bonus { get; set; }
         public int total { get; set; }
 
-        public List<Player> player = new List<Player>();
 
         //public Player()
         //{
@@ -43,7 +43,8 @@ namespace Yatzy183333
 
         public void addPlayer(string namee, int idd)
         {
-            Player d = new Player()
+            Player d;
+            d = new Player()
             {
                 id = idd,
                 name = namee,
