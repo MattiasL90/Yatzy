@@ -27,7 +27,7 @@ namespace Yatzy183333
         public MainWindow()
         {
             InitializeComponent();
-            updateDg();
+            //updateDg();
         }
 
         private void btnRoll_Click(object sender, RoutedEventArgs e)
@@ -44,7 +44,7 @@ namespace Yatzy183333
                 btnRoll.IsEnabled = false;
                 btnSave.IsEnabled = true;
             }
-            updateDg();
+            //updateDg();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -64,7 +64,8 @@ namespace Yatzy183333
             btnSave.IsEnabled = false;
             btnRoll.IsEnabled = true;
 
-            if (cbOne.IsChecked==true) {
+            if (cbOne.IsChecked==true)
+            {
                 cbOne.IsChecked = false;
             }
             if (cbTwo.IsChecked == true)
