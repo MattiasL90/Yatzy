@@ -24,10 +24,12 @@ namespace Yatzy183333
         bool[] savedDice = new bool[5];
         int round = 0;
         int players = 1;
-        public MainWindow()
+        Player p = new Player();
+        public MainWindow(Player player)
         {
             InitializeComponent();
-            //updateDg();
+            Player p = player;
+            updateDg();
         }
 
         private void btnRoll_Click(object sender, RoutedEventArgs e)
@@ -44,7 +46,7 @@ namespace Yatzy183333
                 btnRoll.IsEnabled = false;
                 btnSave.IsEnabled = true;
             }
-            //updateDg();
+            updateDg();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

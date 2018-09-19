@@ -35,7 +35,7 @@ namespace Yatzy183333
             p.addPlayer(nameThree, 3);
 
             this.Hide();
-            MainWindow w1 = new MainWindow();
+            MainWindow w1 = new MainWindow(p);
             w1.ShowDialog();
         }
 

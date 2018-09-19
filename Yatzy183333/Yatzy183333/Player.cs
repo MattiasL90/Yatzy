@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Yatzy183333
 {
-    class Player
+    public class Player
     {
         public List<Player> player = new List<Player>();
         public int id { get; set; }
