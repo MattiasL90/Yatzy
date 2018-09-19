@@ -20,10 +20,12 @@ namespace Yatzy183333
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Player> player = new List<Player>();
         int[] dices = new int[5];
         bool[] savedDice = new bool[5];
         int round = 0;
-        int player = 1;
+        int players = 1;
+        Player p = new Player();
         public MainWindow()
         {
             InitializeComponent();
@@ -65,7 +67,7 @@ namespace Yatzy183333
             int type = checkSave();
             Game g = new Game();
             int score = checkScore();
-            g.saveScore(score, type, players);
+            saveScore(score, type, players);
             if (players < 3)
             {
                 players++;
@@ -202,7 +204,7 @@ namespace Yatzy183333
         {
             
             dgList.ItemsSource = null;
-            dgList.ItemsSource = p.player;
+            dgList.ItemsSource = player;
         }
 
         public void setLabels()
@@ -267,10 +269,154 @@ namespace Yatzy183333
                 {
                     savedDice[4] = false;
                 }
-                
+
             }
         }
+             public void saveScore(int score, int type, int id)
+        {
+            
 
+            //for (int x = 0; x < 15; x++)
+            //{
+            //    if (type == x)
+            //    {
+            //        foreach (Player y in p.player)
+            //        {
+            //             if (p.id == id)
+            //                 p.ones = score;
+            //        }
+            //    }
+            //}
+
+            if (type == 1)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.ones = score;
+                }
+            }
+            else if (type == 2)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.twos = score;
+                }
+            }
+            else if (type == 3)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.threes = score;
+                }
+            }
+            else if (type == 4)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.fours = score;
+                }
+            }
+            else if (type == 5)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.fives = score;
+                }
+            }
+            else if (type == 6)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.sixes = score;
+                }
+            }
+            else if (type == 7)
+            {
+                foreach (Player y in player)
+                {
+                    if (p.id == id)
+                    { p.pair = score; }
+
+                }
+            }
+            else if (type == 8)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.twopair = score;
+                }
+            }
+            else if (type == 9)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.triads = score;
+                }
+            }
+            else if (type == 10)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.quads = score;
+                }
+            }
+            else if (type == 11)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.house = score;
+                }
+            }
+            else if (type == 12)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.ladderl = score;
+                }
+            }
+            else if (type == 13)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.ladderb = score;
+                }
+            }
+            else if (type == 14)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.chance = score;
+                }
+            }
+            else if (type == 15)
+            {
+                foreach (Player y in p.player)
+                {
+                    if (p.id == id)
+                        p.yatzy = score;
+                }
+            }
+
+            foreach (Player y in p.player)
+            {
+                if (p.id == id)
+                    p.total = p.total + score;
+            }
+        
+    }
        
     }
 }
