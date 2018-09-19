@@ -23,12 +23,25 @@ namespace Yatzy183333
         int[] dices = new int[5];
         bool[] savedDice = new bool[5];
         int round = 0;
-        int players = 1;
+        int player = 1;
         public MainWindow()
         {
             InitializeComponent();
             //updateDg();
         }
+
+        
+
+            public MainWindow(string nameOne, string nameTwo, string nameThree)
+        {
+            InitializeComponent();
+          
+            p.addPlayer(nameOne, 1);
+
+            p.addPlayer(nameTwo, 2);
+            p.addPlayer(nameThree, 3);
+        }
+
 
         private void btnRoll_Click(object sender, RoutedEventArgs e)
         {
@@ -40,7 +53,7 @@ namespace Yatzy183333
             if (round == 3)
             {
                 round = 0;
-                setDices();
+                //setDices();
                 btnRoll.IsEnabled = false;
                 btnSave.IsEnabled = true;
             }
@@ -61,6 +74,7 @@ namespace Yatzy183333
             {
                 players = 1;
             }
+            updateDg();
             btnSave.IsEnabled = false;
             btnRoll.IsEnabled = true;
 
@@ -186,7 +200,7 @@ namespace Yatzy183333
 
         public void updateDg()
         {
-            Player p = new Player();
+            
             dgList.ItemsSource = null;
             dgList.ItemsSource = p.player;
         }
@@ -200,14 +214,14 @@ namespace Yatzy183333
             lblFive.Content = dices[4];
         }
 
-        public void setDices()
-        {
-            savedDice[0] = false;
-            savedDice[1] = false;
-            savedDice[2] = false;
-            savedDice[3] = false;
-            savedDice[4] = false;
-        }
+        //public void setDices()
+        //{
+        //    savedDice[0] = false;
+        //    savedDice[1] = false;
+        //    savedDice[2] = false;
+        //    savedDice[3] = false;
+        //    savedDice[4] = false;
+        //}
 
         public void checkDices()
         {
@@ -257,5 +271,6 @@ namespace Yatzy183333
             }
         }
 
+       
     }
 }
