@@ -26,7 +26,8 @@ namespace Yatzy183333
         int round = 0;
         int players = 1;
         Player p = new Player();
-        public MainWindow(nameOne, nameTwo, nameThree)
+
+        public MainWindow(string nameOne, string nameTwo, string nameThree)
         {
             InitializeComponent();
             Player p = new Player();
