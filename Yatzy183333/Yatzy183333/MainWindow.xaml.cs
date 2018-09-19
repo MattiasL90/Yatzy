@@ -27,14 +27,15 @@ namespace Yatzy183333
         int players = 1;
         Player p = new Player();
 
-        public MainWindow(string nameOne, string nameTwo, string nameThree)
+
+            public MainWindow(string nameOne, string nameTwo, string nameThree)
         {
             InitializeComponent();
-            Player p = new Player();
+          
             p.addPlayer(nameOne, 1);
+
             p.addPlayer(nameTwo, 2);
             p.addPlayer(nameThree, 3);
-            updateDg();
         }
 
 
@@ -52,7 +53,7 @@ namespace Yatzy183333
                 btnRoll.IsEnabled = false;
                 btnSave.IsEnabled = true;
             }
-            updateDg();
+            //updateDg();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
