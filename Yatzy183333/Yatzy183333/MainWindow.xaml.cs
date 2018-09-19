@@ -26,23 +26,14 @@ namespace Yatzy183333
         int round = 0;
         int players = 1;
         Player p = new Player();
-        public MainWindow()
+        public MainWindow(nameOne, nameTwo, nameThree)
         {
             InitializeComponent();
-            Player p = player;
-            updateDg();
-        }
-
-        
-
-            public MainWindow(string nameOne, string nameTwo, string nameThree)
-        {
-            InitializeComponent();
-          
+            Player p = new Player();
             p.addPlayer(nameOne, 1);
-
             p.addPlayer(nameTwo, 2);
             p.addPlayer(nameThree, 3);
+            updateDg();
         }
 
 
