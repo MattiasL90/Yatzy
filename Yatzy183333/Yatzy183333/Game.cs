@@ -24,25 +24,12 @@ namespace Yatzy183333
         }
 
 
-        public void saveScore(int score, int type, int id)
+        public List<Player> saveScore(int score, int type, int id, List<Player> player)
         {
             Player p = new Player();
-
-            //for (int x = 0; x < 15; x++)
-            //{
-            //    if (type == x)
-            //    {
-            //        foreach (Player y in p.player)
-            //        {
-            //             if (p.id == id)
-            //                 p.ones = score;
-            //        }
-            //    }
-            //}
-
             if (type == 1)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.ones = score;
@@ -50,7 +37,7 @@ namespace Yatzy183333
             }
             else if (type == 2)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.twos = score;
@@ -58,7 +45,7 @@ namespace Yatzy183333
             }
             else if (type == 3)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.threes = score;
@@ -66,7 +53,7 @@ namespace Yatzy183333
             }
             else if (type == 4)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.fours = score;
@@ -74,7 +61,7 @@ namespace Yatzy183333
             }
             else if (type == 5)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.fives = score;
@@ -82,7 +69,7 @@ namespace Yatzy183333
             }
             else if (type == 6)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.sixes = score;
@@ -90,7 +77,7 @@ namespace Yatzy183333
             }
             else if (type == 7)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                     { p.pair = score; }
@@ -99,7 +86,7 @@ namespace Yatzy183333
             }
             else if (type == 8)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.twopair = score;
@@ -107,7 +94,7 @@ namespace Yatzy183333
             }
             else if (type == 9)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.triads = score;
@@ -115,7 +102,7 @@ namespace Yatzy183333
             }
             else if (type == 10)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.quads = score;
@@ -123,7 +110,7 @@ namespace Yatzy183333
             }
             else if (type == 11)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.house = score;
@@ -131,7 +118,7 @@ namespace Yatzy183333
             }
             else if (type == 12)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.ladderl = score;
@@ -139,7 +126,7 @@ namespace Yatzy183333
             }
             else if (type == 13)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.ladderb = score;
@@ -147,7 +134,7 @@ namespace Yatzy183333
             }
             else if (type == 14)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.chance = score;
@@ -155,18 +142,19 @@ namespace Yatzy183333
             }
             else if (type == 15)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
                     if (p.id == id)
                         p.yatzy = score;
                 }
             }
 
-            foreach (Player y in p.player)
+            foreach (Player y in player)
             {
                 if (p.id == id)
                     p.total = p.total + score;
             }
+            return player;
         }
     }
 }

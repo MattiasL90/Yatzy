@@ -26,16 +26,16 @@ namespace Yatzy183333
         int round = 0;
         int players = 1;
         Player p = new Player();
+        public List<Player> player = new List<Player>();
 
 
-            public MainWindow(string nameOne, string nameTwo, string nameThree)
+        public MainWindow(string nameOne, string nameTwo, string nameThree)
         {
             InitializeComponent();
-          
             p.addPlayer(nameOne, 1);
-
             p.addPlayer(nameTwo, 2);
             p.addPlayer(nameThree, 3);
+            updateDg();
         }
 
 
@@ -53,7 +53,7 @@ namespace Yatzy183333
                 btnRoll.IsEnabled = false;
                 btnSave.IsEnabled = true;
             }
-            //updateDg();
+            updateDg();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -61,7 +61,7 @@ namespace Yatzy183333
             int type = checkSave();
             Game g = new Game();
             int score = checkScore();
-            g.saveScore(score, type, players);
+            player = g.saveScore(score, type, players, player);
             if (players < 3)
             {
                 players++;
