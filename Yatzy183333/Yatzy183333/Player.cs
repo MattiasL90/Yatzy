@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Yatzy183333
 {
-    class Player
+    public class Player
     {
         public int id { get; set; }
         public string name { get; set; }
@@ -28,7 +28,15 @@ namespace Yatzy183333
         public int bonus { get; set; }
         public int total { get; set; }
 
-        public List<Player> player = new List<Player>();
+        public List<Player> player { get; set; }
+
+        public Player()
+        {
+       
+
+            player = new List<Player>();
+            
+        }
 
 
         public override string ToString()
@@ -39,6 +47,7 @@ namespace Yatzy183333
         public void addPlayer(string namee, int idd)
         {
             Player d = new Player()
+            
             {
                 id = idd,
                 name = namee,
