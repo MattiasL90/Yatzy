@@ -32,10 +32,10 @@ namespace Yatzy183333
             string nameThree = tbThree.Text;
             
             Player p = new Player();
-            p.addPlayer(nameOne, 1);
+            //p.addPlayer(nameOne, 1);
 
-            p.addPlayer(nameTwo, 2);
-            p.addPlayer(nameThree, 3);
+            //p.addPlayer(nameTwo, 2);
+            //p.addPlayer(nameThree, 3);
 
             this.Hide();
             MainWindow w1 = new MainWindow(nameOne, nameTwo, nameThree);

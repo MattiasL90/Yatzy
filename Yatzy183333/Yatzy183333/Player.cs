@@ -29,7 +29,7 @@ namespace Yatzy183333
         public int bonus { get; set; }
         public int total { get; set; }
 
-       
+        public List<Player> player = new List<Player>();
 
 
         public override string ToString()
