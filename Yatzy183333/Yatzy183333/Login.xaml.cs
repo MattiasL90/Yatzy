@@ -23,19 +23,22 @@ namespace Yatzy183333
         {
             InitializeComponent();
         }
+     
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string nameOne = tbOne.Text;
             string nameTwo = tbTwo.Text;
             string nameThree = tbThree.Text;
+            
             Player p = new Player();
-            p.addPlayer(nameOne, 1);
-            p.addPlayer(nameTwo, 2);
-            p.addPlayer(nameThree, 3);
+            //p.addPlayer(nameOne, 1);
+
+            //p.addPlayer(nameTwo, 2);
+            //p.addPlayer(nameThree, 3);
 
             this.Hide();
-            MainWindow w1 = new MainWindow(p);
+            MainWindow w1 = new MainWindow(nameOne, nameTwo, nameThree);
             w1.ShowDialog();
         }
 

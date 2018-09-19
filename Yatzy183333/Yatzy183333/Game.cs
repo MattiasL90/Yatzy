@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Yatzy183333
 {
-    class Game
+   class Game
     {
+        
         public int[] rollDices(bool[] savedDices, int[] dices)
         {
             Random random = new Random();
@@ -25,8 +26,8 @@ namespace Yatzy183333
 
         public void saveScore(int score, int type, int id)
         {
-
             Player p = new Player();
+
             //for (int x = 0; x < 15; x++)
             //{
             //    if (type == x)
@@ -92,7 +93,8 @@ namespace Yatzy183333
                 foreach (Player y in p.player)
                 {
                     if (p.id == id)
-                        p.pair = score;
+                    { p.pair = score; }
+
                 }
             }
             else if (type == 8)
