@@ -32,9 +32,9 @@ namespace Yatzy183333
         public MainWindow(string nameOne, string nameTwo, string nameThree)
         {
             InitializeComponent();
-            p.addPlayer(nameOne, 1);
-            p.addPlayer(nameTwo, 2);
-            p.addPlayer(nameThree, 3);
+            p.addPlayer(nameOne, 1, player);
+            p.addPlayer(nameTwo, 2, player);
+            p.addPlayer(nameThree, 3, player);
             updateDg();
         }
 
@@ -61,7 +61,7 @@ namespace Yatzy183333
             int type = checkSave();
             Game g = new Game();
             int score = checkScore();
-            player = g.saveScore(score, type, players, player);
+            player = g.saveScore(score, type, players, player, p);
             if (players < 3)
             {
                 players++;
@@ -198,7 +198,7 @@ namespace Yatzy183333
         {
             
             dgList.ItemsSource = null;
-            dgList.ItemsSource = p.player;
+            dgList.ItemsSource = player;
         }
 
         public void setLabels()
