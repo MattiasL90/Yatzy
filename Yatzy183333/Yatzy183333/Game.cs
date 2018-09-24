@@ -35,6 +35,19 @@ namespace Yatzy183333
             }
             return dices;
         }
+        
+        public string nameCount(int players)
+        {
+            string name = null;
+            foreach (Player y in player)
+            {
+                if (y.id == players)
+                    name= y.name;
+            }
+      
+
+            return name;
+        }
 
 
         public void saveScore(int score, int type, int id)

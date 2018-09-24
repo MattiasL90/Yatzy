@@ -28,7 +28,7 @@ namespace Yatzy183333
         Player p = new Player();
         //public List<Player> player = new List<Player>();
         Game g;
-
+        
 
         public MainWindow(string nOne, string nTwo, string nThree)
         {
@@ -38,6 +38,7 @@ namespace Yatzy183333
             g.addPlayer(nTwo, 2);
             g.addPlayer(nThree, 3);
             updateDg();
+            playerLb.Content = g.nameCount(players);
         }
 
 
@@ -99,6 +100,7 @@ namespace Yatzy183333
             }
             //g.rollDices(savedDice, dices);
             rollLb.Content = "slag nr " + round;
+            playerLb.Content = g.nameCount(players);
             setLabels();
         }
 
