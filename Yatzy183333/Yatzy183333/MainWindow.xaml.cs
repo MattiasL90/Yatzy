@@ -26,22 +26,23 @@ namespace Yatzy183333
         int round = 0;
         int players = 1;
         Player p = new Player();
-        public List<Player> player = new List<Player>();
+        //public List<Player> player = new List<Player>();
+        Game g;
 
 
-        public MainWindow(string nameOne, string nameTwo, string nameThree)
+        public MainWindow(string nOne, string nTwo, string nThree)
         {
             InitializeComponent();
-            p.addPlayer(nameOne, 1, player);
-            p.addPlayer(nameTwo, 2, player);
-            p.addPlayer(nameThree, 3, player);
+            g = new Game();
+            g.addPlayer(nOne, 1);
+            g.addPlayer(nTwo, 2);
+            g.addPlayer(nThree, 3);
             updateDg();
         }
 
 
         private void btnRoll_Click(object sender, RoutedEventArgs e)
         {
-            Game g = new Game();
             checkDices();
             dices = g.rollDices(savedDice, dices);
             setLabels();
@@ -59,9 +60,8 @@ namespace Yatzy183333
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int type = checkSave();
-            Game g = new Game();
             int score = checkScore();
-            player = g.saveScore(score, type, players, player);
+            g.saveScore(score, type, players);
             if (players < 3)
             {
                 players++;
@@ -94,7 +94,8 @@ namespace Yatzy183333
             {
                 cbFive.IsChecked = false;
             }
-
+            //g.rollDices(savedDice, dices);
+            //setLabels();
         }
 
         public int checkScore()
@@ -198,7 +199,7 @@ namespace Yatzy183333
         {
             
             dgList.ItemsSource = null;
-            dgList.ItemsSource = player;
+            dgList.ItemsSource = g.player;
         }
 
         public void setLabels()
