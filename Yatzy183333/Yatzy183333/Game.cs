@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Yatzy183333
 {
-    class Game
+   public class Game
     {
+        public List<Player> player = new List<Player>();
+
         public int[] rollDices(bool[] savedDices, int[] dices)
         {
             Random random = new Random();
@@ -25,146 +27,159 @@ namespace Yatzy183333
 
         public void saveScore(int score, int type, int id)
         {
-
-            Player p = new Player();
-            //for (int x = 0; x < 15; x++)
-            //{
-            //    if (type == x)
-            //    {
-            //        foreach (Player y in p.player)
-            //        {
-            //             if (p.id == id)
-            //                 p.ones = score;
-            //        }
-            //    }
-            //}
-
             if (type == 1)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.ones = score;
+                    if (y.id == id)
+                        y.ones = score;
                 }
             }
             else if (type == 2)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.twos = score;
+                    if (y.id == id)
+                        y.twos = score;
                 }
             }
             else if (type == 3)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.threes = score;
+                    if (y.id == id)
+                        y.threes = score;
                 }
             }
             else if (type == 4)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.fours = score;
+                    if (y.id == id)
+                        y.fours = score;
                 }
             }
             else if (type == 5)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.fives = score;
+                    if (y.id == id)
+                        y.fives = score;
                 }
             }
             else if (type == 6)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.sixes = score;
+                    if (y.id == id)
+                        y.sixes = score;
                 }
             }
             else if (type == 7)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.pair = score;
+                    if (y.id == id)
+                        y.pair = score;
                 }
             }
             else if (type == 8)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.twopair = score;
+                    if (y.id == id)
+                        y.twopair = score;
                 }
             }
             else if (type == 9)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.triads = score;
+                    if (y.id == id)
+                        y.triads = score;
                 }
             }
             else if (type == 10)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.quads = score;
+                    if (y.id == id)
+                        y.quads = score;
                 }
             }
             else if (type == 11)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.house = score;
+                    if (y.id == id)
+                        y.house = score;
                 }
             }
             else if (type == 12)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.ladderl = score;
+                    if (y.id == id)
+                        y.ladderl = score;
                 }
             }
             else if (type == 13)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.ladderb = score;
+                    if (y.id == id)
+                        y.ladderb = score;
                 }
             }
             else if (type == 14)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.chance = score;
+                    if (y.id == id)
+                        y.chance = score;
                 }
             }
             else if (type == 15)
             {
-                foreach (Player y in p.player)
+                foreach (Player y in player)
                 {
-                    if (p.id == id)
-                        p.yatzy = score;
+                    if (y.id == id)
+                        y.yatzy = score;
                 }
             }
 
-            foreach (Player y in p.player)
+            foreach (Player y in player)
             {
-                if (p.id == id)
-                    p.total = p.total + score;
+                if (y.id == id)
+                    y.total = y.total + score;
             }
+        }
+
+        public void addPlayer(string namee, int idd)
+        {
+            Player d = new Player()
+            {
+                id = idd,
+                name = namee,
+                ones = 0,
+                twos = 0,
+                threes = 0,
+                fours = 0,
+                fives = 0,
+                sixes = 0,
+                pair = 0,
+                twopair = 0,
+                triads = 0,
+                quads = 0,
+                house = 0,
+                ladderl = 0,
+                ladderb = 0,
+                chance = 0,
+                yatzy = 0,
+                bonus = 0,
+                total = 0
+            };
+            player.Add(d);
         }
     }
 }

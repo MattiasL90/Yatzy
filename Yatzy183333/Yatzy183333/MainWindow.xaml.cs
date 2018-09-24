@@ -20,18 +20,29 @@ namespace Yatzy183333
     /// </summary>
     public partial class MainWindow : Window
     {
+
         int[] dices = new int[5];
         bool[] savedDice = new bool[5];
         int round = 0;
-        int player = 1;
-        public MainWindow()
+        int players = 1;
+        Player p = new Player();
+        //public List<Player> player = new List<Player>();
+        Game g;
+
+
+        public MainWindow(string nOne, string nTwo, string nThree)
         {
             InitializeComponent();
+            g = new Game();
+            g.addPlayer(nOne, 1);
+            g.addPlayer(nTwo, 2);
+            g.addPlayer(nThree, 3);
+            updateDg();
         }
+
 
         private void btnRoll_Click(object sender, RoutedEventArgs e)
         {
-            Game g = new Game();
             checkDices();
             dices = g.rollDices(savedDice, dices);
             setLabels();
@@ -39,7 +50,7 @@ namespace Yatzy183333
             if (round == 3)
             {
                 round = 0;
-                setDices();
+                //setDices();
                 btnRoll.IsEnabled = false;
                 btnSave.IsEnabled = true;
             }
@@ -49,21 +60,22 @@ namespace Yatzy183333
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int type = checkSave();
-            Game g = new Game();
             int score = checkScore();
-            g.saveScore(score, type, player);
-            if (player < 3)
+            g.saveScore(score, type, players);
+            if (players < 3)
             {
-                player++;
+                players++;
             }
-            else if (player == 3)
+            else if (players == 3)
             {
-                player = 1;
+                players = 1;
             }
+            updateDg();
             btnSave.IsEnabled = false;
             btnRoll.IsEnabled = true;
 
-            if (cbOne.IsChecked==true) {
+            if (cbOne.IsChecked==true)
+            {
                 cbOne.IsChecked = false;
             }
             if (cbTwo.IsChecked == true){
@@ -78,7 +90,8 @@ namespace Yatzy183333
             if (cbFive.IsChecked == true){
                 cbFive.IsChecked = false;
             }
-
+            //g.rollDices(savedDice, dices);
+            //setLabels();
         }
 
         public int checkScore()
@@ -180,9 +193,9 @@ namespace Yatzy183333
 
         public void updateDg()
         {
-            Player p = new Player();
+            
             dgList.ItemsSource = null;
-            dgList.ItemsSource = p.player;
+            dgList.ItemsSource = g.player;
         }
 
         public void setLabels()
@@ -194,14 +207,14 @@ namespace Yatzy183333
             lblFive.Content = dices[4];
         }
 
-        public void setDices()
-        {
-            savedDice[0] = false;
-            savedDice[1] = false;
-            savedDice[2] = false;
-            savedDice[3] = false;
-            savedDice[4] = false;
-        }
+        //public void setDices()
+        //{
+        //    savedDice[0] = false;
+        //    savedDice[1] = false;
+        //    savedDice[2] = false;
+        //    savedDice[3] = false;
+        //    savedDice[4] = false;
+        //}
 
         public void checkDices()
         {
@@ -250,6 +263,6 @@ namespace Yatzy183333
                 
             }
         }
-
+       
     }
 }

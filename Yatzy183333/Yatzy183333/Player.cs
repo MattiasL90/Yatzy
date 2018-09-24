@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Yatzy183333
 {
-    class Player
+    public class Player
     {
+        
         public int id { get; set; }
         public string name { get; set; }
         public int ones { get; set; }
@@ -28,7 +29,7 @@ namespace Yatzy183333
         public int bonus { get; set; }
         public int total { get; set; }
 
-        public List<Player> player = new List<Player>();
+        //public List<Player> player = new List<Player>();
 
 
         public override string ToString()
@@ -36,7 +37,7 @@ namespace Yatzy183333
             return $"{name} {ones} {twos} {threes} {fours} {fives} {sixes} {bonus} {pair} {twopair} {triads} {quads} {house} {ladderl} {chance} {yatzy} {total}";
         }
 
-        public void addPlayer(string namee, int idd)
+        public void addPlayer(string namee, int idd, List<Player> player)
         {
             Player d = new Player()
             {
