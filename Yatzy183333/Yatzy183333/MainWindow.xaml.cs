@@ -61,7 +61,7 @@ namespace Yatzy183333
             int type = checkSave();
             Game g = new Game();
             int score = checkScore();
-            player = g.saveScore(score, type, players, player, p);
+            player = g.saveScore(score, type, players, player);
             if (players < 3)
             {
                 players++;

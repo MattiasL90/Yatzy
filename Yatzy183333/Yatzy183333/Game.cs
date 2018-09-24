@@ -24,9 +24,9 @@ namespace Yatzy183333
         }
 
 
-        public List<Player> saveScore(int score, int type, int id, List<Player> player, Player p)
+        public List<Player> saveScore(int score, int type, int id, List<Player> player)
         {
-            
+            Player p = new Player();
             if (type == 1)
             {
                 foreach (Player y in player)
@@ -154,7 +154,7 @@ namespace Yatzy183333
                 if (p.id == id)
                     p.total = p.total + score;
             }
-            return g;
+            return player;
         }
     }
 }
