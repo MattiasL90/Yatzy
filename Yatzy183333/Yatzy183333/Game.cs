@@ -24,6 +24,18 @@ namespace Yatzy183333
             return dices;
         }
 
+        public int[] resetDices( int[] dices)
+        {
+            Random random = new Random();
+            for (int i = 0; i < dices.Count(); i++)
+            {
+                               
+                    dices[i] = 0;
+                
+            }
+            return dices;
+        }
+
 
         public void saveScore(int score, int type, int id)
         {

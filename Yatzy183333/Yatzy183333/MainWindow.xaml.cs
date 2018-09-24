@@ -55,6 +55,7 @@ namespace Yatzy183333
                 btnSave.IsEnabled = true;
             }
             updateDg();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -71,6 +72,7 @@ namespace Yatzy183333
                 players = 1;
             }
             updateDg();
+            dices = g.resetDices(dices);
             btnSave.IsEnabled = false;
             btnRoll.IsEnabled = true;
 
@@ -78,20 +80,25 @@ namespace Yatzy183333
             {
                 cbOne.IsChecked = false;
             }
-            if (cbTwo.IsChecked == true){
+            if (cbTwo.IsChecked == true)
+            {
                 cbTwo.IsChecked = false;
             }
-            if (cbThree.IsChecked == true){
+            if (cbThree.IsChecked == true)
+            {
                 cbThree.IsChecked = false;
             }
-            if (cbFour.IsChecked == true){
+            if (cbFour.IsChecked == true)
+            {
                 cbFour.IsChecked = false;
             }
-            if (cbFive.IsChecked == true){
+            if (cbFive.IsChecked == true)
+            {
                 cbFive.IsChecked = false;
             }
             //g.rollDices(savedDice, dices);
-            //setLabels();
+            
+            setLabels();
         }
 
         public int checkScore()
@@ -218,7 +225,7 @@ namespace Yatzy183333
 
         public void checkDices()
         {
-            if (round > 0)
+            //if (round > 0)
             {
                 if (cbOne.IsChecked == true)
                 {
