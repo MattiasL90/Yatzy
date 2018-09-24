@@ -46,6 +46,7 @@ namespace Yatzy183333
             checkDices();
             dices = g.rollDices(savedDice, dices);
             setLabels();
+            rollLb.Content = "slag nr "+ (round+1);
             round++;
             if (round == 3)
             {
@@ -97,7 +98,7 @@ namespace Yatzy183333
                 cbFive.IsChecked = false;
             }
             //g.rollDices(savedDice, dices);
-            
+            rollLb.Content = "slag nr " + round;
             setLabels();
         }
 

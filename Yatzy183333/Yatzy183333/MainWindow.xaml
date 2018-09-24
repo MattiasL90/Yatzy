@@ -35,6 +35,8 @@
         <RadioButton x:Name="rbLadderb" Content="Stor Stege" HorizontalAlignment="Left" Margin="192,321,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rbChance" Content="Chans" HorizontalAlignment="Left" Margin="192,341,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rbYatzy" Content="Yatzy" HorizontalAlignment="Left" Margin="192,361,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="playerLb" Content="Label" HorizontalAlignment="Left" Margin="781,295,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="rollLb" Content="Label" HorizontalAlignment="Left" Margin="781,375,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
