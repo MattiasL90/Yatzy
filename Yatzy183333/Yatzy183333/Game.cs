@@ -163,7 +163,7 @@ namespace Yatzy183333
                 foreach (Player y in player)
                 {
                     if (y.id == id)
-                        y.yatzy = score;
+                        y.yatzy = 50;
                 }
             }
 
