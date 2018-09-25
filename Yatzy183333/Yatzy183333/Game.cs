@@ -44,7 +44,6 @@ namespace Yatzy183333
             return name;
         }
 
-
         public void saveScore(int score, int type, int id)
         {
             if (type == 1)
@@ -164,7 +163,7 @@ namespace Yatzy183333
                 foreach (Player y in player)
                 {
                     if (y.id == id)
-                        y.yatzy = score;
+                        y.yatzy = 50;
                 }
             }
 
@@ -200,6 +199,18 @@ namespace Yatzy183333
                 total = 0
             };
             player.Add(d);
+        }
+
+        public void bonusCheck()
+        {
+            foreach (Player y in player)
+            {
+                int bScore = y.ones + y.twos + y.threes + y.fours + y.fives + y.sixes;
+                if (y.bonus == 0 && bScore >= 63)
+                {
+                    y.bonus = 50;
+                }
+            }
         }
     }
 }

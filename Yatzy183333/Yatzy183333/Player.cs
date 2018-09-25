@@ -17,6 +17,7 @@ namespace Yatzy183333
         public int fours { get; set; }
         public int fives { get; set; }
         public int sixes { get; set; }
+        public int bonus { get; set; }
         public int pair { get; set; }
         public int twopair { get; set; }
         public int triads { get; set; }
@@ -26,7 +27,6 @@ namespace Yatzy183333
         public int ladderb { get; set; }
         public int chance { get; set; }
         public int yatzy { get; set; }
-        public int bonus { get; set; }
         public int total { get; set; }
 
         //public List<Player> player = new List<Player>();
