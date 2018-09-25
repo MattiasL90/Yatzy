@@ -40,5 +40,8 @@ namespace Yatzy183333
             w1.ShowDialog();
         }
 
+      
+
+        
     }
 }
