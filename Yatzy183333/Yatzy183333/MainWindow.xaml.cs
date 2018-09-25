@@ -70,12 +70,20 @@ namespace Yatzy183333
             {
                 players = 1;
             }
-            updateDg();
             g.resetDices();
             btnSave.IsEnabled = false;
             btnRoll.IsEnabled = true;
+            resetCb();
+            rollLb.Content = "slag nr " + round;
+            playerLb.Content = g.nameCount(players);
+            setLabels();
+            g.bonusCheck();
+            updateDg();
+        }
 
-            if (cbOne.IsChecked==true)
+        public void resetCb()
+        {
+            if (cbOne.IsChecked == true)
             {
                 cbOne.IsChecked = false;
             }
@@ -95,11 +103,6 @@ namespace Yatzy183333
             {
                 cbFive.IsChecked = false;
             }
-            //g.rollDices(savedDice, dices);
-            rollLb.Content = "slag nr " + round;
-            playerLb.Content = g.nameCount(players);
-            setLabels();
-            g.bonusCheck();
         }
 
         public int checkScore()
