@@ -99,6 +99,7 @@ namespace Yatzy183333
             rollLb.Content = "slag nr " + round;
             playerLb.Content = g.nameCount(players);
             setLabels();
+            g.bonusCheck();
         }
 
         public int checkScore()
