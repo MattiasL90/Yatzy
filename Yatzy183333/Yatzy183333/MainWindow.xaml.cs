@@ -204,7 +204,6 @@ namespace Yatzy183333
 
         public void updateDg()
         {
-            
             dgList.ItemsSource = null;
             dgList.ItemsSource = g.player;
         }
