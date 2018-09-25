@@ -21,12 +21,11 @@ namespace Yatzy183333
     public partial class MainWindow : Window
     {
 
-        int[] dices = new int[5];
+        //int[] dices = new int[5];
         bool[] savedDice = new bool[5];
         int round = 0;
         int players = 1;
         Player p = new Player();
-        //public List<Player> player = new List<Player>();
         Game g;
         
 
@@ -45,19 +44,17 @@ namespace Yatzy183333
         private void btnRoll_Click(object sender, RoutedEventArgs e)
         {
             checkDices();
-            dices = g.rollDices(savedDice, dices);
+            g.rollDices(savedDice);
             setLabels();
             rollLb.Content = "slag nr "+ (round+1);
             round++;
             if (round == 3)
             {
                 round = 0;
-                //setDices();
                 btnRoll.IsEnabled = false;
                 btnSave.IsEnabled = true;
             }
             updateDg();
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -74,7 +71,7 @@ namespace Yatzy183333
                 players = 1;
             }
             updateDg();
-            dices = g.resetDices(dices);
+            g.resetDices();
             btnSave.IsEnabled = false;
             btnRoll.IsEnabled = true;
 
@@ -109,27 +106,27 @@ namespace Yatzy183333
             int score = 0;
             if (cbOne.IsChecked == true)
             {
-                int s = dices[0];
+                int s = g.dices[0];
                 score = score + s;
             }
             if (cbTwo.IsChecked == true)
             {
-                int s = dices[1];
+                int s = g.dices[1];
                 score = score + s;
             }
             if (cbThree.IsChecked == true)
             {
-                int s = dices[2];
+                int s = g.dices[2];
                 score = score + s;
             }
             if (cbFour.IsChecked == true)
             {
-                int s = dices[3];
+                int s = g.dices[3];
                 score = score + s;
             }
             if (cbFive.IsChecked == true)
             {
-                int s = dices[4];
+                int s = g.dices[4];
                 score = score + s;
             }
             return score;
@@ -210,11 +207,11 @@ namespace Yatzy183333
 
         public void setLabels()
         {
-            lblOne.Content = dices[0];
-            lblTwo.Content = dices[1];
-            lblThree.Content = dices[2];
-            lblFour.Content = dices[3];
-            lblFive.Content = dices[4];
+            lblOne.Content = g.dices[0];
+            lblTwo.Content = g.dices[1];
+            lblThree.Content = g.dices[2];
+            lblFour.Content = g.dices[3];
+            lblFive.Content = g.dices[4];
         }
 
         //public void setDices()
@@ -270,9 +267,7 @@ namespace Yatzy183333
                 {
                     savedDice[4] = false;
                 }
-                
             }
         }
-       
     }
 }

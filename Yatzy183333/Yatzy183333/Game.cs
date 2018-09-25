@@ -10,7 +10,9 @@ namespace Yatzy183333
     {
         public List<Player> player = new List<Player>();
 
-        public int[] rollDices(bool[] savedDices, int[] dices)
+        public int[] dices = new int[5];
+
+        public void rollDices(bool[] savedDices)
         {
             Random random = new Random();
             for (int i = 0; i < dices.Count(); i++)
@@ -19,21 +21,16 @@ namespace Yatzy183333
                 {
                     dices[i] = random.Next(1, 7);
                 }
-
             }
-            return dices;
         }
 
-        public int[] resetDices( int[] dices)
+        public void resetDices()
         {
             Random random = new Random();
             for (int i = 0; i < dices.Count(); i++)
-            {
-                               
+            {                
                     dices[i] = 0;
-                
             }
-            return dices;
         }
         
         public string nameCount(int players)
@@ -44,8 +41,6 @@ namespace Yatzy183333
                 if (y.id == players)
                     name= y.name;
             }
-      
-
             return name;
         }
 
