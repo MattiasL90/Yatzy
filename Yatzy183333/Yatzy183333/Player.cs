@@ -37,31 +37,31 @@ namespace Yatzy183333
             return $"{name} {ones} {twos} {threes} {fours} {fives} {sixes} {bonus} {pair} {twopair} {triads} {quads} {house} {ladderl} {chance} {yatzy} {total}";
         }
 
-        public void addPlayer(string namee, int idd, List<Player> player)
-        {
-            Player d = new Player()
-            {
-                id = idd,
-                name = namee,
-                ones = 0,
-                twos = 0,
-                threes = 0,
-                fours = 0,
-                fives = 0,
-                sixes = 0,
-                pair = 0,
-                twopair = 0,
-                triads = 0,
-                quads = 0,
-                house = 0,
-                ladderl = 0,
-                ladderb = 0,
-                chance = 0,
-                yatzy = 0,
-                bonus = 0,
-                total = 0
-            };
-            player.Add(d);
-        }
+        //public void addPlayer(string namee, int idd, List<Player> player)
+        //{
+        //    Player d = new Player()
+        //    {
+        //        id = idd,
+        //        name = namee,
+        //        ones = 0,
+        //        twos = 0,
+        //        threes = 0,
+        //        fours = 0,
+        //        fives = 0,
+        //        sixes = 0,
+        //        pair = 0,
+        //        twopair = 0,
+        //        triads = 0,
+        //        quads = 0,
+        //        house = 0,
+        //        ladderl = 0,
+        //        ladderb = 0,
+        //        chance = 0,
+        //        yatzy = 0,
+        //        bonus = 0,
+        //        total = 0
+        //    };
+        //    player.Add(d);
+        //}
     }
 }

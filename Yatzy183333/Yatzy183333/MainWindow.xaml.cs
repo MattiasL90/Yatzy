@@ -29,23 +29,15 @@ namespace Yatzy183333
         Game g;
         
 
-        public MainWindow(string nOne, string nTwo, string nThree)
-        {
-            InitializeComponent();
-            g = new Game();
-            g.addPlayer(nOne, 1);
-            g.addPlayer(nTwo, 2);
-            g.addPlayer(nThree, 3);
-            updateDg();
-            playerLb.Content = g.nameCount(players);
-        }
-
         public MainWindow(Game game)
         {
             InitializeComponent();
             g = game;
-            
+            updateDg();
+            playerLb.Content = g.nameCount(players);
         }
+
+
         private void btnRoll_Click(object sender, RoutedEventArgs e)
         {
             checkDices();

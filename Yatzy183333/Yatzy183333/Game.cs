@@ -8,6 +8,8 @@ namespace Yatzy183333
 {
    public class Game
     {
+        public int round { get; set; }
+        public int turn { get; set; }
         public List<Player> player = new List<Player>(); //prop
 
         public int[] dices = new int[5]; 
@@ -22,6 +24,7 @@ namespace Yatzy183333
                     dices[i] = random.Next(1, 7);
                 }
             }
+            round++;
         }
 
         public void resetDices()
@@ -46,93 +49,77 @@ namespace Yatzy183333
 
         public void saveScore(int score, int type, int id)
         {
-            if (type == 1)
+            foreach (Player y in player)
             {
-                foreach (Player y in player)
-                {
-                    if (y.id == id)
+                if (type == 1)
+            {
+
                         y.ones = score;
-                }
+                
             }
             else if (type == 2)
             {
-                foreach (Player y in player)
-                {
-                    if (y.id == id)
+
+
                         y.twos = score;
-                }
+                
             }
             else if (type == 3)
             {
-                foreach (Player y in player)
-                {
-                    if (y.id == id)
+
+
                         y.threes = score;
-                }
+                
             }
             else if (type == 4)
             {
-                foreach (Player y in player)
-                {
-                    if (y.id == id)
+
+
                         y.fours = score;
-                }
+                
             }
             else if (type == 5)
             {
-                foreach (Player y in player)
-                {
-                    if (y.id == id)
                         y.fives = score;
-                }
             }
             else if (type == 6)
             {
-                foreach (Player y in player)
-                {
-                    if (y.id == id)
                         y.sixes = score;
-                }
             }
             else if (type == 7)
             {
-                foreach (Player y in player)
-                {
+
                     if (y.id == id)
                         y.pair = score;
-                }
+                
             }
             else if (type == 8)
             {
-                foreach (Player y in player)
-                {
+
                     if (y.id == id)
                         y.twopair = score;
-                }
+                
             }
             else if (type == 9)
             {
-                foreach (Player y in player)
-                {
+
                     if (y.id == id)
                         y.triads = score;
-                }
+                
             }
             else if (type == 10)
             {
-                foreach (Player y in player)
-                {
+
                     if (y.id == id)
                         y.quads = score;
-                }
+                
             }
             else if (type == 11)
             {
-                foreach (Player y in player)
-                {
+
                     if (y.id == id)
                         y.house = score;
-                }
+                
             }
             else if (type == 12)
             {
@@ -172,6 +159,7 @@ namespace Yatzy183333
                 if (y.id == id)
                     y.total = y.total + score;
             }
+        }
         }
 
         public void addPlayer(string namee, int idd)
