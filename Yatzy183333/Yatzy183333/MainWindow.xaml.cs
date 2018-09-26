@@ -24,7 +24,7 @@ namespace Yatzy183333
         //int[] dices = new int[5];
         bool[] savedDice = new bool[5];
         int round = 0;
-        int players = 1;
+        int players = 1; //Game
         Player p = new Player();
         Game g;
         
@@ -47,7 +47,7 @@ namespace Yatzy183333
             g.rollDices(savedDice);
             setLabels();
             rollLb.Content = "slag nr "+ (round+1);
-            round++;
+            round++; //Game
             if (round == 3)
             {
                 round = 0;
@@ -62,7 +62,7 @@ namespace Yatzy183333
             int type = checkSave();
             int score = checkScore();
             g.saveScore(score, type, players);
-            if (players < 3)
+            if (players < 3)    //Game
             {
                 players++;
             }
@@ -105,7 +105,7 @@ namespace Yatzy183333
             }
         }
 
-        public int checkScore()
+        public int checkScore()   //Game
         {
             int score = 0;
             if (cbOne.IsChecked == true)

@@ -8,9 +8,9 @@ namespace Yatzy183333
 {
    public class Game
     {
-        public List<Player> player = new List<Player>();
+        public List<Player> player = new List<Player>(); //prop
 
-        public int[] dices = new int[5];
+        public int[] dices = new int[5]; 
 
         public void rollDices(bool[] savedDices)
         {
