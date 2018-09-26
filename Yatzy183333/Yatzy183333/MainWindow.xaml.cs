@@ -40,7 +40,12 @@ namespace Yatzy183333
             playerLb.Content = g.nameCount(players);
         }
 
-
+        public MainWindow(Game game)
+        {
+            InitializeComponent();
+            g = game;
+            
+        }
         private void btnRoll_Click(object sender, RoutedEventArgs e)
         {
             checkDices();
