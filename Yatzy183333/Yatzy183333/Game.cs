@@ -37,20 +37,21 @@ namespace Yatzy183333
             }
         }
         
-        public string nameCount(int players)
+        public string nameCount()
         {
             string name = null;
             foreach (Player y in player)
             {
-                if (y.id == players)
+                if (y.id == turn)
                     name= y.name;
             }
             return name;
         }
 
-        public void saveScore(int type, int id)
+        public void saveScore(int type, int score)
         {
             foreach (Player y in player)
+            if (y.id == turn)
             {
                 if (type == 1)
                 {
@@ -112,14 +113,19 @@ namespace Yatzy183333
                 {
                     y.yatzy = 50;
                 }
+                y.total = y.total + score;
             }
+        }
 
-            foreach (Player y in player)
-            {
-                if (y.id == id)
-                    y.total = y.total + score;
-            }
+        public void setTurn()
+        {
             turn++;
+            score = 0;
+            round = 0;
+            if (turn > 3)
+            {
+                turn = 1;
+            }
         }
 
         public void addPlayer(string namee, int idd)
@@ -161,34 +167,9 @@ namespace Yatzy183333
             }
         }
 
-        //public int checkScore()   //Game
+        //public void putScore(int type)   
         //{
-        //    if (cbOne.IsChecked == true)
-        //    {
-        //        int s = g.dices[0];
-        //        score = score + s;
-        //    }
-        //    if (cbTwo.IsChecked == true)
-        //    {
-        //        int s = g.dices[1];
-        //        score = score + s;
-        //    }
-        //    if (cbThree.IsChecked == true)
-        //    {
-        //        int s = g.dices[2];
-        //        score = score + s;
-        //    }
-        //    if (cbFour.IsChecked == true)
-        //    {
-        //        int s = g.dices[3];
-        //        score = score + s;
-        //    }
-        //    if (cbFive.IsChecked == true)
-        //    {
-        //        int s = g.dices[4];
-        //        score = score + s;
-        //    }
-        //    return score;
+                
         //}
     }
 }

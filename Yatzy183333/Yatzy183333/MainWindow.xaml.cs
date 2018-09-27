@@ -23,8 +23,8 @@ namespace Yatzy183333
 
         //int[] dices = new int[5];
         bool[] savedDice = new bool[5];
-        int round = 0;
-        int players = 1; //Game
+        //int round = 0;
+        //int players = 1; //Game
         Player p = new Player();
         Game g;
         
@@ -34,7 +34,8 @@ namespace Yatzy183333
             InitializeComponent();
             g = game;
             updateDg();
-            playerLb.Content = g.nameCount(players);
+            playerLb.Content = g.nameCount();
+            g.turn = 1;
         }
 
 
@@ -43,11 +44,9 @@ namespace Yatzy183333
             checkDices();
             g.rollDices(savedDice);
             setLabels();
-            rollLb.Content = "slag nr "+ (round+1);
-            round++; //Game
-            if (round == 3)
+            rollLb.Content = "slag nr "+ (g.round+1);
+            if (g.round == 3)
             {
-                round = 0;
                 btnRoll.IsEnabled = false;
                 btnSave.IsEnabled = true;
             }
@@ -58,23 +57,16 @@ namespace Yatzy183333
         {
             int type = checkSave();
             int score = checkScore();
-            g.saveScore(score, type, players);
-            if (players < 3)    //Game
-            {
-                players++;
-            }
-            else if (players == 3)
-            {
-                players = 1;
-            }
+            g.saveScore(type, score);
             g.resetDices();
             btnSave.IsEnabled = false;
             btnRoll.IsEnabled = true;
             resetCb();
-            rollLb.Content = "slag nr " + round;
-            playerLb.Content = g.nameCount(players);
+            rollLb.Content = "Slag nr: " + g.turn;
+            playerLb.Content = g.nameCount();
             setLabels();
             g.bonusCheck();
+            g.setTurn();
             updateDg();
         }
 
