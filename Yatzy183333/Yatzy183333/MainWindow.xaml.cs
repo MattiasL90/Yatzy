@@ -23,8 +23,8 @@ namespace Yatzy183333
 
         //int[] dices = new int[5];
         bool[] savedDice = new bool[5];
-        int round = 0;
-        int players = 1; //Game
+        //int round = 0;
+        //int players = 1; //Game
         Player p = new Player();
         Game g;
         
@@ -34,7 +34,7 @@ namespace Yatzy183333
             InitializeComponent();
             g = game;
             updateDg();
-            playerLb.Content = g.nameCount(players);
+            playerLb.Content = g.nameCount(g.players());
         }
 
 
@@ -43,36 +43,37 @@ namespace Yatzy183333
             checkDices();
             g.rollDices(savedDice);
             setLabels();
-            rollLb.Content = "slag nr "+ (round+1);
-            round++; //Game
-            if (round == 3)
-            {
-                round = 0;
-                btnRoll.IsEnabled = false;
-                btnSave.IsEnabled = true;
-            }
+            rollLb.Content = "slag nr "+ (g.rounds() + 1);
+            g.rounds();
+            //round++; //Game
+            //if (round == 3)
+            //{
+            //    round = 0;
+            //    btnRoll.IsEnabled = false;
+            //    btnSave.IsEnabled = true;
+            //}
             updateDg();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int type = checkSave();
-            int score = checkScore();
-            g.saveScore(score, type, players);
-            if (players < 3)    //Game
-            {
-                players++;
-            }
-            else if (players == 3)
-            {
-                players = 1;
-            }
+            //int score = checkScore();
+            g.saveScore(type);
+            //if (players < 3)    //Game
+            //{
+            //    players++;
+            //}
+            //else if (players == 3)
+            //{
+            //    players = 1;
+            //}
             g.resetDices();
             btnSave.IsEnabled = false;
             btnRoll.IsEnabled = true;
             resetCb();
-            rollLb.Content = "slag nr " + round;
-            playerLb.Content = g.nameCount(players);
+            rollLb.Content = "slag nr " + g.rounds();
+            playerLb.Content = g.nameCount(g.players());
             setLabels();
             g.bonusCheck();
             updateDg();
@@ -102,36 +103,36 @@ namespace Yatzy183333
             }
         }
 
-        public int checkScore()   //Game
-        {
-            int score = 0;
-            if (cbOne.IsChecked == true)
-            {
-                int s = g.dices[0];
-                score = score + s;
-            }
-            if (cbTwo.IsChecked == true)
-            {
-                int s = g.dices[1];
-                score = score + s;
-            }
-            if (cbThree.IsChecked == true)
-            {
-                int s = g.dices[2];
-                score = score + s;
-            }
-            if (cbFour.IsChecked == true)
-            {
-                int s = g.dices[3];
-                score = score + s;
-            }
-            if (cbFive.IsChecked == true)
-            {
-                int s = g.dices[4];
-                score = score + s;
-            }
-            return score;
-        }
+        //public int checkScore()   //Game
+        //{
+        //    int score = 0;
+        //    if (cbOne.IsChecked == true)
+        //    {
+        //        int s = g.dices[0];
+        //        score = score + s;
+        //    }
+        //    if (cbTwo.IsChecked == true)
+        //    {
+        //        int s = g.dices[1];
+        //        score = score + s;
+        //    }
+        //    if (cbThree.IsChecked == true)
+        //    {
+        //        int s = g.dices[2];
+        //        score = score + s;
+        //    }
+        //    if (cbFour.IsChecked == true)
+        //    {
+        //        int s = g.dices[3];
+        //        score = score + s;
+        //    }
+        //    if (cbFive.IsChecked == true)
+        //    {
+        //        int s = g.dices[4];
+        //        score = score + s;
+        //    }
+        //    return score;
+        //}
 
         public int checkSave()
         {

@@ -11,8 +11,8 @@ namespace Yatzy183333
         public int round { get; set; }
         public int turn { get; set; }
         public int score { get; set; }
-        public List<Player> player = new List<Player>(); //prop
-
+        public List<Player> player { get; set; } //prop
+        int pname = 1;
         public int[] dices = new int[5]; 
 
         public void rollDices(bool[] savedDices)
@@ -48,75 +48,78 @@ namespace Yatzy183333
             return name;
         }
 
-        public void saveScore(int type, int id)
+        public void saveScore(int type)
         {
             foreach (Player y in player)
             {
-                if (type == 1)
+                if (y.id == pname)
                 {
-                    y.ones = score;
-                }
-                else if (type == 2)
-                {
-                    y.twos = score;
-                }
-                else if (type == 3)
-                {
-                    y.threes = score;
-                }
-                else if (type == 4)
-                {
-                    y.fours = score;
-                }
-                else if (type == 5)
-                {
-                    y.fives = score;
-                }
-                else if (type == 6)
-                {
-                    y.sixes = score;
-                }
-                else if (type == 7)
-                {
-                    y.pair = score;
-                }
-                else if (type == 8)
-                {
-                    y.twopair = score;
-                }
-                else if (type == 9)
-                {
-                    y.triads = score;
-                }
-                else if (type == 10)
-                {
-                    y.quads = score;
-                }
-                else if (type == 11)
-                {
-                    y.house = score;
-                }
-                else if (type == 12)
-                {
-                    y.ladderl = score;
-                }
-                else if (type == 13)
-                {
-                    y.ladderb = score;
-                }
-                else if (type == 14)
-                {
-                    y.chance = score;
-                }
-                else if (type == 15)
-                {
-                    y.yatzy = 50;
+                    if (type == 1)
+                    {
+                        y.ones = score;
+                    }
+                    else if (type == 2)
+                    {
+                        y.twos = score;
+                    }
+                    else if (type == 3)
+                    {
+                        y.threes = score;
+                    }
+                    else if (type == 4)
+                    {
+                        y.fours = score;
+                    }
+                    else if (type == 5)
+                    {
+                        y.fives = score;
+                    }
+                    else if (type == 6)
+                    {
+                        y.sixes = score;
+                    }
+                    else if (type == 7)
+                    {
+                        y.pair = score;
+                    }
+                    else if (type == 8)
+                    {
+                        y.twopair = score;
+                    }
+                    else if (type == 9)
+                    {
+                        y.triads = score;
+                    }
+                    else if (type == 10)
+                    {
+                        y.quads = score;
+                    }
+                    else if (type == 11)
+                    {
+                        y.house = score;
+                    }
+                    else if (type == 12)
+                    {
+                        y.ladderl = score;
+                    }
+                    else if (type == 13)
+                    {
+                        y.ladderb = score;
+                    }
+                    else if (type == 14)
+                    {
+                        y.chance = score;
+                    }
+                    else if (type == 15)
+                    {
+                        y.yatzy = 50;
+                    }
                 }
             }
 
             foreach (Player y in player)
             {
-                if (y.id == id)
+                if (y.id == pname)
                     y.total = y.total + score;
             }
             turn++;
@@ -190,5 +193,30 @@ namespace Yatzy183333
         //    }
         //    return score;
         //}
+
+        public int players()
+        {
+
+            if (pname < 3)    //Game
+            {
+                pname++;
+            }
+            else if (pname == 3)
+            {
+                pname = 1;
+            }
+            return pname;
+        }
+        public int rounds()
+        {
+            //round++;
+            //if (round == 3)
+            //{
+            //    round = 0;
+            //    btnRoll.IsEnabled = false;
+            //    btnSave.IsEnabled = true;
+            //}
+            return round;
+        }
     }
 }
