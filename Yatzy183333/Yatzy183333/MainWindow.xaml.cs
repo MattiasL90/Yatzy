@@ -21,10 +21,7 @@ namespace Yatzy183333
     public partial class MainWindow : Window
     {
 
-        //int[] dices = new int[5];
         bool[] savedDice = new bool[5];
-        //int round = 0;
-        //int players = 1; //Game
         Player p = new Player();
         Game g;
         
@@ -34,7 +31,7 @@ namespace Yatzy183333
             InitializeComponent();
             g = game;
             updateDg();
-            playerLb.Content = g.nameCount(g.Players());
+            playerLb.Content = g.nameCount(g.players());
         }
 
 
@@ -43,8 +40,8 @@ namespace Yatzy183333
             checkDices();
             g.rollDices(savedDice);
             setLabels();
-            rollLb.Content = "slag nr "+ (g.Rounds() + 1);
-            g.Rounds();
+            rollLb.Content = "slag nr "+ (g.rounds() + 1);
+            g.rounds();
             //round++; //Game
             //if (round == 3)
             //{
@@ -72,8 +69,8 @@ namespace Yatzy183333
             btnSave.IsEnabled = false;
             btnRoll.IsEnabled = true;
             resetCb();
-            rollLb.Content = "slag nr " + g.Rounds();
-            playerLb.Content = g.nameCount(g.Players());
+            rollLb.Content = "slag nr " + g.rounds();
+            playerLb.Content = g.nameCount(g.players());
             setLabels();
             g.bonusCheck();
             updateDg();

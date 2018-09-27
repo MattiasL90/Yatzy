@@ -117,8 +117,6 @@ namespace Yatzy183333
                     y.total = y.total + score;
                 }
             }
-
-         
         }
 
         public void addPlayer(string namee, int idd)
@@ -192,7 +190,6 @@ namespace Yatzy183333
 
         public int players()
         {
-
             if (pname < 3)    //Game
             {
                 pname++;
@@ -203,16 +200,16 @@ namespace Yatzy183333
             }
             return pname;
         }
-        public int rounds()
-        {
-            //round++;
-            //if (round == 3)
-            //{
-            //    round = 0;
-            //    btnRoll.IsEnabled = false;
-            //    btnSave.IsEnabled = true;
-            //}
-            return round;
-        }
+        //public int rounds()
+        //{
+        //    round++;
+        //    if (round == 3)
+        //    {
+        //        round = 0;
+        //        btnRoll.IsEnabled = false;
+        //        btnSave.IsEnabled = true;
+        //    }
+        //    return round;
+        //}
     }
 }
