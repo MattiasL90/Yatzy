@@ -34,7 +34,7 @@ namespace Yatzy183333
             InitializeComponent();
             g = game;
             updateDg();
-            playerLb.Content = g.nameCount(g.players());
+            playerLb.Content = g.nameCount(g.Players());
         }
 
 
@@ -43,8 +43,8 @@ namespace Yatzy183333
             checkDices();
             g.rollDices(savedDice);
             setLabels();
-            rollLb.Content = "slag nr "+ (g.rounds() + 1);
-            g.rounds();
+            rollLb.Content = "slag nr "+ (g.Rounds() + 1);
+            g.Rounds();
             //round++; //Game
             //if (round == 3)
             //{
@@ -72,8 +72,8 @@ namespace Yatzy183333
             btnSave.IsEnabled = false;
             btnRoll.IsEnabled = true;
             resetCb();
-            rollLb.Content = "slag nr " + g.rounds();
-            playerLb.Content = g.nameCount(g.players());
+            rollLb.Content = "slag nr " + g.Rounds();
+            playerLb.Content = g.nameCount(g.Players());
             setLabels();
             g.bonusCheck();
             updateDg();

@@ -114,15 +114,11 @@ namespace Yatzy183333
                     {
                         y.yatzy = 50;
                     }
+                    y.total = y.total + score;
                 }
             }
 
-            foreach (Player y in player)
-            {
-                if (y.id == pname)
-                    y.total = y.total + score;
-            }
-            turn++;
+         
         }
 
         public void addPlayer(string namee, int idd)
