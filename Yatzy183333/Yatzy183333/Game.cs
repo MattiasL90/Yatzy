@@ -12,8 +12,14 @@ namespace Yatzy183333
         public int turn { get; set; }
         public int score { get; set; }
         public List<Player> player { get; set; } //prop
+
         int pname = 1;
         public int[] dices = new int[5]; 
+
+        public Game()
+        {
+            player = new List<Player>();
+        }
 
         public void rollDices(bool[] savedDices)
         {
@@ -206,10 +212,360 @@ namespace Yatzy183333
         //    if (round == 3)
         //    {
         //        round = 0;
-        //        btnRoll.IsEnabled = false;
-        //        btnSave.IsEnabled = true;
         //    }
         //    return round;
         //}
+
+        public void putScore(int type)
+        {
+            Array.Sort(dices);
+            int scores = 0;
+            round = 0;
+            foreach (Player y in player)
+            {
+                if (y.id == pname)
+                {
+                    if (type == 1)
+                    {
+                        foreach (int i in dices)
+                        {
+                            if (i == 1)
+                            {
+                                score++;
+                            }
+                        }
+                        y.ones = score;
+                    }
+                    else if (type == 2)
+                    {
+                        foreach (int i in dices)
+                        {
+                            if (i == 2)
+                            {
+                                scores = +2;
+                            }
+                        }
+                        y.twos = scores;
+                    }
+                    else if (type == 3)
+                    {
+                        foreach (int i in dices)
+                        {
+                            if (i == 3)
+                            {
+                                scores = +3;
+                            }
+                        }
+                        y.threes = scores;
+                    }
+                    else if (type == 4)
+                    {
+                        foreach (int i in dices)
+                        {
+                            if (i == 4)
+                            {
+                                scores = +4;
+                            }
+                        }
+                        y.fours = scores;
+                    }
+                    else if (type == 5)
+                    {
+                        foreach (int i in dices)
+                        {
+                            if (i == 5)
+                            {
+                                scores = +5;
+                            }
+                        }
+                        y.fives = scores;
+                    }
+                    else if (type == 6)
+                    {
+                        foreach (int i in dices)
+                        {
+                            if (i == 6)
+                            {
+                                scores = +6;
+                            }
+                        }
+                        y.sixes = scores;
+                    }
+                    else if (type == 7)
+                    {
+                        if (dices[4] == dices[3])
+                        {
+                            scores = dices[4] + dices[3];
+                        }
+                        else if (dices[3] == dices[2])
+                        {
+                            scores = dices[3] + dices[2];
+                        }
+                        else if (dices[2] == dices[1])
+                        {
+                            scores = dices[2] + dices[1];
+                        }
+                        else if (dices[1] == dices[0])
+                        {
+                            scores = dices[1] + dices[0];
+                        }
+                        y.pair = scores;
+                    }
+                    else if (type == 8)
+                    {
+                        if (dices[4] == dices[3] && dices[2] == dices[1])
+                        {
+                            scores = dices[4] + dices[3] + dices[2] + dices[1];
+                        }
+                        else if (dices[3] == dices[2] && dices[1] == dices[0])
+                        {
+                            scores = dices[3] + dices[2] + dices[1] + dices[0];
+                        }
+                        y.twopair = scores;
+                    }
+                    else if (type == 9)
+                    {
+                        if (dices[4] == dices[3] && dices[3] == dices[2])
+                        {
+                            scores = dices[4] + dices[3] + dices[2];
+                        }
+                        else if (dices[3] == dices[2] && dices[2] == dices[1])
+                        {
+                            scores = dices[3] + dices[2] + dices[1];
+                        }
+                        else if (dices[2] == dices[1] && dices[1] == dices[0])
+                        {
+                            scores = dices[2] + dices[1] + dices[0];
+                        }
+                        y.triads = scores;
+                    }
+                    else if (type == 10)
+                    {
+                        if (dices[4] == dices[3] && dices[3] == dices[2] && dices[2] == dices[1])
+                        {
+                            scores = dices[4] + dices[3] + dices[2] + dices[1];
+                        }
+                        else if (dices[3] == dices[2] && dices[2] == dices[1] && dices[1] == dices[0])
+                        {
+                            scores = dices[3] + dices[2] + dices[1] + dices[0];
+                        }
+                        y.quads = scores;
+                    }
+                    else if (type == 11)
+                    {
+                        scores = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                        y.house = scores;
+                    }
+                    else if (type == 12)
+                    {
+                        scores = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                        y.ladderl = scores;
+                    }
+                    else if (type == 13)
+                    {
+                        scores = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                        y.ladderb = scores;
+                    }
+                    else if (type == 14)
+                    {
+                        scores = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                        y.chance = scores;
+                    }
+                    else if (type == 15)
+                    {
+                        scores = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                        y.yatzy = 50;
+                    }
+                    y.total = y.total + scores;
+                }
+            }
+        }
+
+        public Boolean checkScore(int type)
+        {
+            Array.Sort(dices);
+            bool check = false;
+            int scores = 0;
+            foreach (Player y in player)
+            {
+                    if (type == 1)
+                    {
+                        foreach (int i in dices)
+                        {
+                            if (i == 1)
+                            {
+                                scores++;
+                            }
+                        }
+                        if (scores >= 1)
+                        {
+                            check = true;
+                        }
+                    }
+                    else if (type == 2)
+                    {
+                        foreach (int i in dices)
+                        {
+                            if (i == 2)
+                            {
+                                scores = +2;
+                            }
+                        }
+                        if (scores >= 1)
+                        {
+                            check = true;
+                        }
+                    }
+                    else if (type == 3)
+                    {
+                        foreach (int i in dices)
+                        {
+                            if (i == 3)
+                            {
+                                scores = +3;
+                            }
+                        }
+                        if (scores > 0)
+                        {
+                            check = true;
+                        }
+                    }
+                    else if (type == 4)
+                    {
+                        foreach (int i in dices)
+                        {
+                            if (i == 4)
+                            {
+                                scores = +4;
+                            }
+                        }
+                        if (scores > 0)
+                        {
+                            check = true;
+                        }
+                    }
+                    else if (type == 5)
+                    {
+                        foreach (int i in dices)
+                        {
+                            if (i == 5)
+                            {
+                                scores = +5;
+                            }
+                        }
+                        if (scores > 0)
+                        {
+                            check = true;
+                        }
+                    }
+                    else if (type == 6)
+                    {
+                        foreach (int i in dices)
+                        {
+                            if (i == 6)
+                            {
+                                scores = +6;
+                            }
+                        }
+                        if (scores > 0)
+                        {
+                            check = true;
+                        }
+                    }
+                    else if (type == 7)
+                    {
+                        if (dices[4] == dices[3])
+                        {
+                            check = true;
+                        }
+                        else if (dices[3] == dices[2])
+                        {
+                            check = true;
+                        }
+                        else if (dices[2] == dices[1])
+                        {
+                            check = true;
+                        }
+                        else if (dices[1] == dices[0])
+                        {
+                            check = true;
+                        }
+                    }
+                    else if (type == 8)
+                    {
+                        if (dices[4] == dices[3] && dices[2] == dices[1])
+                        {
+                            check = true;
+                        }
+                        else if (dices[3] == dices[2] && dices[1] == dices[0])
+                        {
+                            check = true;
+                        }
+                    }
+                    else if (type == 9)
+                    {
+                        if (dices[4] == dices[3] && dices[3] == dices[2])
+                        {
+                            check = true;
+                        }
+                        else if (dices[3] == dices[2] && dices[2] == dices[1])
+                        {
+                            check = true;
+                        }
+                        else if (dices[2] == dices[1] && dices[1] == dices[0])
+                        {
+                            check = true;
+                        }
+                    }
+                    else if (type == 10)
+                    {
+                        if (dices[4] == dices[3] && dices[3] == dices[2] && dices[2] == dices[1])
+                        {
+                            check = true;
+                        }
+                        else if (dices[3] == dices[2] && dices[2] == dices[1] && dices[1] == dices[0])
+                        {
+                            check = true;
+                        }
+                    }
+                    else if (type == 11)
+                    {
+                        if (dices[4] == dices[3] && dices[3] == dices[2] && dices[1] == dices[0])
+                        {
+                            check = true;
+                        }
+                        else if (dices[4] == dices[3] && dices[2] == dices[1] && dices[1] == dices[0])
+                        {
+                            check = true;
+                        }
+                    }
+                    else if (type == 12)
+                    {
+                        if (dices[4] == 5 && dices[4] > dices[3] && dices[3] > dices[2] && dices[2] > dices[1] && dices[1] > dices[0])
+                        {
+                            check = true;
+                        }
+                    }
+                    else if (type == 13)
+                    {
+                        if (dices[4] == 6 && dices[4] > dices[3] && dices[3] > dices[2] && dices[2] > dices[1] && dices[1] > dices[0])
+                        {
+                            check = true;
+                        }
+                    }
+                    else if (type == 14)
+                    {
+                        check = true;
+                    }
+                    else if (type == 15)
+                    {
+                        if (dices[4] == dices[3] && dices[3] == dices[2] && dices[2] == dices[1] && dices[1] == dices[0])
+                        {
+                            check = true;
+                        }
+                    }
+                }
+            return check;
+        }
     }
 }

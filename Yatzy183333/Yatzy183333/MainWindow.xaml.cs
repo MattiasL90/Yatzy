@@ -40,41 +40,77 @@ namespace Yatzy183333
             checkDices();
             g.rollDices(savedDice);
             setLabels();
-            rollLb.Content = "slag nr "+ (g.rounds() + 1);
-            g.rounds();
-            //round++; //Game
-            //if (round == 3)
-            //{
-            //    round = 0;
-            //    btnRoll.IsEnabled = false;
-            //    btnSave.IsEnabled = true;
-            //}
+            rollLb.Content = "slag nr "+ (g.round);
+            if (g.round == 3)
+            {
+                btnRoll.IsEnabled = false;
+                btnSave.IsEnabled = true;
+            }
             updateDg();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //int type = checkSave();
+            ////int score = checkScore();
+            //g.putScore(type);
+            ////if (players < 3)    //Game
+            ////{
+            ////    players++;
+            ////}
+            ////else if (players == 3)
+            ////{
+            ////    players = 1;
+            ////}
+            //g.resetDices();
+            //btnSave.IsEnabled = false;
+            //btnRoll.IsEnabled = true;
+            //resetCb();
+            //rollLb.Content = "slag nr " + g.round;
+            //playerLb.Content = g.nameCount(g.players());
+            //setLabels();
+            //g.bonusCheck();
+            //updateDg();
             int type = checkSave();
-            //int score = checkScore();
-            g.saveScore(type);
-            //if (players < 3)    //Game
-            //{
-            //    players++;
-            //}
-            //else if (players == 3)
-            //{
-            //    players = 1;
-            //}
-            g.resetDices();
-            btnSave.IsEnabled = false;
-            btnRoll.IsEnabled = true;
-            resetCb();
-            rollLb.Content = "slag nr " + g.rounds();
-            playerLb.Content = g.nameCount(g.players());
-            setLabels();
-            g.bonusCheck();
-            updateDg();
+            if (g.checkScore(type))
+            {
+                g.putScore(type);
+                g.resetDices();
+                btnSave.IsEnabled = false;
+                btnRoll.IsEnabled = true;
+                resetCb();
+                rollLb.Content = "Slag nr: " + g.round;
+                playerLb.Content = g.nameCount(g.players());
+                setLabels();
+                g.bonusCheck();
+                updateDg();
+            }
+            else
+            {
+                MessageBox.Show("Det fungerar inte.");
+            }
         }
+
+        //public void trueScore()
+        //{
+        //    int type = checkSave();
+        //    bool check = false;
+        //    if (g.checkScore(type) == true)
+        //    {
+        //        int type = checkSave();
+        //        g.putScore(type);
+        //        g.resetDices();
+        //        btnSave.IsEnabled = false;
+        //        btnRoll.IsEnabled = true;
+        //        resetCb();
+        //        rollLb.Content = "slag nr " + g.round;
+        //        playerLb.Content = g.nameCount(g.players());
+        //        setLabels();
+        //        g.bonusCheck();
+        //        updateDg();
+        //    }
+            
+        //}
 
         public void resetCb()
         {
