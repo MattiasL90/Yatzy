@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Yatzy183333
 {
-   public class Game
+   public abstract class Game
     {
         public int round { get; set; }
         public int turn { get; set; }
