@@ -33,7 +33,7 @@ namespace Yatzy183333
             round++;
         }
 
-        private void resetDices()
+        public void resetDices()
         {
             Random random = new Random();
             for (int i = 0; i < dices.Count(); i++)
@@ -151,7 +151,7 @@ namespace Yatzy183333
             player.Add(d);
         }
 
-        private void bonusCheck()
+        public virtual void bonusCheck()
         {
             foreach (Player y in player)
             {
@@ -216,7 +216,7 @@ namespace Yatzy183333
         //    return round;
         //}
 
-        public void putScore(int type)
+        public virtual void putScore(int type)
         {
             Array.Sort(dices);
             round = 0;
@@ -387,7 +387,7 @@ namespace Yatzy183333
             }
         }
 
-        public Boolean checkScore(int type)
+        public virtual Boolean checkScore(int type)
         {
             Array.Sort(dices);
             bool check = false;

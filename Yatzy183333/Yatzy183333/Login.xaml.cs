@@ -30,7 +30,7 @@ namespace Yatzy183333
             string nameOne = tbOne.Text;
             string nameTwo = tbTwo.Text;
             string nameThree = tbThree.Text;
-            Game g = new Game();
+           Classic g = new Classic();
             g.addPlayer(nameOne, 1);
             g.addPlayer(nameTwo, 2);
             g.addPlayer(nameThree, 3);
