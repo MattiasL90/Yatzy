@@ -40,7 +40,7 @@ namespace Yatzy183333
             checkDices();
             g.rollDices(savedDice);
             setLabels();
-            rollLb.Content = "slag nr "+ (g.round);
+            rollLb.Content = "Slag nr: "+ (g.round);
             if (g.round == 3)
             {
                 btnRoll.IsEnabled = false;
@@ -75,14 +75,12 @@ namespace Yatzy183333
             if (g.checkScore(type))
             {
                 g.putScore(type);
-                g.resetDices();
                 btnSave.IsEnabled = false;
                 btnRoll.IsEnabled = true;
                 resetCb();
                 rollLb.Content = "Slag nr: " + g.round;
                 playerLb.Content = g.nameCount(g.players());
                 setLabels();
-                g.bonusCheck();
                 updateDg();
             }
             else

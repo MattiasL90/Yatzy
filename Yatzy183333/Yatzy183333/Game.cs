@@ -11,10 +11,9 @@ namespace Yatzy183333
         public int round { get; set; }
         public int turn { get; set; }
         public int score { get; set; }
-        public List<Player> player { get; set; } //prop
+        public List<Player> player { get; set; }
 
-        int pname = 1;
-        public int[] dices = new int[5]; 
+        public int[] dices = new int[5];
 
         public Game()
         {
@@ -34,7 +33,7 @@ namespace Yatzy183333
             round++;
         }
 
-        public void resetDices()
+        private void resetDices()
         {
             Random random = new Random();
             for (int i = 0; i < dices.Count(); i++)
@@ -58,7 +57,7 @@ namespace Yatzy183333
         {
             foreach (Player y in player)
             {
-                if (y.id == pname)
+                if (y.id == turn)
                 {
                     if (type == 1)
                     {
@@ -152,7 +151,7 @@ namespace Yatzy183333
             player.Add(d);
         }
 
-        public void bonusCheck()
+        private void bonusCheck()
         {
             foreach (Player y in player)
             {
@@ -196,15 +195,15 @@ namespace Yatzy183333
 
         public int players()
         {
-            if (pname < 3)    //Game
+            if (turn < 3)    //Game
             {
-                pname++;
+                turn++;
             }
-            else if (pname == 3)
+            else if (turn == 3)
             {
-                pname = 1;
+                turn = 1;
             }
-            return pname;
+            return turn;
         }
         //public int rounds()
         //{
@@ -219,11 +218,10 @@ namespace Yatzy183333
         public void putScore(int type)
         {
             Array.Sort(dices);
-            int scores = 0;
             round = 0;
             foreach (Player y in player)
             {
-                if (y.id == pname)
+                if (y.id == turn)
                 {
                     if (type == 1)
                     {
@@ -242,10 +240,10 @@ namespace Yatzy183333
                         {
                             if (i == 2)
                             {
-                                scores = +2;
+                                score = +2;
                             }
                         }
-                        y.twos = scores;
+                        y.twos = score;
                     }
                     else if (type == 3)
                     {
@@ -253,10 +251,10 @@ namespace Yatzy183333
                         {
                             if (i == 3)
                             {
-                                scores = +3;
+                                score = +3;
                             }
                         }
-                        y.threes = scores;
+                        y.threes = score;
                     }
                     else if (type == 4)
                     {
@@ -264,10 +262,10 @@ namespace Yatzy183333
                         {
                             if (i == 4)
                             {
-                                scores = +4;
+                                score = +4;
                             }
                         }
-                        y.fours = scores;
+                        y.fours = score;
                     }
                     else if (type == 5)
                     {
@@ -275,10 +273,10 @@ namespace Yatzy183333
                         {
                             if (i == 5)
                             {
-                                scores = +5;
+                                score = +5;
                             }
                         }
-                        y.fives = scores;
+                        y.fives = score;
                     }
                     else if (type == 6)
                     {
@@ -286,97 +284,104 @@ namespace Yatzy183333
                         {
                             if (i == 6)
                             {
-                                scores = +6;
+                                score = +6;
                             }
                         }
-                        y.sixes = scores;
+                        y.sixes = score;
                     }
                     else if (type == 7)
                     {
                         if (dices[4] == dices[3])
                         {
-                            scores = dices[4] + dices[3];
+                            score = dices[4] + dices[3];
                         }
                         else if (dices[3] == dices[2])
                         {
-                            scores = dices[3] + dices[2];
+                            score = dices[3] + dices[2];
                         }
                         else if (dices[2] == dices[1])
                         {
-                            scores = dices[2] + dices[1];
+                            score = dices[2] + dices[1];
                         }
                         else if (dices[1] == dices[0])
                         {
-                            scores = dices[1] + dices[0];
+                            score = dices[1] + dices[0];
                         }
-                        y.pair = scores;
+                        y.pair = score;
                     }
                     else if (type == 8)
                     {
                         if (dices[4] == dices[3] && dices[2] == dices[1])
                         {
-                            scores = dices[4] + dices[3] + dices[2] + dices[1];
+                            score = dices[4] + dices[3] + dices[2] + dices[1];
+                        }
+                        else if (dices[4] == dices[3] && dices[1] == dices[0])
+                        {
+                            score = dices[4] + dices[3] + dices[1] + dices[0];
                         }
                         else if (dices[3] == dices[2] && dices[1] == dices[0])
                         {
-                            scores = dices[3] + dices[2] + dices[1] + dices[0];
+                            score = dices[3] + dices[2] + dices[1] + dices[0];
                         }
-                        y.twopair = scores;
+                        y.twopair = score;
                     }
                     else if (type == 9)
                     {
                         if (dices[4] == dices[3] && dices[3] == dices[2])
                         {
-                            scores = dices[4] + dices[3] + dices[2];
+                            score = dices[4] + dices[3] + dices[2];
                         }
                         else if (dices[3] == dices[2] && dices[2] == dices[1])
                         {
-                            scores = dices[3] + dices[2] + dices[1];
+                            score = dices[3] + dices[2] + dices[1];
                         }
                         else if (dices[2] == dices[1] && dices[1] == dices[0])
                         {
-                            scores = dices[2] + dices[1] + dices[0];
+                            score = dices[2] + dices[1] + dices[0];
                         }
-                        y.triads = scores;
+                        y.triads = score;
                     }
                     else if (type == 10)
                     {
                         if (dices[4] == dices[3] && dices[3] == dices[2] && dices[2] == dices[1])
                         {
-                            scores = dices[4] + dices[3] + dices[2] + dices[1];
+                            score = dices[4] + dices[3] + dices[2] + dices[1];
                         }
                         else if (dices[3] == dices[2] && dices[2] == dices[1] && dices[1] == dices[0])
                         {
-                            scores = dices[3] + dices[2] + dices[1] + dices[0];
+                            score = dices[3] + dices[2] + dices[1] + dices[0];
                         }
-                        y.quads = scores;
+                        y.quads = score;
                     }
                     else if (type == 11)
                     {
-                        scores = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
-                        y.house = scores;
+                        score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                        y.house = score;
                     }
                     else if (type == 12)
                     {
-                        scores = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
-                        y.ladderl = scores;
+                        score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                        y.ladderl = score;
                     }
                     else if (type == 13)
                     {
-                        scores = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
-                        y.ladderb = scores;
+                        score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                        y.ladderb = score;
                     }
                     else if (type == 14)
                     {
-                        scores = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
-                        y.chance = scores;
+                        score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                        y.chance = score;
                     }
                     else if (type == 15)
                     {
-                        scores = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                        score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
                         y.yatzy = 50;
                     }
-                    y.total = y.total + scores;
+                    y.total = y.total + score;
+                    bonusCheck();
+                    resetDices();
+                    score = 0;
                 }
             }
         }
