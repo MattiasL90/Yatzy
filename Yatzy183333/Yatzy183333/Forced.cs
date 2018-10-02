@@ -78,7 +78,7 @@ namespace Yatzy183333
                         {
                             if (i == 6)
                             {
-                                score = score + 6;
+                                score = score+6;
                             }
                         }
                         y.sixes = score;
@@ -179,7 +179,22 @@ namespace Yatzy183333
                 }
             }
         }
-              public override Boolean checkScore(int type)
+
+        public override void bonusCheck()
+        {
+            foreach (Player y in player)
+            {
+                if (y.ones >= 2 || y.twos >= 4 || y.threes >= 6 || y.fours >= 8 || y.fives >= 10 || y.sixes >= 12)
+
+                {
+                    y.bonus = 50;
+                }
+            }
+            
+        }
+
+
+        public override Boolean checkScore(int type)
         {
             Array.Sort(dices);
             bool check = true;
