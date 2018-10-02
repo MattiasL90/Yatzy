@@ -146,7 +146,8 @@ namespace Yatzy183333
                 chance = 0,
                 yatzy = 0,
                 bonus = 0,
-                total = 0
+                total = 0,
+                fsave = 0
             };
             player.Add(d);
         }
@@ -394,6 +395,8 @@ namespace Yatzy183333
             int scores = 0;
             foreach (Player y in player)
             {
+                if (y.id == turn)
+                {
                     if (type == 1)
                     {
                         foreach (int i in dices)
@@ -571,6 +574,7 @@ namespace Yatzy183333
                         }
                     }
                 }
+            }
             return check;
         }
     }
