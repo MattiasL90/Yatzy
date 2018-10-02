@@ -23,10 +23,10 @@ namespace Yatzy183333
 
         bool[] savedDice = new bool[5];
         Player p = new Player();
-        Forced g;
+        Game g;
         
 
-        public MainWindow(Forced game)
+        public MainWindow(Game game)
         {
             InitializeComponent();
             g = game;
