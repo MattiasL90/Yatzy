@@ -8,7 +8,7 @@ namespace Yatzy183333
 {
     public class Forced : Game
     {
-        Game g;
+        
         public override void putScore(int type)
         {
             Array.Sort(dices);
