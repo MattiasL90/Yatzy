@@ -35,6 +35,7 @@ namespace Yatzy183333
             if (rbClassic.IsChecked == true)
             {
                 Classic g = new Classic();
+                this.Hide();
                 g.addPlayer(nameOne, 1);
                 g.addPlayer(nameTwo, 2);
                 g.addPlayer(nameThree, 3);
@@ -45,6 +46,7 @@ namespace Yatzy183333
             else if (rbForced.IsChecked == true)
             {
                 Forced g = new Forced();
+                this.Hide();
                 g.addPlayer(nameOne, 1);
                 g.addPlayer(nameTwo, 2);
                 g.addPlayer(nameThree, 3);
@@ -53,12 +55,12 @@ namespace Yatzy183333
 
             }
 
-
+           
             //g.addPlayer(nameOne, 1);
             //g.addPlayer(nameTwo, 2);
             //g.addPlayer(nameThree, 3);
 
-            this.Hide();
+            
             //MainWindow w1 = new MainWindow(nameOne, nameTwo, nameThree);
             //MainWindow w1 = new MainWindow(g);
             //w1.ShowDialog();
