@@ -32,27 +32,31 @@ namespace Yatzy183333
             string nameThree = tbThree.Text;
             //Classic g = new Classic();
             //Forced f = new Forced();
-            //if (rbClassic.IsChecked == true)
-            //{
-            //    Classic g = new Classic();
-            //    MainWindow w1 = new MainWindow(g);
-            //    w1.ShowDialog();
+            if (rbClassic.IsChecked == true)
+            {
+                Classic g = new Classic();
+                g.addPlayer(nameOne, 1);
+                g.addPlayer(nameTwo, 2);
+                g.addPlayer(nameThree, 3);
+                MainWindow w1 = new MainWindow(g);
+                w1.ShowDialog();
                 
-            //}
-            //else if (rbForced.IsChecked == true)
-            // {
-            //    Forced g = new Forced();
-            //    MainWindow w1 = new MainWindow(g);
-            //    w1.ShowDialog();
-                
-            //}
-            Forced g = new Forced();
-            MainWindow w1 = new MainWindow(g);
-            w1.ShowDialog();
+            }
+            else if (rbForced.IsChecked == true)
+            {
+                Forced g = new Forced();
+                g.addPlayer(nameOne, 1);
+                g.addPlayer(nameTwo, 2);
+                g.addPlayer(nameThree, 3);
+                MainWindow w1 = new MainWindow(g);
+                w1.ShowDialog();
 
-            g.addPlayer(nameOne, 1);
-            g.addPlayer(nameTwo, 2);
-            g.addPlayer(nameThree, 3);
+            }
+
+
+            //g.addPlayer(nameOne, 1);
+            //g.addPlayer(nameTwo, 2);
+            //g.addPlayer(nameThree, 3);
 
             this.Hide();
             //MainWindow w1 = new MainWindow(nameOne, nameTwo, nameThree);
