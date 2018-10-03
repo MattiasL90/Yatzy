@@ -47,6 +47,7 @@ namespace Yatzy183333
                 btnSave.IsEnabled = true;
             }
             updateDg();
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -82,6 +83,7 @@ namespace Yatzy183333
                 playerLb.Content = g.nameCount(g.players());
                 setLabels();
                 updateDg();
+                
             }
             else
             {
@@ -131,6 +133,68 @@ namespace Yatzy183333
             if (cbFive.IsChecked == true)
             {
                 cbFive.IsChecked = false;
+            }
+
+
+            if (rbOnes.IsChecked == true)
+            {
+                rbOnes.IsChecked = false;
+            }
+            if (rbTwos.IsChecked == true)
+            {
+                rbTwos.IsChecked = false;
+            }
+            if (rbThrees.IsChecked == true)
+            {
+                rbThrees.IsChecked = false;
+            }
+            if (rbFours.IsChecked == true)
+            {
+                rbFours.IsChecked = false;
+            }
+            if (rbFives.IsChecked == true)
+            {
+                rbFives.IsChecked = false;
+            }
+            if (rbSixes.IsChecked == true)
+            {
+                rbSixes.IsChecked = false;
+            }
+            if (rbPair.IsChecked == true)
+            {
+                rbPair.IsChecked = false;
+            }
+            if (rbTwopair.IsChecked == true)
+            {
+                rbTwopair.IsChecked = false;
+            }
+            if (rbTriads.IsChecked == true)
+            {
+                rbTriads.IsChecked = false;
+            }
+            if (rbQuads.IsChecked == true)
+            {
+                rbQuads.IsChecked = false;
+            }
+            if (rbHouse.IsChecked == true)
+            {
+                rbHouse.IsChecked = false;
+            }
+            if (rbLadderl.IsChecked == true)
+            {
+                rbLadderl.IsChecked = false;
+            }
+            if (rbLadderb.IsChecked == true)
+            {
+                rbLadderb.IsChecked = false;
+            }
+            if (rbChance.IsChecked == true)
+            {
+                rbChance.IsChecked = false;
+            }
+            if (rbYatzy.IsChecked == true)
+            {
+                rbYatzy.IsChecked = false;
             }
         }
 
@@ -230,6 +294,8 @@ namespace Yatzy183333
             }
             return saved;
         }
+        
+    
 
         public void updateDg()
         {
