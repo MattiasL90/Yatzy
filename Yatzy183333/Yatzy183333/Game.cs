@@ -42,6 +42,8 @@ namespace Yatzy183333
             }
         }
         
+       
+
         public string nameCount(int players)
         {
             string name = null;

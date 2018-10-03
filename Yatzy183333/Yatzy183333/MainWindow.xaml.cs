@@ -47,6 +47,7 @@ namespace Yatzy183333
                 btnSave.IsEnabled = true;
             }
             updateDg();
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -82,6 +83,7 @@ namespace Yatzy183333
                 playerLb.Content = g.nameCount(g.players());
                 setLabels();
                 updateDg();
+                
             }
             else
             {
@@ -230,6 +232,8 @@ namespace Yatzy183333
             }
             return saved;
         }
+        
+    
 
         public void updateDg()
         {
