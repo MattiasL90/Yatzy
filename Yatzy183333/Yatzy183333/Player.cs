@@ -28,6 +28,7 @@ namespace Yatzy183333
         public int chance { get; set; }
         public int yatzy { get; set; }
         public int total { get; set; }
+        public int fsave { get; set; }
 
         //public List<Player> player = new List<Player>();
 

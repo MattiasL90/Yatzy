@@ -30,15 +30,40 @@ namespace Yatzy183333
             string nameOne = tbOne.Text;
             string nameTwo = tbTwo.Text;
             string nameThree = tbThree.Text;
-           Classic g = new Classic();
-            g.addPlayer(nameOne, 1);
-            g.addPlayer(nameTwo, 2);
-            g.addPlayer(nameThree, 3);
+            //Classic g = new Classic();
+            //Forced f = new Forced();
+            if (rbClassic.IsChecked == true)
+            {
+                Classic g = new Classic();
+                this.Hide();
+                g.addPlayer(nameOne, 1);
+                g.addPlayer(nameTwo, 2);
+                g.addPlayer(nameThree, 3);
+                MainWindow w1 = new MainWindow(g);
+                w1.ShowDialog();
+                
+            }
+            else if (rbForced.IsChecked == true)
+            {
+                Forced g = new Forced();
+                this.Hide();
+                g.addPlayer(nameOne, 1);
+                g.addPlayer(nameTwo, 2);
+                g.addPlayer(nameThree, 3);
+                MainWindow w1 = new MainWindow(g);
+                w1.ShowDialog();
 
-            this.Hide();
+            }
+
+           
+            //g.addPlayer(nameOne, 1);
+            //g.addPlayer(nameTwo, 2);
+            //g.addPlayer(nameThree, 3);
+
+            
             //MainWindow w1 = new MainWindow(nameOne, nameTwo, nameThree);
-            MainWindow w1 = new MainWindow(g);
-            w1.ShowDialog();
+            //MainWindow w1 = new MainWindow(g);
+            //w1.ShowDialog();
         }
 
       
