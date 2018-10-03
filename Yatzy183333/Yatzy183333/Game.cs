@@ -146,7 +146,8 @@ namespace Yatzy183333
                 chance = 0,
                 yatzy = 0,
                 bonus = 0,
-                total = 0
+                total = 0,
+                fsave = 0
             };
             player.Add(d);
         }
@@ -241,7 +242,7 @@ namespace Yatzy183333
                         {
                             if (i == 2)
                             {
-                                score = +2;
+                                score = score + 2;
                             }
                         }
                         y.twos = score;
@@ -252,7 +253,7 @@ namespace Yatzy183333
                         {
                             if (i == 3)
                             {
-                                score = +3;
+                                score = score + 3;
                             }
                         }
                         y.threes = score;
@@ -263,7 +264,7 @@ namespace Yatzy183333
                         {
                             if (i == 4)
                             {
-                                score = +4;
+                                score = score + 4;
                             }
                         }
                         y.fours = score;
@@ -274,7 +275,7 @@ namespace Yatzy183333
                         {
                             if (i == 5)
                             {
-                                score = +5;
+                                score = score + 5;
                             }
                         }
                         y.fives = score;
@@ -285,7 +286,7 @@ namespace Yatzy183333
                         {
                             if (i == 6)
                             {
-                                score = +6;
+                                score = score + 6;
                             }
                         }
                         y.sixes = score;
@@ -394,6 +395,8 @@ namespace Yatzy183333
             int scores = 0;
             foreach (Player y in player)
             {
+                if (y.id == turn)
+                {
                     if (type == 1)
                     {
                         foreach (int i in dices)
@@ -571,6 +574,7 @@ namespace Yatzy183333
                         }
                     }
                 }
+            }
             return check;
         }
     }
