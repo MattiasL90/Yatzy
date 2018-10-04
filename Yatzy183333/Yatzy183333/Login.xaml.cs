@@ -25,6 +25,7 @@ namespace Yatzy183333
         }
 
         int ppl = 0;
+        SQL s = new SQL();
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string nameOne = tbOne.Text;
@@ -52,9 +53,17 @@ namespace Yatzy183333
             }
         }
 
+        private void btnAddPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            string name = tbAddName.Text;
+            string nick = tbAddNick.Text;
+            s.AddPlayer(name, nick);
+            tbAddName.Text = "";
+            tbAddNick.Text = "";
+        }
+
         private void CheckGame(string nameOne, string nameTwo, string nameThree, int type, Game g)
         {
-            SQL s = new SQL();
             bool one = false;
             bool two = false;
             bool three = false;
@@ -110,6 +119,11 @@ namespace Yatzy183333
                 g.addPlayer(nameTwo, 2);
                 ppl = 2;
             }
+        }
+
+        private void HighScore()
+        {
+            s.GetHighScore();
         }
     }
 }

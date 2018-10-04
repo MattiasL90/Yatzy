@@ -9,6 +9,7 @@ namespace Yatzy183333
 {
     class SQL
     {
+        public int score { get; set; }
         public Boolean CheckName(string name)
         {
             string stmt = "SELECT name FROM player WHERE name = @name";
@@ -135,7 +136,7 @@ namespace Yatzy183333
 
         public void AddPlayer(string name, string nick)
         {
-            string stmt = "INSERT INTO player (name, nickname) VALUES (@name, @nick";
+            string stmt = "INSERT INTO player (name, nickname) VALUES (@name, @nick)";
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
             {
                 conn.Open();
@@ -147,6 +148,35 @@ namespace Yatzy183333
                 }
                 conn.Close();
             }
+        }
+
+        public List<SQL> GetHighScore()
+        {
+            string stmt = "select score from game_player WHERE score IS NOT NULL order by score desc limit 5";
+            List<SQL> HighScore = new List<SQL>();
+            SQL s;
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = stmt;
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            s = new SQL()
+                            {
+                                score = reader.GetInt32(0)
+                            };
+                            HighScore.Add(s);
+                        }
+                    }
+                }
+                conn.Close();
+            }
+            return HighScore;
         }
     }
 }
