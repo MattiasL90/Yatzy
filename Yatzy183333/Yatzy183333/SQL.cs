@@ -9,7 +9,7 @@ namespace Yatzy183333
 {
     class SQL
     {
-        public int score { get; set; }
+        public int poäng { get; set; }
         public Boolean CheckName(string name)
         {
             string stmt = "SELECT name FROM player WHERE name = @name";
@@ -168,7 +168,7 @@ namespace Yatzy183333
                         {
                             s = new SQL()
                             {
-                                score = reader.GetInt32(0)
+                                poäng = reader.GetInt32(0)
                             };
                             HighScore.Add(s);
                         }
