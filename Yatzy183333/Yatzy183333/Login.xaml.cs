@@ -113,16 +113,6 @@ namespace Yatzy183333
             return type;
         }
 
-        private void cbThree_Checked(object sender, RoutedEventArgs e)
-        {
-            if (cbThree.IsChecked == true)
-            {
-                tbThree.IsEnabled = true;
-            }
-            else
-            {
-                tbThree.IsEnabled = false;
-            }
-        }
+      
     }
 }
