@@ -581,7 +581,7 @@ namespace Yatzy183333
         }
         public virtual void CheckFinnish(int ppl, SQL s)
         {
-            SQL s = new SQL();
+           
             foreach (Player y in player)
             {
                 if (y.id == turn)

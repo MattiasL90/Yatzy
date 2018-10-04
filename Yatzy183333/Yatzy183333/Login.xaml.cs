@@ -33,7 +33,7 @@ namespace Yatzy183333
             string nameOne = tbOne.Text;
             string nameTwo = tbTwo.Text;
             string nameThree = tbThree.Text;
-            SQL s = new SQL();
+            //SQL s = new SQL();
             int type = GetStyle();
             if (rbClassic.IsChecked == true)
             {
