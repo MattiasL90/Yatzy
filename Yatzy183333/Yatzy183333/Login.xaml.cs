@@ -35,8 +35,7 @@ namespace Yatzy183333
             if (rbClassic.IsChecked == true)
             {
                 Classic g = new Classic();
-                CheckGame(nameOne, nameTwo, nameThree, type);
-                g.matchid = s.GetMatchId();
+                CheckGame(nameOne, nameTwo, nameThree, type, g);
                 this.Hide();
                 CheckCbthree(g, nameOne, nameTwo, nameThree, ppl);
                 MainWindow w1 = new MainWindow(g, ppl);
@@ -45,8 +44,7 @@ namespace Yatzy183333
             else if (rbForced.IsChecked == true)
             {
                 Forced g = new Forced();
-                CheckGame(nameOne, nameTwo, nameThree, type);
-                g.matchid = s.GetMatchId();
+                CheckGame(nameOne, nameTwo, nameThree, type, g);
                 this.Hide();
                 CheckCbthree(g, nameOne, nameTwo, nameThree, ppl);
                 MainWindow w1 = new MainWindow(g, ppl);
@@ -54,7 +52,7 @@ namespace Yatzy183333
             }
         }
 
-        private void CheckGame(string nameOne, string nameTwo, string nameThree, int type)
+        private void CheckGame(string nameOne, string nameTwo, string nameThree, int type, Game g)
         {
             SQL s = new SQL();
             bool one = false;
@@ -67,6 +65,7 @@ namespace Yatzy183333
                 if (one == true && two == true)
                 {
                     s.MakeGame(type);
+                    g.matchid = s.GetMatchId();
                 }
             }
             else if (cbThree.IsChecked == true)
@@ -77,6 +76,7 @@ namespace Yatzy183333
                 if (one == true && two == true && three == true)
                 {
                     s.MakeGame(type);
+                    g.matchid = s.GetMatchId();
                 }
             }
         }

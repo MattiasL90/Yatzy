@@ -12,6 +12,7 @@ namespace Yatzy183333
         public int turn { get; set; }
         public int score { get; set; }
         public int matchid { get; set; }
+        public int ranked { get; set; }
         public List<Player> player { get; set; }
 
         public int[] dices = new int[5];
