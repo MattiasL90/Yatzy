@@ -132,5 +132,21 @@ namespace Yatzy183333
                 conn.Close();
             }
         }
+
+        public void AddPlayer(string name, string nick)
+        {
+            string stmt = "INSERT INTO player (name, nickname) VALUES (@name, @nick";
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+                {
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@nick", nick);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
     }
 }
