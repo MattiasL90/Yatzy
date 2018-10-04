@@ -24,7 +24,7 @@ namespace Yatzy183333
             InitializeComponent();
         }
 
-        int ppl = 0;
+        public int ppl { get; set; }
         SQL s = new SQL();
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -38,7 +38,7 @@ namespace Yatzy183333
                 Classic g = new Classic();
                 CheckGame(nameOne, nameTwo, nameThree, type, g);
                 this.Hide();
-                CheckCbthree(g, nameOne, nameTwo, nameThree, ppl);
+                CheckCbthree(g, nameOne, nameTwo, nameThree);
                 MainWindow w1 = new MainWindow(g, ppl);
                 w1.ShowDialog();
             }
@@ -47,7 +47,7 @@ namespace Yatzy183333
                 Forced g = new Forced();
                 CheckGame(nameOne, nameTwo, nameThree, type, g);
                 this.Hide();
-                CheckCbthree(g, nameOne, nameTwo, nameThree, ppl);
+                CheckCbthree(g, nameOne, nameTwo, nameThree);
                 MainWindow w1 = new MainWindow(g, ppl);
                 w1.ShowDialog();
             }
@@ -104,7 +104,7 @@ namespace Yatzy183333
             return type;
         }
 
-        private void CheckCbthree(Game g, string nameOne, string nameTwo, string nameThree, int ppl)
+        private int CheckCbthree(Game g, string nameOne, string nameTwo, string nameThree)
         {
             if (cbThree.IsChecked == true)
             {
@@ -119,6 +119,7 @@ namespace Yatzy183333
                 g.addPlayer(nameTwo, 2);
                 ppl = 2;
             }
+            return ppl;
         }
 
         private void HighScore()
