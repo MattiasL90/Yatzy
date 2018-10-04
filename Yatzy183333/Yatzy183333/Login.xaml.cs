@@ -39,7 +39,7 @@ namespace Yatzy183333
                 g.matchid = s.GetMatchId();
                 this.Hide();
                 CheckCbthree(g, nameOne, nameTwo, nameThree, ppl);
-                MainWindow w1 = new MainWindow(g);
+                MainWindow w1 = new MainWindow(g, ppl);
                 w1.ShowDialog();
             }
             else if (rbForced.IsChecked == true)
@@ -49,7 +49,7 @@ namespace Yatzy183333
                 g.matchid = s.GetMatchId();
                 this.Hide();
                 CheckCbthree(g, nameOne, nameTwo, nameThree, ppl);
-                MainWindow w1 = new MainWindow(g);
+                MainWindow w1 = new MainWindow(g, ppl);
                 w1.ShowDialog();
             }
         }
