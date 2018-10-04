@@ -25,12 +25,15 @@ namespace Yatzy183333
         Player p = new Player();
         Game g;
         int ppl;
-     
+        SQL s;
 
-        public MainWindow(Game game ,int x)
+
+
+        public MainWindow(Game game ,int x , SQL c)
         {
             InitializeComponent();
             g = game;
+            s = c;
             ppl = x;
             updateDg();
             playerLb.Content = g.nameCount(g.players(ppl));
@@ -62,7 +65,7 @@ namespace Yatzy183333
                 btnRoll.IsEnabled = true;
                 resetCb();
                 rollLb.Content = "Slag nr: " + g.round;
-                g.CheckFinnish(ppl);
+                g.CheckFinnish(ppl,s);
                 playerLb.Content = g.nameCount(g.players(ppl));
                 setLabels();
                 updateDg();

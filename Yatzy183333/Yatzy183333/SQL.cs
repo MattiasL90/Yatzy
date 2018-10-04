@@ -7,7 +7,7 @@ using System.Configuration;using Npgsql;
 
 namespace Yatzy183333
 {
-    class SQL
+    public class SQL
     {
         public int poäng { get; set; }
         public Boolean CheckName(string name)

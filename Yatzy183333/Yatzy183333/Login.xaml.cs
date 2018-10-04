@@ -41,7 +41,7 @@ namespace Yatzy183333
                 CheckGame(nameOne, nameTwo, nameThree, type, g);
                 this.Hide();
                 ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
-                MainWindow w1 = new MainWindow(g, ppl);
+                MainWindow w1 = new MainWindow(g, ppl, s);
                 w1.ShowDialog();
             }
             else if (rbForced.IsChecked == true)
@@ -50,7 +50,7 @@ namespace Yatzy183333
                 CheckGame(nameOne, nameTwo, nameThree, type, g);
                 this.Hide();
                 ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
-                MainWindow w1 = new MainWindow(g, ppl);
+                MainWindow w1 = new MainWindow(g, ppl, s);
                 w1.ShowDialog();
             }
         }

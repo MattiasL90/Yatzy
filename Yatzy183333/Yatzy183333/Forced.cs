@@ -399,14 +399,14 @@ namespace Yatzy183333
             }
             return check;
         }
-        public override void CheckFinnish(int ppl)
+        public override void CheckFinnish(int ppl, SQL s)
         {
 
             foreach (Player y in player)
             {
 
-                SQL s = new SQL();
-                if (y.id == ppl && y.fsave == 15)
+                
+                if (y.id == ppl && y.fsave == 1)
                 {
                     s.EndGame(matchid);
 

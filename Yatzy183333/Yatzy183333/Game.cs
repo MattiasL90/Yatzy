@@ -579,7 +579,7 @@ namespace Yatzy183333
             }
             return check;
         }
-        public virtual void CheckFinnish(int ppl)
+        public virtual void CheckFinnish(int ppl, SQL s)
         {
             SQL s = new SQL();
             foreach (Player y in player)
