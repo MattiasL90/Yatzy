@@ -25,8 +25,9 @@ namespace Yatzy183333
         Player p = new Player();
         Game g;
         int ppl;
+     
 
-        public MainWindow(Game game, int x)
+        public MainWindow(Game game ,int x)
         {
             InitializeComponent();
             g = game;

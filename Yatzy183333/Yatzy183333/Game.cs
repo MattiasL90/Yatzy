@@ -581,7 +581,7 @@ namespace Yatzy183333
         }
         public virtual void CheckFinnish(int ppl)
         {
-            
+            SQL s = new SQL();
             foreach (Player y in player)
             {
                 if (y.id == turn)
@@ -590,7 +590,7 @@ namespace Yatzy183333
                     if (y.id == ppl && y.fsave == 14)
                     {
 
-                       //now
+                        s.EndGame(matchid);
 
                     }
                     else

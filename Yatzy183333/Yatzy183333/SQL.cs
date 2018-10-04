@@ -38,6 +38,7 @@ namespace Yatzy183333
             }
             return yes;
         }
+        
 
         public int GetId(string name)
         {
@@ -62,6 +63,7 @@ namespace Yatzy183333
             }
             return id;
         }
+ 
 
         public int GetMatchId()
         {
@@ -102,15 +104,15 @@ namespace Yatzy183333
             }
         }
 
-        public void EndGame(int id)
+        public void EndGame(int matchid)
         {
-            string stmt = "UPDATE game SET ended_at = now() WHERE game_id = @id";
+            string stmt = "UPDATE game SET ended_at = now() WHERE game_id = @matchid";
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
             {
                 conn.Open();
                 using (var cmd = new NpgsqlCommand(stmt, conn))
                 {
-                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@matchid", matchid);
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();

@@ -404,15 +404,13 @@ namespace Yatzy183333
 
             foreach (Player y in player)
             {
-               
 
-                    if (y.id == ppl && y.fsave == 15)
-                    {
+                SQL s = new SQL();
+                if (y.id == ppl && y.fsave == 15)
+                {
+                    s.EndGame(matchid);
 
-                      
-                        //now
-
-                    }
+                }
 
 
                 
