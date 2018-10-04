@@ -579,5 +579,31 @@ namespace Yatzy183333
             }
             return check;
         }
+        public virtual void CheckFinnish(int ppl)
+        {
+            
+            foreach (Player y in player)
+            {
+                if (y.id == turn)
+                {
+                    
+                    if (y.id == ppl && y.fsave == 14)
+                    {
+
+                       //now
+
+                    }
+                    else
+                    {
+                        y.fsave++;
+                    }
+
+                }
+            }
+
+
+
+        }
+
     }
 }

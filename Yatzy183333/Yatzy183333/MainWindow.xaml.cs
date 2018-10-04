@@ -61,9 +61,11 @@ namespace Yatzy183333
                 btnRoll.IsEnabled = true;
                 resetCb();
                 rollLb.Content = "Slag nr: " + g.round;
+                g.CheckFinnish(ppl);
                 playerLb.Content = g.nameCount(g.players(ppl));
                 setLabels();
                 updateDg();
+                
             }
             else
             {

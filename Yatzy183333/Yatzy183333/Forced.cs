@@ -8,7 +8,7 @@ namespace Yatzy183333
 {
     public class Forced : Game
     {
-        
+
         public override void putScore(int type)
         {
             Array.Sort(dices);
@@ -78,7 +78,7 @@ namespace Yatzy183333
                         {
                             if (i == 6)
                             {
-                                score = score+6;
+                                score = score + 6;
                             }
                         }
                         y.sixes = score;
@@ -190,7 +190,7 @@ namespace Yatzy183333
                     y.bonus = 42;
                 }
             }
-            
+
         }
 
 
@@ -220,13 +220,13 @@ namespace Yatzy183333
 
                         {
                             y.fsave = 2;
-                            
+
                         }
                         else
                         {
                             check = false;
                         }
-                        
+
                     }
                     else if (type == 3)
                     {
@@ -398,6 +398,25 @@ namespace Yatzy183333
                 }
             }
             return check;
+        }
+        public override void CheckFinnish(int ppl)
+        {
+
+            foreach (Player y in player)
+            {
+               
+
+                    if (y.id == ppl && y.fsave == 15)
+                    {
+
+                      
+                        //now
+
+                    }
+
+
+                
+            }
         }
     }
 }
