@@ -195,13 +195,13 @@ namespace Yatzy183333
         //    return score;
         //}
 
-        public int players()
+        public int players(int ppl)
         {
-            if (turn < 3)    //Game
+            if (turn < ppl)    //Game
             {
                 turn++;
             }
-            else if (turn == 3)
+            else if (turn == ppl)
             {
                 turn = 1;
             }

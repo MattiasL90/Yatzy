@@ -23,8 +23,8 @@ namespace Yatzy183333
         {
             InitializeComponent();
         }
-     
 
+        int ppl = 0;
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string nameOne = tbOne.Text;
@@ -38,7 +38,7 @@ namespace Yatzy183333
                 CheckGame(nameOne, nameTwo, nameThree, type);
                 g.matchid = s.GetMatchId();
                 this.Hide();
-                CheckCbthree(g, nameOne, nameTwo, nameThree);
+                CheckCbthree(g, nameOne, nameTwo, nameThree, ppl);
                 MainWindow w1 = new MainWindow(g);
                 w1.ShowDialog();
             }
@@ -48,7 +48,7 @@ namespace Yatzy183333
                 CheckGame(nameOne, nameTwo, nameThree, type);
                 g.matchid = s.GetMatchId();
                 this.Hide();
-                CheckCbthree(g, nameOne, nameTwo, nameThree);
+                CheckCbthree(g, nameOne, nameTwo, nameThree, ppl);
                 MainWindow w1 = new MainWindow(g);
                 w1.ShowDialog();
             }
@@ -94,21 +94,23 @@ namespace Yatzy183333
             }
             return type;
         }
-        
-        private void CheckCbthree(Game g, string nameOne, string nameTwo, string nameThree)
+
+        private void CheckCbthree(Game g, string nameOne, string nameTwo, string nameThree, int ppl)
         {
             if (cbThree.IsChecked == true)
             {
                 g.addPlayer(nameOne, 1);
                 g.addPlayer(nameTwo, 2);
                 g.addPlayer(nameThree, 3);
+                ppl = 3;
             }
             else
             {
                 g.addPlayer(nameOne, 1);
                 g.addPlayer(nameTwo, 2);
+                ppl = 2;
             }
         }
-      
+
     }
 }

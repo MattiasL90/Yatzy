@@ -24,14 +24,14 @@ namespace Yatzy183333
         bool[] savedDice = new bool[5];
         Player p = new Player();
         Game g;
-        
+        int ppl;
 
-        public MainWindow(Game game)
+        public MainWindow(Game game, int ppl)
         {
             InitializeComponent();
             g = game;
             updateDg();
-            playerLb.Content = g.nameCount(g.players());
+            playerLb.Content = g.nameCount(g.players(ppl));
         }
 
 
@@ -60,7 +60,7 @@ namespace Yatzy183333
                 btnRoll.IsEnabled = true;
                 resetCb();
                 rollLb.Content = "Slag nr: " + g.round;
-                playerLb.Content = g.nameCount(g.players());
+                playerLb.Content = g.nameCount(g.players(ppl));
                 setLabels();
                 updateDg();
             }
