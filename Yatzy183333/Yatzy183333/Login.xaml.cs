@@ -22,6 +22,7 @@ namespace Yatzy183333
         public Login()
         {
             InitializeComponent();
+            HighScore();
         }
 
         public int ppl { get; set; }
@@ -125,7 +126,7 @@ namespace Yatzy183333
 
         private void HighScore()
         {
-            s.GetHighScore();
+            dgHighScore.ItemsSource = s.GetHighScore();
         }
     }
 }

@@ -9,17 +9,18 @@
     <Grid>
         <TextBox x:Name="tbOne" HorizontalAlignment="Left" Height="23" Margin="218,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Spelare 1"/>
         <TextBox x:Name="tbTwo" HorizontalAlignment="Left" Height="23" Margin="218,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Spelare 2"/>
-        <TextBox x:Name="tbThree" HorizontalAlignment="Left" Height="23" Margin="218,180,0,0" TextWrapping="Wrap" Text="Spelare 3" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnLogin" Content="Spela" HorizontalAlignment="Left" Margin="239,208,0,0" VerticalAlignment="Top" Width="75" Click="btnLogin_Click"/>
+        <TextBox x:Name="tbThree" HorizontalAlignment="Left" Height="23" Margin="217,204,0,0" TextWrapping="Wrap" Text="Spelare 3" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnLogin" Content="Spela" HorizontalAlignment="Left" Margin="238,232,0,0" VerticalAlignment="Top" Width="75" Click="btnLogin_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="444,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="248" Width="293" FontSize="10" LineHeight="14"><Run FontWeight="Bold" Text="Regler"/><LineBreak/><Run Text="Spelet är uppbyggt utav 5 tärningar. Spelarna ska försöka att få högsta poäng i de olika tärningskombinationerna som finns kategoriserade i poängblocket genom att slå valt antal tärningar. Kombinationerna kan göras i valfri ordning när man spelar traditionellt Yatzy "/><Run Text="och i bestämd ordning "/><Run Text="vid "/><Run Text="Y"/><Run Text="atzy med tvång"/><Run Text="."/><LineBreak/><Run Text="Varje gång en spelare står i tur har denne rätt till högst tre tärningskast, "/><Run Text="alla behöver "/><Run Text="dock inte utnyttjas. Spelaren avgör själv vilka tärningar som ska kastas. "/><LineBreak/><Run Text="om en poängsumma inte kan placeras, dvs om alla protokollrubriker där kastet kunde ha placerats är upptagna skrivs 0 poäng vid en av de övriga rubrikerna eller så sätts den sammanräknade summan av tärningarna under &quot;chans&quot;"/><Run Text="."/><LineBreak/><Run Text="När alla 3 tärningskast är slagna eller spelaren valt att inte kasta mer väljer spelaren var poängen ska sparas och trycker sedan på &quot;spara&quot;. Då placeras poängen "/><Run Text="i protokollet och det är nästa spelare"/><Run Text="s tur att kasta tärningarna."/><Run Text=" "/><LineBreak/></TextBlock>
-        <RadioButton x:Name="rbClassic" Content="Klassisk" HorizontalAlignment="Left" Margin="218,50,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbForced" Content="Tvång" HorizontalAlignment="Left" Margin="218,70,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cbThree" Content="Tre spelare" HorizontalAlignment="Left" Margin="218,104,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbClassic" Content="Klassisk" HorizontalAlignment="Left" Margin="218,79,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbForced" Content="Tvång" HorizontalAlignment="Left" Margin="218,99,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbThree" Content="Tre spelare" HorizontalAlignment="Left" Margin="218,184,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbAddName" HorizontalAlignment="Left" Height="23" Margin="32,124,0,0" TextWrapping="Wrap" Text="Namn" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbAddNick" HorizontalAlignment="Left" Height="23" Margin="32,152,0,0" TextWrapping="Wrap" Text="Smeknamn" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lbAdd" Content="Skapa spelare" HorizontalAlignment="Left" Margin="32,93,0,0" VerticalAlignment="Top" Width="91"/>
         <Button x:Name="btnAddPlayer" Content="Skapa" HorizontalAlignment="Left" Margin="32,180,0,0" VerticalAlignment="Top" Width="75" Click="btnAddPlayer_Click"/>
         <DataGrid x:Name="dgHighScore" HorizontalAlignment="Left" Height="142" Margin="32,258,0,0" VerticalAlignment="Top" Width="133"/>
+        <Label x:Name="lbHighScore" Content="Highscore" HorizontalAlignment="Left" Margin="32,232,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
