@@ -44,7 +44,7 @@ namespace Yatzy183333
             if (g.round == 3)
             {
                 btnRoll.IsEnabled = false;
-                btnSave.IsEnabled = true;
+                //btnSave.IsEnabled = true;
             }
             updateDg();
            
@@ -56,7 +56,7 @@ namespace Yatzy183333
             if (g.checkScore(type))
             {
                 g.putScore(type);
-                btnSave.IsEnabled = false;
+                //btnSave.IsEnabled = false;
                 btnRoll.IsEnabled = true;
                 resetCb();
                 rollLb.Content = "Slag nr: " + g.round;
