@@ -42,8 +42,6 @@ namespace Yatzy183333
                     dices[i] = 0;
             }
         }
-        
-       
 
         public string nameCount(int players)
         {

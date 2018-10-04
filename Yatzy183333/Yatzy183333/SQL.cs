@@ -100,5 +100,37 @@ namespace Yatzy183333
                 conn.Close();
             }
         }
+
+        public void EndGame(int id)
+        {
+            string stmt = "UPDATE game SET ended_at = now() WHERE game_id = @id";
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
+        public void EndPlayer(string name, int score, int id)
+        {
+            string stmt = "INSERT INTO game_player (game_id, player_id, score) VALUES (@id, @name, @score";
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+                {
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@score", score);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
     }
 }

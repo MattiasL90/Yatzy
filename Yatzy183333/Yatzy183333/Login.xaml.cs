@@ -32,47 +32,25 @@ namespace Yatzy183333
             string nameThree = tbThree.Text;
             SQL s = new SQL();
             int type = GetStyle();
-            //if (rbTwoPlayers.IsChecked == true)
-            //{
-            //    bool one = s.CheckName(nameOne);
-            //    bool two = s.CheckName(nameTwo);
-            //}
-            //else if (rbThreePlayers.IsChecked == true)
-            //{
-            //    bool one = s.CheckName(nameOne);
-            //    bool two = s.CheckName(nameTwo);
-            //    bool three = s.CheckName(nameThree);
-            //}
-
-            //Classic g = new Classic();
-            //Forced f = new Forced();
             if (rbClassic.IsChecked == true)
             {
                 Classic g = new Classic();
                 CheckGame(nameOne, nameTwo, nameThree, type);
-                int id = s.GetMatchId();
+                g.matchid = s.GetMatchId();
                 this.Hide();
                 CheckCbthree(g, nameOne, nameTwo, nameThree);
-                //g.addPlayer(nameOne, 1);
-                //g.addPlayer(nameTwo, 2);
-                //g.addPlayer(nameThree, 3);
-                MainWindow w1 = new MainWindow(g, id);
+                MainWindow w1 = new MainWindow(g);
                 w1.ShowDialog();
-                
             }
             else if (rbForced.IsChecked == true)
             {
                 Forced g = new Forced();
                 CheckGame(nameOne, nameTwo, nameThree, type);
-                int id = s.GetMatchId();
+                g.matchid = s.GetMatchId();
                 this.Hide();
                 CheckCbthree(g, nameOne, nameTwo, nameThree);
-                //g.addPlayer(nameOne, 1);
-                //g.addPlayer(nameTwo, 2);
-                //g.addPlayer(nameThree, 3);
-                MainWindow w1 = new MainWindow(g, id);
+                MainWindow w1 = new MainWindow(g);
                 w1.ShowDialog();
-
             }
         }
 

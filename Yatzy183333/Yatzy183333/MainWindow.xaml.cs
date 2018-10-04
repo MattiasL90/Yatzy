@@ -26,11 +26,10 @@ namespace Yatzy183333
         Game g;
         
 
-        public MainWindow(Game game, int id)
+        public MainWindow(Game game)
         {
             InitializeComponent();
             g = game;
-            g.matchid = id;
             updateDg();
             playerLb.Content = g.nameCount(g.players());
         }
@@ -53,26 +52,6 @@ namespace Yatzy183333
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //int type = checkSave();
-            ////int score = checkScore();
-            //g.putScore(type);
-            ////if (players < 3)    //Game
-            ////{
-            ////    players++;
-            ////}
-            ////else if (players == 3)
-            ////{
-            ////    players = 1;
-            ////}
-            //g.resetDices();
-            //btnSave.IsEnabled = false;
-            //btnRoll.IsEnabled = true;
-            //resetCb();
-            //rollLb.Content = "slag nr " + g.round;
-            //playerLb.Content = g.nameCount(g.players());
-            //setLabels();
-            //g.bonusCheck();
-            //updateDg();
             int type = checkSave();
             if (g.checkScore(type))
             {
@@ -84,34 +63,12 @@ namespace Yatzy183333
                 playerLb.Content = g.nameCount(g.players());
                 setLabels();
                 updateDg();
-                
             }
             else
             {
                 MessageBox.Show("Det fungerar inte.");
             }
         }
-
-        //public void trueScore()
-        //{
-        //    int type = checkSave();
-        //    bool check = false;
-        //    if (g.checkScore(type) == true)
-        //    {
-        //        int type = checkSave();
-        //        g.putScore(type);
-        //        g.resetDices();
-        //        btnSave.IsEnabled = false;
-        //        btnRoll.IsEnabled = true;
-        //        resetCb();
-        //        rollLb.Content = "slag nr " + g.round;
-        //        playerLb.Content = g.nameCount(g.players());
-        //        setLabels();
-        //        g.bonusCheck();
-        //        updateDg();
-        //    }
-            
-        //}
 
         public void resetCb()
         {
@@ -199,37 +156,6 @@ namespace Yatzy183333
             }
         }
 
-        //public int checkScore()   //Game
-        //{
-        //    int score = 0;
-        //    if (cbOne.IsChecked == true)
-        //    {
-        //        int s = g.dices[0];
-        //        score = score + s;
-        //    }
-        //    if (cbTwo.IsChecked == true)
-        //    {
-        //        int s = g.dices[1];
-        //        score = score + s;
-        //    }
-        //    if (cbThree.IsChecked == true)
-        //    {
-        //        int s = g.dices[2];
-        //        score = score + s;
-        //    }
-        //    if (cbFour.IsChecked == true)
-        //    {
-        //        int s = g.dices[3];
-        //        score = score + s;
-        //    }
-        //    if (cbFive.IsChecked == true)
-        //    {
-        //        int s = g.dices[4];
-        //        score = score + s;
-        //    }
-        //    return score;
-        //}
-
         public int checkSave()
         {
             int saved = 0;
@@ -296,8 +222,6 @@ namespace Yatzy183333
             return saved;
         }
         
-    
-
         public void updateDg()
         {
             dgList.ItemsSource = null;
@@ -313,19 +237,8 @@ namespace Yatzy183333
             lblFive.Content = g.dices[4];
         }
 
-        //public void setDices()
-        //{
-        //    savedDice[0] = false;
-        //    savedDice[1] = false;
-        //    savedDice[2] = false;
-        //    savedDice[3] = false;
-        //    savedDice[4] = false;
-        //}
-
         public void checkDices()
         {
-            //if (round > 0)
-            {
                 if (cbOne.IsChecked == true)
                 {
                     savedDice[0] = true;
@@ -366,7 +279,6 @@ namespace Yatzy183333
                 {
                     savedDice[4] = false;
                 }
-            }
         }
 
         private void btnHelp_Click(object sender, RoutedEventArgs e)
