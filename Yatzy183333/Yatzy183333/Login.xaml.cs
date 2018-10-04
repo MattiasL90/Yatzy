@@ -111,6 +111,5 @@ namespace Yatzy183333
                 ppl = 2;
             }
         }
-
     }
 }
