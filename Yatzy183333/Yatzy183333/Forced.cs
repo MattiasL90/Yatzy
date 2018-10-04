@@ -187,7 +187,7 @@ namespace Yatzy183333
                 if (y.ones >= 2 && y.twos >= 4 && y.threes >= 6 && y.fours >= 8 && y.fives >= 10 && y.sixes >= 12 && y.bonus == 0)
 
                 {
-                    y.bonus = 50;
+                    y.bonus = 42;
                 }
             }
             
