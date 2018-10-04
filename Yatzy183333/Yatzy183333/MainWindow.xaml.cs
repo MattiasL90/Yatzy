@@ -26,10 +26,11 @@ namespace Yatzy183333
         Game g;
         
 
-        public MainWindow(Game game)
+        public MainWindow(Game game, int id)
         {
             InitializeComponent();
             g = game;
+            g.matchid = id;
             updateDg();
             playerLb.Content = g.nameCount(g.players());
         }

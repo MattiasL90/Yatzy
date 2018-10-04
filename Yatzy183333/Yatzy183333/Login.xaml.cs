@@ -50,12 +50,13 @@ namespace Yatzy183333
             {
                 Classic g = new Classic();
                 CheckGame(nameOne, nameTwo, nameThree, type);
+                int id = s.GetMatchId();
                 this.Hide();
                 CheckCbthree(g, nameOne, nameTwo, nameThree);
                 //g.addPlayer(nameOne, 1);
                 //g.addPlayer(nameTwo, 2);
                 //g.addPlayer(nameThree, 3);
-                MainWindow w1 = new MainWindow(g);
+                MainWindow w1 = new MainWindow(g, id);
                 w1.ShowDialog();
                 
             }
@@ -63,12 +64,13 @@ namespace Yatzy183333
             {
                 Forced g = new Forced();
                 CheckGame(nameOne, nameTwo, nameThree, type);
+                int id = s.GetMatchId();
                 this.Hide();
                 CheckCbthree(g, nameOne, nameTwo, nameThree);
                 //g.addPlayer(nameOne, 1);
                 //g.addPlayer(nameTwo, 2);
                 //g.addPlayer(nameThree, 3);
-                MainWindow w1 = new MainWindow(g);
+                MainWindow w1 = new MainWindow(g, id);
                 w1.ShowDialog();
 
             }

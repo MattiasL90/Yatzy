@@ -62,6 +62,29 @@ namespace Yatzy183333
             return id;
         }
 
+        public int GetMatchId()
+        {
+            string stmt = "SELECT MAX(game_id) FROM game";
+            int id = 0;
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            id = reader.GetInt32(0);
+                        }
+                    }
+                }
+                conn.Close();
+            }
+            return id;
+        }
+
 
         public void MakeGame(int type)
         {
