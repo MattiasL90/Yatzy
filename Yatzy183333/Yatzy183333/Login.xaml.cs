@@ -51,9 +51,10 @@ namespace Yatzy183333
                 Classic g = new Classic();
                 CheckGame(nameOne, nameTwo, nameThree, type);
                 this.Hide();
-                g.addPlayer(nameOne, 1);
-                g.addPlayer(nameTwo, 2);
-                g.addPlayer(nameThree, 3);
+                boop(g, nameOne, nameTwo, nameThree);
+                //g.addPlayer(nameOne, 1);
+                //g.addPlayer(nameTwo, 2);
+                //g.addPlayer(nameThree, 3);
                 MainWindow w1 = new MainWindow(g);
                 w1.ShowDialog();
                 
@@ -63,9 +64,10 @@ namespace Yatzy183333
                 Forced g = new Forced();
                 CheckGame(nameOne, nameTwo, nameThree, type);
                 this.Hide();
-                g.addPlayer(nameOne, 1);
-                g.addPlayer(nameTwo, 2);
-                g.addPlayer(nameThree, 3);
+                boop(g, nameOne, nameTwo, nameThree);
+                //g.addPlayer(nameOne, 1);
+                //g.addPlayer(nameTwo, 2);
+                //g.addPlayer(nameThree, 3);
                 MainWindow w1 = new MainWindow(g);
                 w1.ShowDialog();
 
@@ -112,7 +114,21 @@ namespace Yatzy183333
             }
             return type;
         }
-
+        
+        private void boop(Game g, string nameOne, string nameTwo, string nameThree)
+        {
+            if (cbThree.IsChecked == true)
+            {
+                g.addPlayer(nameOne, 1);
+                g.addPlayer(nameTwo, 2);
+                g.addPlayer(nameThree, 3);
+            }
+            else
+            {
+                g.addPlayer(nameOne, 1);
+                g.addPlayer(nameTwo, 2);
+            }
+        }
       
     }
 }
