@@ -49,8 +49,7 @@ namespace Yatzy183333
             if (g.round == 3)
             {
                 btnRoll.IsEnabled = false;
-                //btnSave.IsEnabled = true;
-            }
+              }
             updateDg();
            
         }
@@ -61,7 +60,6 @@ namespace Yatzy183333
             if (g.checkScore(type))
             {
                 g.putScore(type);
-                //btnSave.IsEnabled = false;
                 btnRoll.IsEnabled = true;
                 resetCb();
                 rollLb.Content = "Slag nr: " + g.round;
@@ -69,7 +67,7 @@ namespace Yatzy183333
                 {
                     g.RegPlayer();
                     this.Hide();
-                    Finnish f = new Finnish();
+                    Finnish f = new Finnish(s, g);
                     f.ShowDialog();
                 }
                 playerLb.Content = g.nameCount(g.players(ppl));

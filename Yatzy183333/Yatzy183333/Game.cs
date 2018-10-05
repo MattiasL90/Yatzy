@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Yatzy183333
 {
-   public abstract class Game
+    public abstract class Game
     {
         public int round { get; set; }
         public int turn { get; set; }
@@ -39,8 +39,8 @@ namespace Yatzy183333
         {
             Random random = new Random();
             for (int i = 0; i < dices.Count(); i++)
-            {                
-                    dices[i] = 0;
+            {
+                dices[i] = 0;
             }
         }
 
@@ -50,7 +50,7 @@ namespace Yatzy183333
             foreach (Player y in player)
             {
                 if (y.id == players)
-                    name= y.name;
+                    name = y.name;
             }
             return name;
         }
@@ -152,7 +152,8 @@ namespace Yatzy183333
                 fsave = 0
             };
             player.Add(d);
-        }
+        } 
+        
 
         public virtual void bonusCheck()
         {
@@ -629,9 +630,9 @@ namespace Yatzy183333
         public void RegPlayer()
         {
             SQL s = new SQL();
-            if (g.matchid > 0)
+            if (matchid > 0)
             {
-                foreach (Player p in g.player)
+                foreach (Player p in player)
                 {
                     int pid = s.GetId(p.name);
                     s.EndPlayer(pid, p.total, matchid);
@@ -709,5 +710,6 @@ namespace Yatzy183333
                     }
                 }
         }
+        
     }
 }

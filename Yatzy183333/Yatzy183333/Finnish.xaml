@@ -5,4 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yatzy183333"
         mc:Ignorable="d"
-        Title="Finnish" Height="333.994" Width="592.351"/>
+        Title="Finnish" Height="400" Width="500
+        ">
+    <Grid>
+        <DataGrid x:Name="dgHscore" HorizontalAlignment="Left" Margin="65,105,0,0" VerticalAlignment="Top" Height="140" Width="115"/>
+        <DataGrid x:Name="dgGscore" HorizontalAlignment="Left" Margin="291,105,0,0" VerticalAlignment="Top" Height="143" Width="107"/>
+
+    </Grid>
+</Window>
