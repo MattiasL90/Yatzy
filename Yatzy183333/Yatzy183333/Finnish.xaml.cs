@@ -30,32 +30,32 @@ namespace Yatzy183333
             InitializeComponent();
             s = c;
             g = game;
-            FinLista();
-            dgGscore.ItemsSource = null;
-            dgGscore.ItemsSource = fin;
+            //FinLista();
+            //dgGscore.ItemsSource = null;
+            //dgGscore.ItemsSource = fin;
             dgHscore.ItemsSource = null;
             dgHscore.ItemsSource = s.GetHighScore(); 
         }
 
-        public Finnish()
-        {
-            fin = new List<Finnish>();
-        }
-        public void FinLista()
-        {
-            foreach (Player y in g.player)
-            {
-                Finnish f = new Finnish()
-                {
+        //public Finnish()
+        //{
+        //    fin = new List<Finnish>();
+        //}
+        //public void FinLista()
+        //{
+        //    foreach (Player y in g.player)
+        //    {
+        //        Finnish f = new Finnish()
+        //        {
 
-                    name = y.name,
-                    total = y.total,
+        //            name = y.name,
+        //            total = y.total,
 
-                };
+        //        };
 
-                fin.Add(f);
-            }
-        }
+        //        fin.Add(f);
+        //    }
+        //}
     }
        
 }
