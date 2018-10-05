@@ -399,7 +399,7 @@ namespace Yatzy183333
             {
                 if (y.id == turn)
                 {
-                    if (type == 1)
+                    if (type == 1 && y.ones < 1)
                     {
                         foreach (int i in dices)
                         {
@@ -413,7 +413,7 @@ namespace Yatzy183333
                             check = true;
                         }
                     }
-                    else if (type == 2)
+                    else if (type == 2 && y.twos < 1)
                     {
                         foreach (int i in dices)
                         {
@@ -427,7 +427,7 @@ namespace Yatzy183333
                             check = true;
                         }
                     }
-                    else if (type == 3)
+                    else if (type == 3 && y.threes < 1)
                     {
                         foreach (int i in dices)
                         {
@@ -441,7 +441,7 @@ namespace Yatzy183333
                             check = true;
                         }
                     }
-                    else if (type == 4)
+                    else if (type == 4 && y.fours < 1)
                     {
                         foreach (int i in dices)
                         {
@@ -455,7 +455,7 @@ namespace Yatzy183333
                             check = true;
                         }
                     }
-                    else if (type == 5)
+                    else if (type == 5 && y.fives < 1)
                     {
                         foreach (int i in dices)
                         {
@@ -469,7 +469,7 @@ namespace Yatzy183333
                             check = true;
                         }
                     }
-                    else if (type == 6)
+                    else if (type == 6 && y.sixes < 1)
                     {
                         foreach (int i in dices)
                         {
@@ -483,7 +483,7 @@ namespace Yatzy183333
                             check = true;
                         }
                     }
-                    else if (type == 7)
+                    else if (type == 7 && y.pair < 1)
                     {
                         if (dices[4] == dices[3])
                         {
@@ -502,7 +502,7 @@ namespace Yatzy183333
                             check = true;
                         }
                     }
-                    else if (type == 8)
+                    else if (type == 8 && y.twopair < 1)
                     {
                         if (dices[4] == dices[3] && dices[2] == dices[1])
                         {
@@ -513,7 +513,7 @@ namespace Yatzy183333
                             check = true;
                         }
                     }
-                    else if (type == 9)
+                    else if (type == 9 && y.triads < 1)
                     {
                         if (dices[4] == dices[3] && dices[3] == dices[2])
                         {
@@ -528,7 +528,7 @@ namespace Yatzy183333
                             check = true;
                         }
                     }
-                    else if (type == 10)
+                    else if (type == 10 && y.quads < 1)
                     {
                         if (dices[4] == dices[3] && dices[3] == dices[2] && dices[2] == dices[1])
                         {
@@ -539,7 +539,7 @@ namespace Yatzy183333
                             check = true;
                         }
                     }
-                    else if (type == 11)
+                    else if (type == 11 && y.house < 1)
                     {
                         if (dices[4] == dices[3] && dices[3] == dices[2] && dices[1] == dices[0])
                         {
@@ -550,25 +550,25 @@ namespace Yatzy183333
                             check = true;
                         }
                     }
-                    else if (type == 12)
+                    else if (type == 12 && y.ladderl < 1)
                     {
                         if (dices[4] == 5 && dices[4] > dices[3] && dices[3] > dices[2] && dices[2] > dices[1] && dices[1] > dices[0])
                         {
                             check = true;
                         }
                     }
-                    else if (type == 13)
+                    else if (type == 13 && y.ladderb < 1)
                     {
                         if (dices[4] == 6 && dices[4] > dices[3] && dices[3] > dices[2] && dices[2] > dices[1] && dices[1] > dices[0])
                         {
                             check = true;
                         }
                     }
-                    else if (type == 14)
+                    else if (type == 14 && y.chance < 1)
                     {
                         check = true;
                     }
-                    else if (type == 15)
+                    else if (type == 15 && y.yatzy < 1)
                     {
                         if (dices[4] == dices[3] && dices[3] == dices[2] && dices[2] == dices[1] && dices[1] == dices[0])
                         {
@@ -579,9 +579,9 @@ namespace Yatzy183333
             }
             return check;
         }
+
         public virtual void CheckFinnish(int ppl, SQL s)
         {
-           
             foreach (Player y in player)
             {
                 if (y.id == turn)
