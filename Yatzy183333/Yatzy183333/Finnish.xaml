@@ -5,8 +5,4 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yatzy183333"
         mc:Ignorable="d"
-        Title="Finnish" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
-</Window>
+        Title="Finnish" Height="333.994" Width="592.351"/>

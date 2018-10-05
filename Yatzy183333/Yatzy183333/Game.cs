@@ -634,9 +634,9 @@ namespace Yatzy183333
                 foreach (Player p in g.player)
                 {
                     int pid = s.GetId(p.name);
-                    s.EndPlayer(pid, p.total, g.matchid);
+                    s.EndPlayer(pid, p.total, matchid);
                 }
-                s.EndGame(g.matchid);
+                s.EndGame(matchid);
             }
         }
 
