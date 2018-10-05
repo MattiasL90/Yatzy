@@ -586,24 +586,16 @@ namespace Yatzy183333
             {
                 if (y.id == turn)
                 {
-                    
                     if (y.id == ppl && y.fsave == 14)
                     {
-
                         s.EndGame(matchid);
-
                     }
                     else
                     {
                         y.fsave++;
                     }
-
                 }
             }
-
-
-
         }
-
     }
 }
