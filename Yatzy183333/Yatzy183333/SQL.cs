@@ -123,7 +123,7 @@ namespace Yatzy183333
 
         public void EndPlayer(int pid, int score, int id)
         {
-            string stmt = "INSERT INTO game_player (game_id, player_id, score) VALUES (@id, @name, @score";
+            string stmt = "INSERT INTO game_player (game_id, player_id, score) VALUES (@id, @pid, @score";
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
             {
                 conn.Open();
