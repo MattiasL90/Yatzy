@@ -65,7 +65,18 @@ namespace Yatzy183333
                 btnRoll.IsEnabled = true;
                 resetCb();
                 rollLb.Content = "Slag nr: " + g.round;
-                g.CheckFinnish(ppl,s);
+                if (g.CheckFinnish(ppl, s) == true)
+                {
+                    if (g.matchid > 0)
+                    {
+                        int p1= s.GetId();
+                        
+                        s.EndPlayer();
+                    } 
+                    this.Hide();
+                    Finnish f = new Finnish();
+                    f.ShowDialog();
+                }
                 playerLb.Content = g.nameCount(g.players(ppl));
                 setLabels();
                 updateDg();

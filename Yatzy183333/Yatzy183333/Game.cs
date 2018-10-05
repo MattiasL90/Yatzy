@@ -604,8 +604,9 @@ namespace Yatzy183333
             return check;
         }
 
-        public virtual void CheckFinnish(int ppl, SQL s)
+        public virtual bool CheckFinnish(int ppl, SQL s)
         {
+            bool fin = false;
             foreach (Player y in player)
             {
                 if (y.id == turn)
@@ -613,13 +614,16 @@ namespace Yatzy183333
                     if (y.id == ppl && y.fsave == 14)
                     {
                         s.EndGame(matchid);
+                        fin = true;
                     }
                     else
                     {
                         y.fsave++;
+                        
                     }
                 }
             }
+            return fin; 
         }
 
         public void SkipScore(int type)

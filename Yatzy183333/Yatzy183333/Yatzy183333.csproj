@@ -68,8 +68,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classic.cs" />
+    <Compile Include="Finnish.xaml.cs">
+      <DependentUpon>Finnish.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forced.cs" />
     <Compile Include="SQL.cs" />
+    <Page Include="Finnish.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
