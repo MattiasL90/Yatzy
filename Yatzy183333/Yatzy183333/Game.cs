@@ -626,6 +626,20 @@ namespace Yatzy183333
             return fin; 
         }
 
+        public void RegPlayer()
+        {
+            SQL s = new SQL();
+            if (g.matchid > 0)
+            {
+                foreach (Player p in g.player)
+                {
+                    int pid = s.GetId(p.name);
+                    s.EndPlayer(pid, p.total, g.matchid);
+                }
+                s.EndGame(g.matchid);
+            }
+        }
+
         public void SkipScore(int type)
         {
                 foreach (Player y in player)

@@ -404,17 +404,11 @@ namespace Yatzy183333
             bool fin = false;
             foreach (Player y in player)
             {
-
-                
-                if (y.id == ppl && y.fsave == 1)
+                if (y.id == ppl && y.fsave == 15)
                 {
                     s.EndGame(matchid);
                     fin = true;
-
-                }
-
-
-                
+                }  
             }
             return fin;
         }

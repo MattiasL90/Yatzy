@@ -67,12 +67,7 @@ namespace Yatzy183333
                 rollLb.Content = "Slag nr: " + g.round;
                 if (g.CheckFinnish(ppl, s) == true)
                 {
-                    if (g.matchid > 0)
-                    {
-                        int p1= s.GetId();
-                        
-                        s.EndPlayer();
-                    } 
+                    g.RegPlayer();
                     this.Hide();
                     Finnish f = new Finnish();
                     f.ShowDialog();
