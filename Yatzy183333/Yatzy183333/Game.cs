@@ -158,7 +158,31 @@ namespace Yatzy183333
         {
             foreach (Player y in player)
             {
-                int bScore = y.ones + y.twos + y.threes + y.fours + y.fives + y.sixes;
+                int bScore = 0;
+                if (y.ones < 100)
+                {
+                    bScore = bScore + y.ones;
+                }
+                if (y.twos < 100)
+                {
+                    bScore = bScore + y.twos;
+                }
+                if (y.threes < 100)
+                {
+                    bScore = bScore + y.threes;
+                }
+                if (y.fours < 100)
+                {
+                    bScore = bScore + y.fours;
+                }
+                if (y.fives < 100)
+                {
+                    bScore = bScore + y.fives;
+                }
+                if (y.sixes < 100)
+                {
+                    bScore = bScore + y.sixes;
+                }
                 if (y.bonus == 0 && bScore >= 63)
                 {
                     y.bonus = 50;
@@ -596,6 +620,76 @@ namespace Yatzy183333
                     }
                 }
             }
+        }
+
+        public void SkipScore(int type)
+        {
+                foreach (Player y in player)
+                {
+                    if (y.id == turn)
+                    {
+                        if (type == 1)
+                        {
+                            y.ones = 999;
+                        }
+                        else if (type == 2)
+                        {
+                            y.twos = 999;
+                        }
+                        else if (type == 3)
+                        {
+                            y.threes = 999;
+                        }
+                        else if (type == 4)
+                        {
+                            y.fours = 999;
+                        }
+                        else if (type == 5)
+                        {
+                            y.fives = 999;
+                        }
+                        else if (type == 6)
+                        {
+                            y.sixes = 999;
+                        }
+                        else if (type == 7)
+                        {
+                            y.pair = 999;
+                        }
+                        else if (type == 8)
+                        {
+                            y.twopair = 999;
+                        }
+                        else if (type == 9)
+                        {
+                            y.triads = 999;
+                        }
+                        else if (type == 10)
+                        {
+                            y.quads = 999;
+                        }
+                        else if (type == 11)
+                        {
+                            y.house = 999;
+                        }
+                        else if (type == 12)
+                        {
+                            y.ladderl = 999;
+                        }
+                        else if (type == 13)
+                        {
+                            y.ladderb = 999;
+                        }
+                        else if (type == 14)
+                        {
+                            y.chance = 999;
+                        }
+                        else if (type == 15)
+                        {
+                            y.yatzy = 999;
+                        }
+                    }
+                }
         }
     }
 }

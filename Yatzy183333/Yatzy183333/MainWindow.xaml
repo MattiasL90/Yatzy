@@ -38,6 +38,7 @@
         <Label x:Name="playerLb" Content="Label" HorizontalAlignment="Left" Margin="781,295,0,0" VerticalAlignment="Top" Height="41" Width="150"/>
         <Label x:Name="rollLb" Content="Slag nr: 0" HorizontalAlignment="Left" Margin="781,375,0,0" VerticalAlignment="Top" Height="36" Width="150"/>
         <Button x:Name="btnHelp" Content="?" HorizontalAlignment="Left" Margin="29,31,0,0" VerticalAlignment="Top" Width="23" Click="btnHelp_Click"/>
+        <Button x:Name="btnSkip" Content="Stryk" HorizontalAlignment="Left" Margin="29,414,0,0" VerticalAlignment="Top" Width="75" Click="btnSkip_Click"/>
 
     </Grid>
 </Window>

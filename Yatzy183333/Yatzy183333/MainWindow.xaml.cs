@@ -292,5 +292,18 @@ namespace Yatzy183333
         {
             MessageBox.Show("Ettor, tvåor, treor, fyror etc." + "\n" + "Här får du poäng för alla ettor, tvåor och så vidare. Till exempel om du får fyra femmor så har du har du fått ihop 20 poäng." + "\n" +"\n" + "Bonus" + "\n" + "Om du lyckats få ihop 63 poäng på den övre kolumnen på protokollet med ettor, tvåor etc. då får du 50 bonuspoäng." + "\n" +"\n" + "Par" + "\n" + "Du ska få två likadana tärningar.Till exempel två treor som ger 6 poäng." + "\n" + "\n" + "Två par" + "\n" + "Som det låter ska du få två olika par. Till exempel två treor och och två femmor som tillsammans då skulle ge 16 poäng." + "\n" + "\n" + "Tretal" + "\n" + "Här ska du få tre lika tärningar. Till exempel tre sexor som ger 24 poäng." + "\n" + "\n" + "Fyrtal" + "\n" + "Fyra lika tärningar. Till exempel fyra tvåor som ger 8 poäng." + "\n" + "\n" + "Liten stege" + "\n" + "Siffrorna 1, 2, 3, 4 och 5 på tärningarna ger en liten straight och ger 15 poäng." + "\n" + "\n" + "Stor stege" + "\n" +  "Siffrorna 2, 3, 4, 5 och 6 på tärningarna ger en stor straight och ger 20 poäng." + "\n" + "\n" + "Kåk" + "\n" + "Här gäller det att få ett par och ett tretal. Till exempel två treor och tre femmor." + "\n" + "\n" + "Chans" + "\n" + "På chans kan du ta vad som helst. Poängen blir summan av alla tärningar. Du kan till exempel använda chans när du inte får ihop någon annan tärningskombination som passar." + "\n" + "\n" + "Yatzy" + "\n" + "Yatzy innebär att du ska få fem lika. Till exempel fem fyror.");
         }
+
+        private void btnSkip_Click(object sender, RoutedEventArgs e)
+        {
+            int type = checkSave();
+            g.SkipScore(type);
+            btnRoll.IsEnabled = true;
+            resetCb();
+            rollLb.Content = "Slag nr: " + g.round;
+            g.CheckFinnish(ppl, s);
+            playerLb.Content = g.nameCount(g.players(ppl));
+            setLabels();
+            updateDg();
+        }
     }
 }
