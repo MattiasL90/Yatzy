@@ -8,8 +8,8 @@
         Title="Finnish" Height="400" Width="500
         ">
     <Grid>
-        <DataGrid x:Name="dgHscore" HorizontalAlignment="Left" Margin="65,105,0,0" VerticalAlignment="Top" Height="140" Width="115"/>
-        <DataGrid x:Name="dgGscore" HorizontalAlignment="Left" Margin="291,105,0,0" VerticalAlignment="Top" Height="143" Width="107"/>
+        <DataGrid x:Name="dgHscore" HorizontalAlignment="Left" Margin="53,105,0,0" VerticalAlignment="Top" Height="143" Width="199"/>
+        <DataGrid x:Name="dgGscore" HorizontalAlignment="Left" Margin="286,105,0,0" VerticalAlignment="Top" Height="143" Width="141"/>
 
     </Grid>
 </Window>

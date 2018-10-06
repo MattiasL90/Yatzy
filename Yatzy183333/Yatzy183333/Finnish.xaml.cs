@@ -21,24 +21,25 @@ namespace Yatzy183333
     {
         SQL s = new SQL();
         Game g;
+        int logType;
         public int total { get; set; }
         public string name { get; set; }
         public List<Finnish> fins = new List<Finnish>();
         
 
 
-        public Finnish(Game game)
+        public Finnish(Game game, int t)
         {
             Player p = new Player();
             InitializeComponent();
             g = game;
-            
+            logType = t;
             FinLista(g.player);
             SortList();
             dgGscore.ItemsSource = null;
             dgGscore.ItemsSource = fins;
             dgHscore.ItemsSource = null;
-            dgHscore.ItemsSource = s.GetHighScore(); 
+            dgHscore.ItemsSource = s.GetHighScore(logType); 
         }
 
         public Finnish()

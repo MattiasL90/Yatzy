@@ -26,6 +26,7 @@ namespace Yatzy183333
         }
 
         public int ppl { get; set; }
+        public int type { get; set; }
         SQL s = new SQL();
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -41,7 +42,7 @@ namespace Yatzy183333
                 CheckGame(nameOne, nameTwo, nameThree, type, g);
                 this.Hide();
                 ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
-                MainWindow w1 = new MainWindow(g, ppl, s);
+                MainWindow w1 = new MainWindow(g, ppl, s, type);
                 w1.ShowDialog();
             }
             else if (rbForced.IsChecked == true)
@@ -50,7 +51,7 @@ namespace Yatzy183333
                 CheckGame(nameOne, nameTwo, nameThree, type, g);
                 this.Hide();
                 ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
-                MainWindow w1 = new MainWindow(g, ppl, s);
+                MainWindow w1 = new MainWindow(g, ppl, s, type);
                 w1.ShowDialog();
             }
         }
@@ -94,7 +95,6 @@ namespace Yatzy183333
 
         private int GetStyle()
         {
-            int type = 0;
             if (rbClassic.IsChecked == true)
             {
                 type = 1;
@@ -126,7 +126,19 @@ namespace Yatzy183333
 
         private void HighScore()
         {
-            dgHighScore.ItemsSource = s.GetHighScore();
+            dgHighScore.ItemsSource = s.GetHighScore(type);
+        }
+
+        private void rbClassic_Checked(object sender, RoutedEventArgs e)
+        {
+            type = 1;
+            HighScore();
+        }
+
+        private void rbForced_Checked(object sender, RoutedEventArgs e)
+        {
+            type = 2;
+            HighScore();
         }
     }
 }

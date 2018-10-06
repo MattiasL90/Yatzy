@@ -12,6 +12,8 @@ namespace Yatzy183333
     public class SQL
     {
         public int poäng { get; set; }
+        public string namn { get; set; }
+        public string smeknamn { get; set; }
         public Boolean CheckName(string name)
         {
             string stmt = "SELECT name FROM player WHERE name = @name";
@@ -154,9 +156,9 @@ namespace Yatzy183333
             }
         }
 
-        public List<SQL> GetHighScore()
+        public List<SQL> GetHighScore(int type)
         {
-            string stmt = "select score from game_player WHERE score IS NOT NULL order by score desc limit 5";
+            string stmt = "SELECT game_player.score, player.name, player.nickname FROM game_player INNER JOIN player ON player.player_id = game_player.player_id INNER JOIN game ON game.game_id = game_player.game_id WHERE game_player.score IS NOT NULL AND game.gametype_id = @type order by score desc limit 5";
             List<SQL> HighScore = new List<SQL>();
             SQL s;
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
@@ -166,13 +168,16 @@ namespace Yatzy183333
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = stmt;
+                    cmd.Parameters.AddWithValue("@type", type);
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             s = new SQL()
                             {
-                                poäng = reader.GetInt32(0)
+                                poäng = reader.GetInt32(0),
+                                namn = reader.GetString(1),
+                                smeknamn = reader.GetString(2)
                             };
                             HighScore.Add(s);
                         }

@@ -26,14 +26,16 @@ namespace Yatzy183333
         Game g;
         int ppl;
         SQL s;
+        int logType;
 
 
 
-        public MainWindow(Game game ,int x , SQL c)
+        public MainWindow(Game game ,int x , SQL c, int t)
         {
             InitializeComponent();
             g = game;
             s = c;
+            logType = t;
             ppl = x;
             updateDg();
             playerLb.Content = g.nameCount(g.players(ppl));
@@ -68,7 +70,7 @@ namespace Yatzy183333
                 {
                     g.RegPlayer();
                     this.Hide();
-                    Finnish f = new Finnish(g);
+                    Finnish f = new Finnish(g, logType);
                     f.ShowDialog();
                 }
                 playerLb.Content = g.nameCount(g.players(ppl));
