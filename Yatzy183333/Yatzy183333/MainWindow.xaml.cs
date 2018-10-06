@@ -68,7 +68,7 @@ namespace Yatzy183333
                 {
                     g.RegPlayer();
                     this.Hide();
-                    Finnish f = new Finnish(s, g);
+                    Finnish f = new Finnish(g);
                     f.ShowDialog();
                 }
                 playerLb.Content = g.nameCount(g.players(ppl));

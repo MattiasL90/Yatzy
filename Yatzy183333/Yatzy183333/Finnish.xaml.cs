@@ -19,43 +19,44 @@ namespace Yatzy183333
     /// </summary>
     public partial class Finnish : Window
     {
-        SQL s;
+        SQL s = new SQL();
         Game g;
         public int total { get; set; }
         public string name { get; set; }
-        public List<Finnish> fin { get; set; }
 
-        public Finnish(SQL c, Game game)
+        public List<Finnish> fin = new List<Finnish>();
+
+
+
+        public Finnish(Game game)
         {
+            Player p = new Player();
             InitializeComponent();
-            s = c;
             g = game;
-            //FinLista();
-            //dgGscore.ItemsSource = null;
-            //dgGscore.ItemsSource = fin;
+            FinLista(g.player);
+            dgGscore.ItemsSource = null;
+            dgGscore.ItemsSource = fin;
             dgHscore.ItemsSource = null;
             dgHscore.ItemsSource = s.GetHighScore(); 
         }
 
-        //public Finnish()
-        //{
-        //    fin = new List<Finnish>();
-        //}
-        //public void FinLista()
-        //{
-        //    foreach (Player y in g.player)
-        //    {
-        //        Finnish f = new Finnish()
-        //        {
+        public Finnish()
+        {
+            //fin = new List<Finnish>();
+        }
 
-        //            name = y.name,
-        //            total = y.total,
-
-        //        };
-
-        //        fin.Add(f);
-        //    }
-        //}
+        public void FinLista(List<Player> player)
+        {
+            foreach (Player y in player)
+            {
+                Finnish f = new Finnish()
+                {
+                    name = y.name,
+                    total = y.total
+                };
+                fin.Add(f);
+            }
+        }
     }
        
 }

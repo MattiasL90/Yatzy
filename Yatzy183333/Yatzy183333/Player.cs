@@ -35,5 +35,19 @@ namespace Yatzy183333
         {
             return $"{name} {ones} {twos} {threes} {fours} {fives} {sixes} {bonus} {pair} {twopair} {triads} {quads} {house} {ladderl} {chance} {yatzy} {total}";
         }
+
+        //public void FinLista()
+        //{
+            
+        //    foreach (Player y in Game.player)
+        //    {
+        //        Finnish f = new Finnish()
+        //        {
+        //            name = y.name,
+        //            total = y.total
+        //        };
+        //        f.fin.Add(f);
+        //    }
+        //}
     }
 }
