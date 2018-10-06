@@ -123,15 +123,15 @@ namespace Yatzy183333
 
         public void EndPlayer(int pid, int score, int id)
         {
-            string stmt = "INSERT INTO game_player (game_id, player_id, score) VALUES (@id, @pid, @score";
+            string stmt = "INSERT INTO game_player(game_id, player_id, score) VALUES (@id, @pid, @score)";
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
             {
                 conn.Open();
                 using (var cmd = new NpgsqlCommand(stmt, conn))
                 {
+                    cmd.Parameters.AddWithValue("@id", id);
                     cmd.Parameters.AddWithValue("@pid", pid);
                     cmd.Parameters.AddWithValue("@score", score);
-                    cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();

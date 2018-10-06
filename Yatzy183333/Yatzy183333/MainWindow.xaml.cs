@@ -73,7 +73,6 @@ namespace Yatzy183333
                 playerLb.Content = g.nameCount(g.players(ppl));
                 setLabels();
                 updateDg();
-                
             }
             else
             {

@@ -614,13 +614,11 @@ namespace Yatzy183333
                 {
                     if (y.id == ppl && y.fsave == 14)
                     {
-                        s.EndGame(matchid);
                         fin = true;
                     }
                     else
                     {
                         y.fsave++;
-                        
                     }
                 }
             }
