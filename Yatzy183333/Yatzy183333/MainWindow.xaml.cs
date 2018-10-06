@@ -37,6 +37,7 @@ namespace Yatzy183333
             ppl = x;
             updateDg();
             playerLb.Content = g.nameCount(g.players(ppl));
+            SetRankedLabel();
         }
 
 
@@ -49,7 +50,7 @@ namespace Yatzy183333
             if (g.round == 3)
             {
                 btnRoll.IsEnabled = false;
-              }
+            }
             updateDg();
            
         }
@@ -77,6 +78,18 @@ namespace Yatzy183333
             else
             {
                 MessageBox.Show("Det fungerar inte.");
+            }
+        }
+
+        public void SetRankedLabel()
+        {
+            if (g.matchid > 0)
+            {
+                lblRanked.Content = "Spelet är rankat!";
+            }
+            else if (g.matchid == 0)
+            {
+                lblRanked.Content = "Spelet är orankat!";
             }
         }
 
