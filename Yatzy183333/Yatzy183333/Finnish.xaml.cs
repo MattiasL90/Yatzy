@@ -23,9 +23,8 @@ namespace Yatzy183333
         Game g;
         public int total { get; set; }
         public string name { get; set; }
-
-        public List<Finnish> fin = new List<Finnish>();
-
+        public List<Finnish> fins = new List<Finnish>();
+        
 
 
         public Finnish(Game game)
@@ -33,9 +32,11 @@ namespace Yatzy183333
             Player p = new Player();
             InitializeComponent();
             g = game;
+            
             FinLista(g.player);
+            SortList();
             dgGscore.ItemsSource = null;
-            dgGscore.ItemsSource = fin;
+            dgGscore.ItemsSource = fins;
             dgHscore.ItemsSource = null;
             dgHscore.ItemsSource = s.GetHighScore(); 
         }
@@ -54,8 +55,19 @@ namespace Yatzy183333
                     name = y.name,
                     total = y.total
                 };
-                fin.Add(f);
+                fins.Add(f);
+                
             }
+            
+        }
+      
+        public void SortList()
+        {
+
+            fins= fins.OrderByDescending(x => x.total).ToList();
+
+
+       
         }
     }
        
