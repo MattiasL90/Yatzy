@@ -17,7 +17,7 @@ namespace Yatzy183333
             {
                 if (y.id == turn)
                 {
-                    if (type == 1)
+                    if (type == 1 || y.fsave==1)
                     {
                         foreach (int i in dices)
                         {
@@ -28,7 +28,7 @@ namespace Yatzy183333
                         }
                         y.ones = score;
                     }
-                    else if (type == 2)
+                    else if (type == 2 || y.fsave == 2)
                     {
                         foreach (int i in dices)
                         {
@@ -39,7 +39,7 @@ namespace Yatzy183333
                         }
                         y.twos = score;
                     }
-                    else if (type == 3)
+                    else if (type == 3 || y.fsave == 3)
                     {
                         foreach (int i in dices)
                         {
@@ -50,7 +50,7 @@ namespace Yatzy183333
                         }
                         y.threes = score;
                     }
-                    else if (type == 4)
+                    else if (type == 4 || y.fsave == 4)
                     {
                         foreach (int i in dices)
                         {
@@ -61,7 +61,7 @@ namespace Yatzy183333
                         }
                         y.fours = score;
                     }
-                    else if (type == 5)
+                    else if (type == 5 || y.fsave == 5)
                     {
                         foreach (int i in dices)
                         {
@@ -72,7 +72,7 @@ namespace Yatzy183333
                         }
                         y.fives = score;
                     }
-                    else if (type == 6)
+                    else if (type == 6 || y.fsave == 6)
                     {
                         foreach (int i in dices)
                         {
@@ -83,7 +83,7 @@ namespace Yatzy183333
                         }
                         y.sixes = score;
                     }
-                    else if (type == 7)
+                    else if (type == 7 || y.fsave == 7)
                     {
                         if (dices[4] == dices[3])
                         {
@@ -103,7 +103,7 @@ namespace Yatzy183333
                         }
                         y.pair = score;
                     }
-                    else if (type == 8)
+                    else if (type == 8 || y.fsave == 8)
                     {
                         if (dices[4] == dices[3] && dices[2] == dices[1])
                         {
@@ -119,7 +119,7 @@ namespace Yatzy183333
                         }
                         y.twopair = score;
                     }
-                    else if (type == 9)
+                    else if (type == 9 || y.fsave == 9)
                     {
                         if (dices[4] == dices[3] && dices[3] == dices[2])
                         {
@@ -135,7 +135,7 @@ namespace Yatzy183333
                         }
                         y.triads = score;
                     }
-                    else if (type == 10)
+                    else if (type == 10 || y.fsave == 10)
                     {
                         if (dices[4] == dices[3] && dices[3] == dices[2] && dices[2] == dices[1])
                         {
@@ -147,27 +147,27 @@ namespace Yatzy183333
                         }
                         y.quads = score;
                     }
-                    else if (type == 11)
+                    else if (type == 11 || y.fsave == 11)
                     {
                         score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
                         y.house = score;
                     }
-                    else if (type == 12)
+                    else if (type == 12 || y.fsave == 12)
                     {
                         score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
                         y.ladderl = score;
                     }
-                    else if (type == 13)
+                    else if (type == 13 || y.fsave == 13)
                     {
                         score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
                         y.ladderb = score;
                     }
-                    else if (type == 14)
+                    else if (type == 14 || y.fsave == 14)
                     {
                         score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
                         y.chance = score;
                     }
-                    else if (type == 15)
+                    else if (type == 15 || y.fsave == 15)
                     {
                         score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
                         y.yatzy = 50;
