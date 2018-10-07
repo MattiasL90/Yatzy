@@ -27,6 +27,7 @@ namespace Yatzy183333
 
         public int ppl { get; set; }
         public int type { get; set; }
+        int sure = 0;
         SQL s = new SQL();
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -34,25 +35,42 @@ namespace Yatzy183333
             string nameOne = tbOne.Text;
             string nameTwo = tbTwo.Text;
             string nameThree = tbThree.Text;
-            //SQL s = new SQL();
             int type = GetStyle();
             if (rbClassic.IsChecked == true)
             {
                 Classic g = new Classic();
                 CheckGame(nameOne, nameTwo, nameThree, type, g);
-                this.Hide();
-                ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
-                MainWindow w1 = new MainWindow(g, ppl, s, type);
-                w1.ShowDialog();
+                if (sure == 1)
+                {
+                    btnLogin.Content = "Fortsätt";
+                    
+                }
+                else if(sure == 2)
+                {
+                    this.Hide();
+                    ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
+                    MainWindow w1 = new MainWindow(g, ppl, s, type);
+                    w1.ShowDialog();
+                }
+                
             }
             else if (rbForced.IsChecked == true)
             {
                 Forced g = new Forced();
                 CheckGame(nameOne, nameTwo, nameThree, type, g);
-                this.Hide();
-                ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
-                MainWindow w1 = new MainWindow(g, ppl, s, type);
-                w1.ShowDialog();
+                if (sure == 1)
+                {
+                    btnLogin.Content = "Fortsätt";
+                    
+                }
+                else if (sure==2)
+                {
+                    this.Hide();
+                    ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
+                    MainWindow w1 = new MainWindow(g, ppl, s, type);
+                    w1.ShowDialog();
+                }
+                
             }
         }
 
@@ -78,6 +96,20 @@ namespace Yatzy183333
                 {
                     s.MakeGame(type);
                     g.matchid = s.GetMatchId();
+                    sure = 2;
+                }
+                else
+                {
+                    if( one == false)
+                    {
+                        dbl1.Content = "spelare finns ej i databas";
+                    }
+                    if (two == false)
+                    {
+                        dbl2.Content = "spelare finns ej i databas";
+                    }
+                    sure ++;
+
                 }
             }
             else if (cbThree.IsChecked == true)
@@ -89,6 +121,23 @@ namespace Yatzy183333
                 {
                     s.MakeGame(type);
                     g.matchid = s.GetMatchId();
+                    sure = 2;
+                }
+                else
+                {
+                    if (one == false)
+                    {
+                        dbl1.Content = "spelare finns ej i databas";
+                    }
+                    if (two == false)
+                    {
+                        dbl2.Content = "spelare finns ej i databas";
+                    }
+                    if (three == false)
+                    {
+                        dbl3.Content = "spelare finns ej i databas";
+                    }
+                    sure ++;
                 }
             }
         }
