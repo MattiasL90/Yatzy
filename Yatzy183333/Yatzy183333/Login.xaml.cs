@@ -233,11 +233,21 @@ namespace Yatzy183333
             bool isit = false;
             bool ongoing1 = g.CheckOngoing(name1);
             bool ongoing2 = g.CheckOngoing(name2);
-            bool ongoing3 = g.CheckOngoing(name3);
 
-            if (ongoing1 == true || ongoing2 == true || ongoing3 == true)
+            if (cbThree.IsChecked == true)
             {
-                isit = true;
+                bool ongoing3 = g.CheckOngoing(name3);
+                if (ongoing1 == true || ongoing2 == true || ongoing3 == true)
+                {
+                    isit = true;
+                }
+            }
+            else
+            {
+                if (ongoing1 == true || ongoing2 == true)
+                {
+                    isit = true;
+                }
             }
             return isit;
         }

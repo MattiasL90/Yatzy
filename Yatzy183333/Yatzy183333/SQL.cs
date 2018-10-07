@@ -228,7 +228,7 @@ namespace Yatzy183333
                     }
                 }
                 conn.Close();
-                if (game == pid)
+                if (game == pid && pid > 0)
                 {
                     ongoing = true;
                 }

@@ -602,11 +602,14 @@ namespace Yatzy183333
         public void InsertRelationTable()
         {
             SQL s = new SQL();
-            matchid = s.GetMatchId();
-            foreach (Player p in player)
+            if (matchid > 0)
             {
-                int pid = s.GetId(p.name);
-                s.InsertPlayerGame(pid, matchid);
+                matchid = s.GetMatchId();
+                foreach (Player p in player)
+                {
+                    int pid = s.GetId(p.name);
+                    s.InsertPlayerGame(pid, matchid);
+                }
             }
         }
 
