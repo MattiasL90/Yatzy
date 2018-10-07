@@ -34,8 +34,8 @@ namespace Yatzy183333
         public override string ToString()
         {
             //return $"{name} {ones} {twos} {threes} {fours} {fives} {sixes} {bonus} {pair} {twopair} {triads} {quads} {house} {ladderl} {chance} {yatzy} {total}";
-            //return String.Format("Namn:{0}, Ettor:{1}, Tvåor:{2}, Treor:{3}, Fyror:{3}, Femmor:{3}, Sexor:{3}, bonus:{3}, Par:{3}, Två par:{3}, Triss:{3}, Fyrtal:{3}, Kåk:{3}, Liten stege:{3}, Stor stege:{3}, Chans:{3}, Yatzy:{3}, Total:{3}", name, ones, twos, threes, fours, fives, sixes, bonus, pair, twopair, triads, quads, house, ladderl, ladderb, chance, yatzy, total);
-            return $"Namn:{name}, Ettor:{ones}, Tvåor:{twos}, Treor:{threes}";
+            return String.Format("Namn:{0}, Ettor:{1}, Tvåor:{2}, Treor:{3}, Fyror:{3}, Femmor:{3}, Sexor:{3}, bonus:{3}, Par:{3}, Två par:{3}, Triss:{3}, Fyrtal:{3}, Kåk:{3}, Liten stege:{3}, Stor stege:{3}, Chans:{3}, Yatzy:{3}, Total:{3}", name, ones, twos, threes, fours, fives, sixes, bonus, pair, twopair, triads, quads, house, ladderl, ladderb, chance, yatzy, total);
+            //return $"Namn:{name}, Ettor:{ones}, Tvåor:{twos}, Treor:{threes}";
         }
 
         //public void FinLista()
