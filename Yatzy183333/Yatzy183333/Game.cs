@@ -610,5 +610,12 @@ namespace Yatzy183333
             }
         }
 
+        public bool CheckOngoing(string nicke)
+        {
+            SQL s = new SQL();
+            bool isIt = s.OngoingGame(s.GetId(nicke));
+            return isIt;
+        }
+
     }
 }

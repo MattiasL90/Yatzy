@@ -205,5 +205,35 @@ namespace Yatzy183333
             }
             return HighScore;
         }
+
+        public bool OngoingGame(int pid)
+        {
+            bool ongoing = false;
+            int game = 0;
+            string stmt = "SELECT player_id FROM game_player WHERE player_id = @pid AND score IS NULL limit 1";
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = stmt;
+                    cmd.Parameters.AddWithValue("@pid", pid);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            game = reader.GetInt32(0);
+                        }
+                    }
+                }
+                conn.Close();
+                if (game == pid)
+                {
+                    ongoing = true;
+                }
+            }
+            return ongoing;
+        }
     }
 }

@@ -36,43 +36,50 @@ namespace Yatzy183333
             string nameTwo = tbTwo.Text;
             string nameThree = tbThree.Text;
             int type = GetStyle();
-            if (rbClassic.IsChecked == true)
+            if (IsIt(nameOne, nameTwo, nameThree) == false)
             {
-                Classic g = new Classic();
-                CheckGame(nameOne, nameTwo, nameThree, type, g);
-                if (sure == 1)
+                if (rbClassic.IsChecked == true)
                 {
-                    btnLogin.Content = "Fortsätt";
-                    
+                    Classic g = new Classic();
+                    CheckGame(nameOne, nameTwo, nameThree, type, g);
+                    if (sure == 1)
+                    {
+                        btnLogin.Content = "Fortsätt";
+
+                    }
+                    else if (sure == 2)
+                    {
+                        this.Hide();
+                        ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
+                        g.InsertRelationTable();
+                        MainWindow w1 = new MainWindow(g, ppl, s, type);
+                        w1.ShowDialog();
+                    }
+
                 }
-                else if(sure == 2)
+                else if (rbForced.IsChecked == true)
                 {
-                    this.Hide();
-                    ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
-                    g.InsertRelationTable();
-                    MainWindow w1 = new MainWindow(g, ppl, s, type);
-                    w1.ShowDialog();
+                    Forced g = new Forced();
+                    CheckGame(nameOne, nameTwo, nameThree, type, g);
+                    if (sure == 1)
+                    {
+                        btnLogin.Content = "Fortsätt";
+
+                    }
+                    else if (sure == 2)
+                    {
+                        this.Hide();
+                        ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
+                        g.InsertRelationTable();
+                        MainWindow w1 = new MainWindow(g, ppl, s, type);
+                        w1.ShowDialog();
+                    }
+
                 }
-                
             }
-            else if (rbForced.IsChecked == true)
+            else
             {
-                Forced g = new Forced();
-                CheckGame(nameOne, nameTwo, nameThree, type, g);
-                if (sure == 1)
-                {
-                    btnLogin.Content = "Fortsätt";
-                    
-                }
-                else if (sure==2)
-                {
-                    this.Hide();
-                    ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
-                    g.InsertRelationTable();
-                    MainWindow w1 = new MainWindow(g, ppl, s, type);
-                    w1.ShowDialog();
-                }
-                
+                MessageBox.Show("Du har redan ett spel igång!");
             }
         }
 
@@ -173,6 +180,7 @@ namespace Yatzy183333
             return ppl;
         }
 
+
         private void HighScore()
         {
             dgHighScore.ItemsSource = s.GetHighScore(type);
@@ -188,6 +196,21 @@ namespace Yatzy183333
         {
             type = 2;
             HighScore();
+        }
+
+        private bool IsIt(string name1, string name2, string name3)
+        {
+            Classic g = new Classic();
+            bool isit = false;
+            bool ongoing1 = g.CheckOngoing(name1);
+            bool ongoing2 = g.CheckOngoing(name2);
+            bool ongoing3 = g.CheckOngoing(name3);
+
+            if (ongoing1 == true || ongoing2 == true || ongoing3 == true)
+            {
+                isit = true;
+            }
+            return isit;
         }
 
     }
