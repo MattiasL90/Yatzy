@@ -202,14 +202,32 @@ namespace Yatzy183333
         {
             Classic g = new Classic();
             bool isit = false;
-            bool ongoing1 = g.CheckOngoing(name1);
-            bool ongoing2 = g.CheckOngoing(name2);
-            bool ongoing3 = g.CheckOngoing(name3);
-
-            if (ongoing1 == true || ongoing2 == true || ongoing3 == true)
+            int p1 = s.GetId(name1);
+            int p2 = s.GetId(name2);
+            if (p1 > 0 && p2 > 0)
             {
-                isit = true;
+                bool ongoing1 = s.OngoingGame(p1);
+                bool ongoing2 = s.OngoingGame(p2);
+                if (cbThree.IsChecked == true)
+                {
+                    int p3 = s.GetId(name3);
+                    if (p3 > 0)
+                    {
+                        bool ongoing3 = s.OngoingGame(p3);
+                        if (ongoing1 == true || ongoing2 == true || ongoing3 == true)
+                        {
+                            isit = true;
+                        }
+                    }
+                }
+                else
+
+                if (ongoing1 == true || ongoing2 == true)
+                {
+                    isit = true;
+                }
             }
+        
             return isit;
         }
 
