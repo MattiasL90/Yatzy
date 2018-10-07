@@ -49,6 +49,7 @@ namespace Yatzy183333
                 {
                     this.Hide();
                     ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
+                    g.InsertRelationTable();
                     MainWindow w1 = new MainWindow(g, ppl, s, type);
                     w1.ShowDialog();
                 }
@@ -67,6 +68,7 @@ namespace Yatzy183333
                 {
                     this.Hide();
                     ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
+                    g.InsertRelationTable();
                     MainWindow w1 = new MainWindow(g, ppl, s, type);
                     w1.ShowDialog();
                 }
@@ -95,7 +97,6 @@ namespace Yatzy183333
                 if (one == true && two == true)
                 {
                     s.MakeGame(type);
-                    g.matchid = s.GetMatchId();
                     sure = 2;
                 }
                 else
@@ -120,7 +121,6 @@ namespace Yatzy183333
                 if (one == true && two == true && three == true)
                 {
                     s.MakeGame(type);
-                    g.matchid = s.GetMatchId();
                     sure = 2;
                 }
                 else
@@ -189,5 +189,6 @@ namespace Yatzy183333
             type = 2;
             HighScore();
         }
+
     }
 }

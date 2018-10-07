@@ -125,9 +125,25 @@ namespace Yatzy183333
             }
         }
 
-        public void EndPlayer(int pid, int score, int id)
+        public void InsertPlayerGame(int pid, int id)
         {
-            string stmt = "INSERT INTO game_player(game_id, player_id, score) VALUES (@id, @pid, @score)";
+            string stmt = "INSERT INTO game_player(game_id, player_id) VALUES (@id, @pid)";
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@pid", pid);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
+        public void SendScore(int pid, int score, int id)
+        {
+            string stmt = "UPDATE game_player SET score = @score WHERE game_id = @id AND player_id = @pid";
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
             {
                 conn.Open();

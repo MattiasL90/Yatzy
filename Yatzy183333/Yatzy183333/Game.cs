@@ -523,7 +523,7 @@ namespace Yatzy183333
                 foreach (Player p in player)
                 {
                     int pid = s.GetId(p.name);
-                    s.EndPlayer(pid, p.total, matchid);
+                    s.SendScore(pid, p.total, matchid);
                 }
                 s.EndGame(matchid);
             }
@@ -599,6 +599,16 @@ namespace Yatzy183333
                 }
         }
 
-        
+        public void InsertRelationTable()
+        {
+            SQL s = new SQL();
+            matchid = s.GetMatchId();
+            foreach (Player p in player)
+            {
+                int pid = s.GetId(p.name);
+                s.InsertPlayerGame(pid, matchid);
+            }
+        }
+
     }
 }
