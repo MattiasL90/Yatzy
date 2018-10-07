@@ -41,7 +41,7 @@ namespace Yatzy183333
                 if (rbClassic.IsChecked == true)
                 {
                     Classic g = new Classic();
-                    CheckGame(nameOne, nameTwo, nameThree, type, g);
+                    CheckPlayer(nameOne, nameTwo, nameThree, type, g);
                     if (sure == 1)
                     {
                         btnLogin.Content = "Fortsätt";
@@ -51,6 +51,7 @@ namespace Yatzy183333
                     {
                         this.Hide();
                         ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
+                        CheckGame(nameOne, nameTwo, nameThree, type, g);
                         g.InsertRelationTable();
                         MainWindow w1 = new MainWindow(g, ppl, s, type);
                         w1.ShowDialog();
@@ -60,7 +61,7 @@ namespace Yatzy183333
                 else if (rbForced.IsChecked == true)
                 {
                     Forced g = new Forced();
-                    CheckGame(nameOne, nameTwo, nameThree, type, g);
+                    CheckPlayer(nameOne, nameTwo, nameThree, type, g);
                     if (sure == 1)
                     {
                         btnLogin.Content = "Fortsätt";
@@ -70,6 +71,7 @@ namespace Yatzy183333
                     {
                         this.Hide();
                         ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
+                        CheckGame(nameOne, nameTwo, nameThree, type, g);
                         g.InsertRelationTable();
                         MainWindow w1 = new MainWindow(g, ppl, s, type);
                         w1.ShowDialog();
@@ -92,7 +94,7 @@ namespace Yatzy183333
             tbAddNick.Text = "";
         }
 
-        private void CheckGame(string nameOne, string nameTwo, string nameThree, int type, Game g)
+        private void CheckPlayer(string nameOne, string nameTwo, string nameThree, int type, Game g)
         {
             bool one = false;
             bool two = false;
@@ -103,7 +105,6 @@ namespace Yatzy183333
                 two = s.CheckName(nameTwo);
                 if (one == true && two == true)
                 {
-                    s.MakeGame(type);
                     sure = 2;
                 }
                 else
@@ -127,7 +128,6 @@ namespace Yatzy183333
                 three = s.CheckName(nameThree);
                 if (one == true && two == true && three == true)
                 {
-                    s.MakeGame(type);
                     sure = 2;
                 }
                 else
@@ -146,6 +146,35 @@ namespace Yatzy183333
                     }
                     sure ++;
                 }
+            }
+        }
+        private void CheckGame(string nameOne, string nameTwo, string nameThree, int type, Game g)
+        {
+            bool one = false;
+            bool two = false;
+            bool three = false;
+            if (cbThree.IsChecked == false)
+            {
+                one = s.CheckName(nameOne);
+                two = s.CheckName(nameTwo);
+                if (one == true && two == true)
+                {
+                    s.MakeGame(type);
+                    
+                }
+               
+            }
+            else if (cbThree.IsChecked == true)
+            {
+                one = s.CheckName(nameOne);
+                two = s.CheckName(nameTwo);
+                three = s.CheckName(nameThree);
+                if (one == true && two == true && three == true)
+                {
+                    s.MakeGame(type);
+                   
+                }
+               
             }
         }
 
@@ -202,32 +231,14 @@ namespace Yatzy183333
         {
             Classic g = new Classic();
             bool isit = false;
-            int p1 = s.GetId(name1);
-            int p2 = s.GetId(name2);
-            if (p1 > 0 && p2 > 0)
-            {
-                bool ongoing1 = s.OngoingGame(p1);
-                bool ongoing2 = s.OngoingGame(p2);
-                if (cbThree.IsChecked == true)
-                {
-                    int p3 = s.GetId(name3);
-                    if (p3 > 0)
-                    {
-                        bool ongoing3 = s.OngoingGame(p3);
-                        if (ongoing1 == true || ongoing2 == true || ongoing3 == true)
-                        {
-                            isit = true;
-                        }
-                    }
-                }
-                else
+            bool ongoing1 = g.CheckOngoing(name1);
+            bool ongoing2 = g.CheckOngoing(name2);
+            bool ongoing3 = g.CheckOngoing(name3);
 
-                if (ongoing1 == true || ongoing2 == true)
-                {
-                    isit = true;
-                }
+            if (ongoing1 == true || ongoing2 == true || ongoing3 == true)
+            {
+                isit = true;
             }
-        
             return isit;
         }
 
