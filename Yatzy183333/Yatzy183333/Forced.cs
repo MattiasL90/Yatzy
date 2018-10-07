@@ -8,7 +8,7 @@ namespace Yatzy183333
 {
     public class Forced : Game
     {
-
+        bool checko6;
         public override void putScore(int type)
         {
             Array.Sort(dices);
@@ -17,7 +17,7 @@ namespace Yatzy183333
             {
                 if (y.id == turn)
                 {
-                    if (type == 1 || y.fsave==1)
+                    if (type == 1 || y.fsave== 1)
                     {
                         foreach (int i in dices)
                         {
@@ -85,6 +85,7 @@ namespace Yatzy183333
                     }
                     else if (type == 7 || y.fsave == 7)
                     {
+
                         if (dices[4] == dices[3])
                         {
                             score = dices[4] + dices[3];
@@ -147,27 +148,38 @@ namespace Yatzy183333
                         }
                         y.quads = score;
                     }
-                    else if (type == 11 || y.fsave == 11)
+                    else if ((type == 11 && checko6 == true) || (y.fsave == 11 && checko6 == true))
                     {
-                        score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                     
+                            score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                      
                         y.house = score;
                     }
-                    else if (type == 12 || y.fsave == 12)
+                    else if ((type == 12 && checko6 == true) || (y.fsave == 12 && checko6 == true))
                     {
-                        score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                    
+                            score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                     
+                            
                         y.ladderl = score;
                     }
-                    else if (type == 13 || y.fsave == 13)
+                    else if ((type == 13 && checko6 == true) || (y.fsave == 13 && checko6 == true))
                     {
-                        score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                       
+                            score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                      
+                            
                         y.ladderb = score;
                     }
-                    else if (type == 14 || y.fsave == 14)
+                    else if (type == 14  || y.fsave == 14)
                     {
-                        score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                      
+                            score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
+                       
+                            
                         y.chance = score;
                     }
-                    else if (type == 15 || y.fsave == 15)
+                    else if ((type == 15 && checko6 == true) || (y.fsave == 15 && checko6 == true))
                     {
                         score = dices[4] + dices[3] + dices[2] + dices[1] + dices[0];
                         y.yatzy = 50;
@@ -198,6 +210,7 @@ namespace Yatzy183333
         {
             Array.Sort(dices);
             bool check = true;
+            checko6 = false;
             foreach (Player y in player)
             {
                 if (y.id == turn)
@@ -284,6 +297,8 @@ namespace Yatzy183333
 
                         {
                             y.fsave = 7;
+                                                                                        
+                            
 
                         }
                         else
@@ -298,6 +313,7 @@ namespace Yatzy183333
                         {
                             y.fsave = 8;
 
+                           
                         }
                         else
                         {
@@ -311,6 +327,7 @@ namespace Yatzy183333
                         {
                             y.fsave = 9;
 
+                            
                         }
                         else
                         {
@@ -323,19 +340,29 @@ namespace Yatzy183333
 
                         {
                             y.fsave = 10;
-
+                                                       
                         }
                         else
                         {
                             check = false;
                         }
                     }
+
                     else if (type == 11)
                     {
                         if (y.fsave == 10)
 
                         {
                             y.fsave = 11;
+
+                            if (dices[4] == dices[3] && dices[3] == dices[2] && dices[1] == dices[0])
+                            {
+                                checko6 = true;
+                            }
+                            else if (dices[4] == dices[3] && dices[2] == dices[1] && dices[1] == dices[0])
+                            {
+                                checko6 = true;
+                            }
 
                         }
                         else
@@ -349,7 +376,10 @@ namespace Yatzy183333
 
                         {
                             y.fsave = 12;
-
+                            if (dices[4] == 5 && dices[4] > dices[3] && dices[3] > dices[2] && dices[2] > dices[1] && dices[1] > dices[0])
+                            {
+                                checko6 = true;
+                            }
                         }
                         else
                         {
@@ -362,7 +392,10 @@ namespace Yatzy183333
 
                         {
                             y.fsave = 13;
-
+                            if (dices[4] == 6 && dices[4] > dices[3] && dices[3] > dices[2] && dices[2] > dices[1] && dices[1] > dices[0])
+                            {
+                                checko6 = true;
+                            }
                         }
                         else
                         {
@@ -375,7 +408,7 @@ namespace Yatzy183333
 
                         {
                             y.fsave = 14;
-
+                            
                         }
                         else
                         {
@@ -388,7 +421,10 @@ namespace Yatzy183333
 
                         {
                             y.fsave = 15;
-
+                            if (dices[4] == dices[3] && dices[3] == dices[2] && dices[2] == dices[1] && dices[1] == dices[0])
+                            {
+                                checko6 = true;
+                            }
                         }
                         else
                         {
