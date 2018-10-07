@@ -14,6 +14,8 @@ namespace Yatzy183333
         public int poäng { get; set; }
         public string namn { get; set; }
         public string smeknamn { get; set; }
+
+
         public Boolean CheckName(string name)
         {
             string stmt = "SELECT name FROM player WHERE name = @name";

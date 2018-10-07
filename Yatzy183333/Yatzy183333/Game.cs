@@ -22,6 +22,7 @@ namespace Yatzy183333
             player = new List<Player>();
         }
 
+
         public void rollDices(bool[] savedDices)
         {
             Random random = new Random();
@@ -53,77 +54,6 @@ namespace Yatzy183333
                     name = y.name;
             }
             return name;
-        }
-
-        public void saveScore(int type)
-        {
-            foreach (Player y in player)
-            {
-                if (y.id == turn)
-                {
-                    if (type == 1)
-                    {
-                        y.ones = score;
-                    }
-                    else if (type == 2)
-                    {
-                        y.twos = score;
-                    }
-                    else if (type == 3)
-                    {
-                        y.threes = score;
-                    }
-                    else if (type == 4)
-                    {
-                        y.fours = score;
-                    }
-                    else if (type == 5)
-                    {
-                        y.fives = score;
-                    }
-                    else if (type == 6)
-                    {
-                        y.sixes = score;
-                    }
-                    else if (type == 7)
-                    {
-                        y.pair = score;
-                    }
-                    else if (type == 8)
-                    {
-                        y.twopair = score;
-                    }
-                    else if (type == 9)
-                    {
-                        y.triads = score;
-                    }
-                    else if (type == 10)
-                    {
-                        y.quads = score;
-                    }
-                    else if (type == 11)
-                    {
-                        y.house = score;
-                    }
-                    else if (type == 12)
-                    {
-                        y.ladderl = score;
-                    }
-                    else if (type == 13)
-                    {
-                        y.ladderb = score;
-                    }
-                    else if (type == 14)
-                    {
-                        y.chance = score;
-                    }
-                    else if (type == 15)
-                    {
-                        y.yatzy = 50;
-                    }
-                    y.total = y.total + score;
-                }
-            }
         }
 
         public void addPlayer(string namee, int idd)
@@ -191,36 +121,6 @@ namespace Yatzy183333
             }
         }
 
-        //public int checkScore()   //Game
-        //{
-        //    if (cbOne.IsChecked == true)
-        //    {
-        //        int s = g.dices[0];
-        //        score = score + s;
-        //    }
-        //    if (cbTwo.IsChecked == true)
-        //    {
-        //        int s = g.dices[1];
-        //        score = score + s;
-        //    }
-        //    if (cbThree.IsChecked == true)
-        //    {
-        //        int s = g.dices[2];
-        //        score = score + s;
-        //    }
-        //    if (cbFour.IsChecked == true)
-        //    {
-        //        int s = g.dices[3];
-        //        score = score + s;
-        //    }
-        //    if (cbFive.IsChecked == true)
-        //    {
-        //        int s = g.dices[4];
-        //        score = score + s;
-        //    }
-        //    return score;
-        //}
-
         public int players(int ppl)
         {
             if (turn < ppl)    //Game
@@ -233,16 +133,6 @@ namespace Yatzy183333
             }
             return turn;
         }
-
-        //public int rounds()
-        //{
-        //    round++;
-        //    if (round == 3)
-        //    {
-        //        round = 0;
-        //    }
-        //    return round;
-        //}
 
         public virtual void putScore(int type)
         {
