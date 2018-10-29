@@ -307,15 +307,23 @@ namespace Yatzy183333
 
         private void btnSkip_Click(object sender, RoutedEventArgs e)
         {
-            int type = SetType();
-            g.SkipScore(type);
-            btnRoll.IsEnabled = true;
-            ResetCb();
-            rollLb.Content = "Slag nr: " + g.round;
-            FinnishGame();
-            playerLb.Content = g.WhichPlayer(g.CountRolls(ppl));
-            SetLabels();
-            UpdateDg();
+            if (CheckIfSkipChecked(SetType()) == true)
+            {
+                g.SkipScore(SetType());
+                btnRoll.IsEnabled = true;
+                ResetCb();
+                g.round = 0;
+                rollLb.Content = "Slag nr: " + g.round;
+                FinnishGame();
+                playerLb.Content = g.WhichPlayer(g.CountRolls(ppl));
+                g.ResetDices();
+                SetLabels();
+                UpdateDg();
+            }
+            else if (CheckIfSkipChecked(SetType()) == false)
+            {
+                MessageBox.Show("Du måste välja vad du vill stryka.");
+            }
         }
         private void FinnishGame()
         {
@@ -326,6 +334,20 @@ namespace Yatzy183333
                 Finnish f = new Finnish(g, logType);
                 f.ShowDialog();
             }
+        }
+
+        private bool CheckIfSkipChecked(int type)
+        {
+            bool checkIfSkipChecked;
+            if (type > 0 && g.CheckSkip(type) == true)
+            {
+                checkIfSkipChecked = true;
+            }
+            else
+            {
+                checkIfSkipChecked = false;
+            }
+            return checkIfSkipChecked;
         }
     }
 }

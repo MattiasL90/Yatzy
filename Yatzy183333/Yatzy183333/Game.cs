@@ -624,5 +624,178 @@ namespace Yatzy183333
             return isIt;
         }
 
+        public bool CheckSkip(int type)
+        {
+            bool checkSkip = true;
+
+            foreach (Player p in player)
+            {
+                if (turn == p.id)
+                {
+                    if (type == 1)
+                    {
+                        if (p.ones > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                    else if (type == 2)
+                    {
+                        if (p.twos > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                    else if (type == 3)
+                    {
+                        if (p.threes > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                    else if (type == 4)
+                    {
+                        if (p.fours > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                    else if (type == 5)
+                    {
+                        if (p.fives > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                    else if (type == 6)
+                    {
+                        if (p.sixes > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                    else if (type == 7)
+                    {
+                        if (p.pair > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                    else if (type == 8)
+                    {
+                        if (p.twopair > 0)
+                        {
+                            checkSkip = false;
+                        }
+                    }
+                    else if (type == 9)
+                    {
+                        if (p.triads > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                    else if (type == 10)
+                    {
+                        if (p.quads > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                    else if (type == 11)
+                    {
+                        if (p.house > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                    else if (type == 12)
+                    {
+                        if (p.ladderl > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                    else if (type == 13)
+                    {
+                        if (p.ladderb > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                    else if (type == 14)
+                    {
+                        if (p.chance > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                    else if (type == 15)
+                    {
+                        if (p.yatzy > 0)
+                        {
+                            checkSkip = false;
+                        }
+                        else
+                        {
+                            checkSkip = true;
+                        }
+                    }
+                }
+            }
+            return checkSkip;
+        }
     }
 }
