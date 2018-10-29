@@ -66,13 +66,7 @@ namespace Yatzy183333
                 btnRoll.IsEnabled = true;
                 ResetCb();
                 rollLb.Content = "Slag nr: " + g.round;
-                if (g.IsGameOver(ppl, s) == true)
-                {
-                    g.RegPlayer();
-                    this.Hide();
-                    Finnish f = new Finnish(g, logType);
-                    f.ShowDialog();
-                }
+                FinnishGame();
                 playerLb.Content = g.WhichPlayer(g.CountRolls(ppl));
                 SetLabels();
                 UpdateDg();
@@ -318,10 +312,20 @@ namespace Yatzy183333
             btnRoll.IsEnabled = true;
             ResetCb();
             rollLb.Content = "Slag nr: " + g.round;
-            g.IsGameOver(ppl, s);
+            FinnishGame();
             playerLb.Content = g.WhichPlayer(g.CountRolls(ppl));
             SetLabels();
             UpdateDg();
+        }
+        private void FinnishGame()
+        {
+            if (g.IsGameOver(ppl, s) == true)
+            {
+                g.RegPlayer();
+                this.Hide();
+                Finnish f = new Finnish(g, logType);
+                f.ShowDialog();
+            }
         }
     }
 }
