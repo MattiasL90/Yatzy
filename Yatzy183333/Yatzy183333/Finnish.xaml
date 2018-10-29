@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yatzy183333"
         mc:Ignorable="d"
-        Title="Finnish" Height="400" Width="500
-        ">
+        Title="Finnish" Height="395.074" Width="621.182">
     <Grid>
-        <DataGrid x:Name="dgHscore" HorizontalAlignment="Left" Margin="53,105,0,0" VerticalAlignment="Top" Height="143" Width="199"/>
-        <DataGrid x:Name="dgGscore" HorizontalAlignment="Left" Margin="286,105,0,0" VerticalAlignment="Top" Height="143" Width="141"/>
+        <DataGrid x:Name="dgHscore" HorizontalAlignment="Left" Margin="37,105,0,0" VerticalAlignment="Top" Height="143" Width="264"/>
+        <DataGrid x:Name="dgGscore" HorizontalAlignment="Left" Margin="321,105,0,0" VerticalAlignment="Top" Height="143" Width="237"/>
+        <Label x:Name="lblHighscoreAll" Content="" HorizontalAlignment="Left" Margin="37,74,0,0" VerticalAlignment="Top" Width="215"/>
+        <Label x:Name="lblHighscoreGame" Content="Poängtavla för spelat spel" HorizontalAlignment="Left" Margin="321,74,0,0" VerticalAlignment="Top" Width="176"/>
 
     </Grid>
 </Window>

@@ -427,6 +427,10 @@ namespace Yatzy183333
                         {
                             checkScore = true;
                         }
+                        else if (dices[4] == dices[3] && dices[1] == dices[0])
+                        {
+                            checkScore = true;
+                        }
                     }
                     else if (type == 9 && y.triads < 1)
                     {

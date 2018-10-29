@@ -147,6 +147,7 @@ namespace Yatzy183333
                 }
             }
         }
+
         private void CheckGame(string nameOne, string nameTwo, string nameThree, int type, Game g)
         {
             bool one = false;
@@ -203,7 +204,6 @@ namespace Yatzy183333
             }
             return ppl;
         }
-
 
         private void SetHighscoreLogin()
         {

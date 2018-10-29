@@ -22,24 +22,25 @@ namespace Yatzy183333
         SQL s = new SQL();
         Game g;
         int logType;
-        public int total { get; set; }
+        public int place { get; set; }
         public string name { get; set; }
+        public int total { get; set; }
         public List<Finnish> fins = new List<Finnish>();
         
 
-
-        public Finnish(Game game, int t)
+        public Finnish(Game game, int type)
         {
             Player p = new Player();
             InitializeComponent();
             g = game;
-            logType = t;
+            logType = type;
             AddToScoreBoard(g.player);
             SortList();
             dgGscore.ItemsSource = null;
             dgGscore.ItemsSource = fins;
             dgHscore.ItemsSource = null;
-            dgHscore.ItemsSource = s.GetHighScore(logType); 
+            dgHscore.ItemsSource = s.GetHighScore(logType);
+            SetHighscoreLabel();
         }
 
         public Finnish()
@@ -62,7 +63,28 @@ namespace Yatzy183333
       
         public void SortList()
         {
-            fins= fins.OrderByDescending(x => x.total).ToList();
+            fins = fins.OrderByDescending(x => x.total).ToList();
+            SetWinner();
+        }
+
+        private void SetWinner()
+        {
+            foreach (Finnish y in fins)
+            {
+                place = y.place;
+            }
+        }
+
+        public void SetHighscoreLabel()
+        {
+            if (logType == 1)
+            {
+                lblHighscoreAll.Content = "Top 5 för Klassisk Yatzy";
+            }
+            else if (logType == 2)
+            {
+                lblHighscoreAll.Content = "Top 5 för Forcerad Yatzy";
+            }
         }
     }  
 }
