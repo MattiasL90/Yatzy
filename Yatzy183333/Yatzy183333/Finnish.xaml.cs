@@ -34,7 +34,7 @@ namespace Yatzy183333
             InitializeComponent();
             g = game;
             logType = t;
-            FinLista(g.player);
+            AddToScoreBoard(g.player);
             SortList();
             dgGscore.ItemsSource = null;
             dgGscore.ItemsSource = fins;
@@ -47,7 +47,7 @@ namespace Yatzy183333
             //fin = new List<Finnish>();
         }
 
-        public void FinLista(List<Player> player)
+        public void AddToScoreBoard(List<Player> player)
         {
             foreach (Player y in player)
             {
@@ -57,19 +57,12 @@ namespace Yatzy183333
                     total = y.total
                 };
                 fins.Add(f);
-                
             }
-            
         }
       
         public void SortList()
         {
-
             fins= fins.OrderByDescending(x => x.total).ToList();
-
-
-       
         }
-    }
-       
+    }  
 }

@@ -22,7 +22,7 @@ namespace Yatzy183333
         public Login()
         {
             InitializeComponent();
-            HighScore();
+            SetHighscoreLogin();
         }
 
         public int ppl { get; set; }
@@ -35,8 +35,8 @@ namespace Yatzy183333
             string nameOne = tbOne.Text;
             string nameTwo = tbTwo.Text;
             string nameThree = tbThree.Text;
-            int type = GetStyle();
-            if (IsIt(nameOne, nameTwo, nameThree) == false)
+            int type = GetGameType();
+            if (DoesOngoingGameExist(nameOne, nameTwo, nameThree) == false)
             {
                 if (rbClassic.IsChecked == true)
                 {
@@ -50,7 +50,7 @@ namespace Yatzy183333
                     else if (sure == 2)
                     {
                         this.Hide();
-                        ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
+                        ppl = CheckPlayerCount(g, nameOne, nameTwo, nameThree);
                         CheckGame(nameOne, nameTwo, nameThree, type, g);
                         g.InsertRelationTable();
                         MainWindow w1 = new MainWindow(g, ppl, s, type);
@@ -70,7 +70,7 @@ namespace Yatzy183333
                     else if (sure == 2)
                     {
                         this.Hide();
-                        ppl = CheckCbthree(g, nameOne, nameTwo, nameThree);
+                        ppl = CheckPlayerCount(g, nameOne, nameTwo, nameThree);
                         CheckGame(nameOne, nameTwo, nameThree, type, g);
                         g.InsertRelationTable();
                         MainWindow w1 = new MainWindow(g, ppl, s, type);
@@ -111,14 +111,13 @@ namespace Yatzy183333
                 {
                     if( one == false)
                     {
-                        dbl1.Content = "spelare finns ej i databas";
+                        dbl1.Content = "Spelare finns ej i databas";
                     }
                     if (two == false)
                     {
-                        dbl2.Content = "spelare finns ej i databas";
+                        dbl2.Content = "Spelare finns ej i databas";
                     }
                     sure ++;
-
                 }
             }
             else if (cbThree.IsChecked == true)
@@ -134,15 +133,15 @@ namespace Yatzy183333
                 {
                     if (one == false)
                     {
-                        dbl1.Content = "spelare finns ej i databas";
+                        dbl1.Content = "Spelare finns ej i databas";
                     }
                     if (two == false)
                     {
-                        dbl2.Content = "spelare finns ej i databas";
+                        dbl2.Content = "Spelare finns ej i databas";
                     }
                     if (three == false)
                     {
-                        dbl3.Content = "spelare finns ej i databas";
+                        dbl3.Content = "Spelare finns ej i databas";
                     }
                     sure ++;
                 }
@@ -159,10 +158,8 @@ namespace Yatzy183333
                 two = s.CheckName(nameTwo);
                 if (one == true && two == true)
                 {
-                    s.MakeGame(type);
-                    
+                    s.MakeGame(type); 
                 }
-               
             }
             else if (cbThree.IsChecked == true)
             {
@@ -172,13 +169,11 @@ namespace Yatzy183333
                 if (one == true && two == true && three == true)
                 {
                     s.MakeGame(type);
-                   
                 }
-               
             }
         }
 
-        private int GetStyle()
+        private int GetGameType()
         {
             if (rbClassic.IsChecked == true)
             {
@@ -191,26 +186,26 @@ namespace Yatzy183333
             return type;
         }
 
-        private int CheckCbthree(Game g, string nameOne, string nameTwo, string nameThree)
+        private int CheckPlayerCount(Game g, string nameOne, string nameTwo, string nameThree)
         {
             if (cbThree.IsChecked == true)
             {
-                g.addPlayer(nameOne, 1);
-                g.addPlayer(nameTwo, 2);
-                g.addPlayer(nameThree, 3);
+                g.AddPlayer(nameOne, 1);
+                g.AddPlayer(nameTwo, 2);
+                g.AddPlayer(nameThree, 3);
                 ppl = 3;
             }
             else
             {
-                g.addPlayer(nameOne, 1);
-                g.addPlayer(nameTwo, 2);
+                g.AddPlayer(nameOne, 1);
+                g.AddPlayer(nameTwo, 2);
                 ppl = 2;
             }
             return ppl;
         }
 
 
-        private void HighScore()
+        private void SetHighscoreLogin()
         {
             dgHighScore.ItemsSource = s.GetHighScore(type);
         }
@@ -218,16 +213,16 @@ namespace Yatzy183333
         private void rbClassic_Checked(object sender, RoutedEventArgs e)
         {
             type = 1;
-            HighScore();
+            SetHighscoreLogin();
         }
 
         private void rbForced_Checked(object sender, RoutedEventArgs e)
         {
             type = 2;
-            HighScore();
+            SetHighscoreLogin();
         }
 
-        private bool IsIt(string name1, string name2, string name3)
+        private bool DoesOngoingGameExist(string name1, string name2, string name3)
         {
             Classic g = new Classic();
             bool isit = false;
@@ -251,6 +246,5 @@ namespace Yatzy183333
             }
             return isit;
         }
-
     }
 }

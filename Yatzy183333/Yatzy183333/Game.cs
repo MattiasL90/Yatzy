@@ -23,7 +23,7 @@ namespace Yatzy183333
         }
 
 
-        public void rollDices(bool[] savedDices)
+        public void RollDices(bool[] savedDices)
         {
             Random random = new Random();
             for (int i = 0; i < dices.Count(); i++)
@@ -36,7 +36,7 @@ namespace Yatzy183333
             round++;
         }
 
-        public void resetDices()
+        public void ResetDices()
         {
             Random random = new Random();
             for (int i = 0; i < dices.Count(); i++)
@@ -45,18 +45,18 @@ namespace Yatzy183333
             }
         }
 
-        public string nameCount(int players)
+        public string WhichPlayer(int players)
         {
-            string name = null;
+            string whichPlayer = null;
             foreach (Player y in player)
             {
                 if (y.id == players)
-                    name = y.name;
+                    whichPlayer = y.name;
             }
-            return name;
+            return whichPlayer;
         }
 
-        public void addPlayer(string namee, int idd)
+        public void AddPlayer(string namee, int idd)
         {
             Player d = new Player()
             {
@@ -85,7 +85,7 @@ namespace Yatzy183333
         } 
         
 
-        public virtual void bonusCheck()
+        public virtual void BonusCheck()
         {
             foreach (Player y in player)
             {
@@ -121,9 +121,9 @@ namespace Yatzy183333
             }
         }
 
-        public int players(int ppl)
+        public int CountRolls(int ppl)
         {
-            if (turn < ppl)    //Game
+            if (turn < ppl)
             {
                 turn++;
             }
@@ -134,7 +134,7 @@ namespace Yatzy183333
             return turn;
         }
 
-        public virtual void putScore(int type)
+        public virtual void SetScore(int type)
         {
             Array.Sort(dices);
             round = 0;
@@ -298,17 +298,17 @@ namespace Yatzy183333
                         y.yatzy = 50;
                     }
                     y.total = y.total + score;
-                    bonusCheck();
-                    resetDices();
+                    BonusCheck();
+                    ResetDices();
                     score = 0;
                 }
             }
         }
 
-        public virtual Boolean checkScore(int type)
+        public virtual Boolean CheckScore(int type)
         {
             Array.Sort(dices);
-            bool check = false;
+            bool checkScore = false;
             int scores = 0;
             foreach (Player y in player)
             {
@@ -325,7 +325,7 @@ namespace Yatzy183333
                         }
                         if (scores >= 1)
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                     else if (type == 2 && y.twos < 1)
@@ -339,7 +339,7 @@ namespace Yatzy183333
                         }
                         if (scores >= 1)
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                     else if (type == 3 && y.threes < 1)
@@ -353,7 +353,7 @@ namespace Yatzy183333
                         }
                         if (scores > 0)
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                     else if (type == 4 && y.fours < 1)
@@ -367,7 +367,7 @@ namespace Yatzy183333
                         }
                         if (scores > 0)
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                     else if (type == 5 && y.fives < 1)
@@ -381,7 +381,7 @@ namespace Yatzy183333
                         }
                         if (scores > 0)
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                     else if (type == 6 && y.sixes < 1)
@@ -395,116 +395,116 @@ namespace Yatzy183333
                         }
                         if (scores > 0)
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                     else if (type == 7 && y.pair < 1)
                     {
                         if (dices[4] == dices[3])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                         else if (dices[3] == dices[2])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                         else if (dices[2] == dices[1])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                         else if (dices[1] == dices[0])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                     else if (type == 8 && y.twopair < 1)
                     {
                         if (dices[4] == dices[3] && dices[2] == dices[1])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                         else if (dices[3] == dices[2] && dices[1] == dices[0])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                     else if (type == 9 && y.triads < 1)
                     {
                         if (dices[4] == dices[3] && dices[3] == dices[2])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                         else if (dices[3] == dices[2] && dices[2] == dices[1])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                         else if (dices[2] == dices[1] && dices[1] == dices[0])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                     else if (type == 10 && y.quads < 1)
                     {
                         if (dices[4] == dices[3] && dices[3] == dices[2] && dices[2] == dices[1])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                         else if (dices[3] == dices[2] && dices[2] == dices[1] && dices[1] == dices[0])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                     else if (type == 11 && y.house < 1)
                     {
                         if (dices[4] == dices[3] && dices[3] == dices[2] && dices[1] == dices[0])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                         else if (dices[4] == dices[3] && dices[2] == dices[1] && dices[1] == dices[0])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                     else if (type == 12 && y.ladderl < 1)
                     {
                         if (dices[4] == 5 && dices[4] > dices[3] && dices[3] > dices[2] && dices[2] > dices[1] && dices[1] > dices[0])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                     else if (type == 13 && y.ladderb < 1)
                     {
                         if (dices[4] == 6 && dices[4] > dices[3] && dices[3] > dices[2] && dices[2] > dices[1] && dices[1] > dices[0])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                     else if (type == 14 && y.chance < 1)
                     {
-                        check = true;
+                        checkScore = true;
                     }
                     else if (type == 15 && y.yatzy < 1)
                     {
                         if (dices[4] == dices[3] && dices[3] == dices[2] && dices[2] == dices[1] && dices[1] == dices[0])
                         {
-                            check = true;
+                            checkScore = true;
                         }
                     }
                 }
             }
-            return check;
+            return checkScore;
         }
 
-        public virtual bool CheckFinnish(int ppl, SQL s)
+        public virtual bool IsGameOver(int ppl, SQL s)
         {
-            bool fin = false;
+            bool isGameOver = false;
             foreach (Player y in player)
             {
                 if (y.id == turn)
                 {
                     if (y.id == ppl && y.fsave == 14)
                     {
-                        fin = true;
+                        isGameOver = true;
                     }
                     else
                     {
@@ -512,7 +512,7 @@ namespace Yatzy183333
                     }
                 }
             }
-            return fin; 
+            return isGameOver; 
         }
 
         public void RegPlayer()
@@ -522,7 +522,7 @@ namespace Yatzy183333
             {
                 foreach (Player p in player)
                 {
-                    int pid = s.GetId(p.name);
+                    int pid = s.GetPlayerId(p.name);
                     s.SendScore(pid, p.total, matchid);
                 }
                 s.EndGame(matchid);
@@ -607,7 +607,7 @@ namespace Yatzy183333
                 matchid = s.GetMatchId();
                 foreach (Player p in player)
                 {
-                    int pid = s.GetId(p.name);
+                    int pid = s.GetPlayerId(p.name);
                     s.InsertPlayerGame(pid, matchid);
                 }
             }
@@ -616,7 +616,7 @@ namespace Yatzy183333
         public bool CheckOngoing(string nicke)
         {
             SQL s = new SQL();
-            bool isIt = s.OngoingGame(s.GetId(nicke));
+            bool isIt = s.CheckOngoingGame(s.GetPlayerId(nicke));
             return isIt;
         }
 

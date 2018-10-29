@@ -19,7 +19,7 @@ namespace Yatzy183333
         public Boolean CheckName(string name)
         {
             string stmt = "SELECT name FROM player WHERE name = @name";
-            Boolean yes = false;
+            Boolean checkName = false;
 
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
             {
@@ -35,21 +35,21 @@ namespace Yatzy183333
                             string rname = reader.GetString(0);
                             if (rname == name)
                             {
-                                yes = true;
+                                checkName = true;
                             }
                         }
                     }
                 }
                 conn.Close();
             }
-            return yes;
+            return checkName;
         }
         
 
-        public int GetId(string name)
+        public int GetPlayerId(string name)
         {
             string stmt = "SELECT player_id FROM player WHERE name = @name";
-            int id = 0;
+            int getPlayerId = 0;
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
             {
                 conn.Open();
@@ -61,20 +61,20 @@ namespace Yatzy183333
                     {
                         while (reader.Read())
                         {
-                            id = reader.GetInt32(0);
+                            getPlayerId = reader.GetInt32(0);
                         }
                     }
                 }
                 conn.Close();
             }
-            return id;
+            return getPlayerId;
         }
  
 
         public int GetMatchId()
         {
             string stmt = "SELECT MAX(game_id) FROM game";
-            int id = 0;
+            int getMatchId = 0;
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
             {
                 conn.Open();
@@ -85,13 +85,13 @@ namespace Yatzy183333
                     {
                         while (reader.Read())
                         {
-                            id = reader.GetInt32(0);
+                            getMatchId = reader.GetInt32(0);
                         }
                     }
                 }
                 conn.Close();
             }
-            return id;
+            return getMatchId;
         }
 
 
@@ -177,7 +177,7 @@ namespace Yatzy183333
         public List<SQL> GetHighScore(int type)
         {
             string stmt = "SELECT game_player.score, player.name, player.nickname FROM game_player INNER JOIN player ON player.player_id = game_player.player_id INNER JOIN game ON game.game_id = game_player.game_id WHERE game_player.score IS NOT NULL AND game.gametype_id = @type order by score desc limit 5";
-            List<SQL> HighScore = new List<SQL>();
+            List<SQL> GetHighScore = new List<SQL>();
             SQL s;
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
             {
@@ -197,18 +197,18 @@ namespace Yatzy183333
                                 namn = reader.GetString(1),
                                 smeknamn = reader.GetString(2)
                             };
-                            HighScore.Add(s);
+                            GetHighScore.Add(s);
                         }
                     }
                 }
                 conn.Close();
             }
-            return HighScore;
+            return GetHighScore;
         }
 
-        public bool OngoingGame(int pid)
+        public bool CheckOngoingGame(int pid)
         {
-            bool ongoing = false;
+            bool checkOngoingGame = false;
             int game = 0;
             string stmt = "SELECT player_id FROM game_player WHERE player_id = @pid AND score IS NULL limit 1";
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbConn"].ConnectionString))
@@ -230,10 +230,12 @@ namespace Yatzy183333
                 conn.Close();
                 if (game == pid && pid > 0)
                 {
-                    ongoing = true;
+                    checkOngoingGame = true;
                 }
             }
-            return ongoing;
+            return checkOngoingGame;
         }
     }
+
+
 }

@@ -37,45 +37,45 @@ namespace Yatzy183333
             s = c;
             logType = t;
             ppl = x;
-            updateDg();
-            playerLb.Content = g.nameCount(g.players(ppl));
+            UpdateDg();
+            playerLb.Content = g.WhichPlayer(g.CountRolls(ppl));
             SetRankedLabel();
         }
 
 
         private void btnRoll_Click(object sender, RoutedEventArgs e)
         {
-            checkDices();
-            g.rollDices(savedDice);
-            setLabels();
+            CheckDices();
+            g.RollDices(savedDice);
+            SetLabels();
             rollLb.Content = "Slag nr: "+ (g.round);
             if (g.round == 3)
             {
                 btnRoll.IsEnabled = false;
             }
-            updateDg();
+            UpdateDg();
            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int type = checkSave();
-            if (g.checkScore(type))
+            int type = SetType();
+            if (g.CheckScore(type))
             {
-                g.putScore(type);
+                g.SetScore(type);
                 btnRoll.IsEnabled = true;
-                resetCb();
+                ResetCb();
                 rollLb.Content = "Slag nr: " + g.round;
-                if (g.CheckFinnish(ppl, s) == true)
+                if (g.IsGameOver(ppl, s) == true)
                 {
                     g.RegPlayer();
                     this.Hide();
                     Finnish f = new Finnish(g, logType);
                     f.ShowDialog();
                 }
-                playerLb.Content = g.nameCount(g.players(ppl));
-                setLabels();
-                updateDg();
+                playerLb.Content = g.WhichPlayer(g.CountRolls(ppl));
+                SetLabels();
+                UpdateDg();
             }
             else
             {
@@ -83,7 +83,7 @@ namespace Yatzy183333
             }
         }
 
-        public void SetRankedLabel()
+        private void SetRankedLabel()
         {
             if (g.matchid > 0)
             {
@@ -95,7 +95,7 @@ namespace Yatzy183333
             }
         }
 
-        public void resetCb()
+        private void ResetCb()
         {
             if (cbOne.IsChecked == true)
             {
@@ -181,79 +181,79 @@ namespace Yatzy183333
             }
         }
 
-        public int checkSave()
+        private int SetType()
         {
-            int saved = 0;
+            int setType = 0;
             if (rbOnes.IsChecked == true)
             {
-                saved = 1;
+                setType = 1;
             }
             else if (rbTwos.IsChecked == true)
             {
-                saved = 2;
+                setType = 2;
             }
             else if (rbThrees.IsChecked == true)
             {
-                saved = 3;
+                setType = 3;
             }
             else if (rbFours.IsChecked == true)
             {
-                saved = 4;
+                setType = 4;
             }
             else if (rbFives.IsChecked == true)
             {
-                saved = 5;
+                setType = 5;
             }
             else if (rbSixes.IsChecked == true)
             {
-                saved = 6;
+                setType = 6;
             }
             else if (rbPair.IsChecked == true)
             {
-                saved = 7;
+                setType = 7;
             }
             else if (rbTwopair.IsChecked == true)
             {
-                saved = 8;
+                setType = 8;
             }
             else if (rbTriads.IsChecked == true)
             {
-                saved = 9;
+                setType = 9;
             }
             else if (rbQuads.IsChecked == true)
             {
-                saved = 10;
+                setType = 10;
             }
             else if (rbHouse.IsChecked == true)
             {
-                saved = 11;
+                setType = 11;
             }
             else if (rbLadderl.IsChecked == true)
             {
-                saved = 12;
+                setType = 12;
             }
             else if (rbLadderb.IsChecked == true)
             {
-                saved = 13;
+                setType = 13;
             }
             else if (rbChance.IsChecked == true)
             {
-                saved = 14;
+                setType = 14;
             }
             else if (rbYatzy.IsChecked == true)
             {
-                saved = 15;
+                setType = 15;
             }
-            return saved;
+            return setType;
         }
         
-        public void updateDg()
+        private void UpdateDg()
         {
             dgList.ItemsSource = null;
             dgList.ItemsSource = g.player;
         }
 
-        public void setLabels()
+        private void SetLabels()
         {
             lblOne.Content = g.dices[0];
             lblTwo.Content = g.dices[1];
@@ -262,7 +262,7 @@ namespace Yatzy183333
             lblFive.Content = g.dices[4];
         }
 
-        public void checkDices()
+        private void CheckDices()
         {
                 if (cbOne.IsChecked == true)
                 {
@@ -313,15 +313,15 @@ namespace Yatzy183333
 
         private void btnSkip_Click(object sender, RoutedEventArgs e)
         {
-            int type = checkSave();
+            int type = SetType();
             g.SkipScore(type);
             btnRoll.IsEnabled = true;
-            resetCb();
+            ResetCb();
             rollLb.Content = "Slag nr: " + g.round;
-            g.CheckFinnish(ppl, s);
-            playerLb.Content = g.nameCount(g.players(ppl));
-            setLabels();
-            updateDg();
+            g.IsGameOver(ppl, s);
+            playerLb.Content = g.WhichPlayer(g.CountRolls(ppl));
+            SetLabels();
+            UpdateDg();
         }
     }
 }

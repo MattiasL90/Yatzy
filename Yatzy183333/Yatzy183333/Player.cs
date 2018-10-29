@@ -38,7 +38,7 @@ namespace Yatzy183333
             //return $"Namn:{name}, Ettor:{ones}, Tvåor:{twos}, Treor:{threes}";
         }
 
-        //public void FinLista()
+        //public void AddToScoreBoard()
         //{
             
         //    foreach (Player y in Game.player)

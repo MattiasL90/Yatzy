@@ -9,7 +9,7 @@ namespace Yatzy183333
     public class Forced : Game
     {
         bool checko6;
-        public override void putScore(int type)
+        public override void SetScore(int type)
         {
             Array.Sort(dices);
             round = 0;
@@ -185,14 +185,14 @@ namespace Yatzy183333
                         y.yatzy = 50;
                     }
                     y.total = y.total + score;
-                    bonusCheck();
-                    resetDices();
+                    BonusCheck();
+                    ResetDices();
                     score = 0;
                 }
             }
         }
 
-        public override void bonusCheck()
+        public override void BonusCheck()
         {
             foreach (Player y in player)
             {
@@ -206,7 +206,7 @@ namespace Yatzy183333
         }
 
 
-        public override Boolean checkScore(int type)
+        public override Boolean CheckScore(int type)
         {
             Array.Sort(dices);
             bool check = true;
@@ -439,7 +439,7 @@ namespace Yatzy183333
             }
             return check;
         }
-        public override bool CheckFinnish(int ppl, SQL s)
+        public override bool IsGameOver(int ppl, SQL s)
         {
             bool fin = false;
             foreach (Player y in player)
