@@ -27,7 +27,7 @@ namespace Yatzy183333
 
         public int ppl { get; set; }
         public int type { get; set; }
-        int sure = 0;
+        bool sure;
         SQL s = new SQL();
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -42,19 +42,21 @@ namespace Yatzy183333
                 {
                     Classic g = new Classic();
                     CheckPlayer(nameOne, nameTwo, nameThree, type, g);
-                    if (sure == 1)
+                    if (sure == true)
                     {
-                        btnLogin.Content = "Fortsätt";
+                        PlayGame(nameOne, nameTwo, nameThree, type, g);
 
                     }
-                    else if (sure == 2)
+                    else if (sure == false)
                     {
-                        this.Hide();
-                        ppl = CheckPlayerCount(g, nameOne, nameTwo, nameThree);
-                        CheckGame(nameOne, nameTwo, nameThree, type, g);
-                        g.InsertRelationTable();
-                        MainWindow w1 = new MainWindow(g, ppl, s, type);
-                        w1.ShowDialog();
+                        if (MessageBox.Show("Någon utav spelarna finns inte med i databasen. Vill du ändå fortsätta och spela orankat ? ", "Säkert?", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                        {
+                            //do no stuff
+                        }
+                        else
+                        {
+                            PlayGame(nameOne, nameTwo, nameThree, type, g);
+                        }
                     }
 
                 }
@@ -62,19 +64,21 @@ namespace Yatzy183333
                 {
                     Forced g = new Forced();
                     CheckPlayer(nameOne, nameTwo, nameThree, type, g);
-                    if (sure == 1)
+                    if (sure == true)
                     {
-                        btnLogin.Content = "Fortsätt";
+                        PlayGame(nameOne, nameTwo, nameThree, type, g);
 
                     }
-                    else if (sure == 2)
+                    else if (sure == false)
                     {
-                        this.Hide();
-                        ppl = CheckPlayerCount(g, nameOne, nameTwo, nameThree);
-                        CheckGame(nameOne, nameTwo, nameThree, type, g);
-                        g.InsertRelationTable();
-                        MainWindow w1 = new MainWindow(g, ppl, s, type);
-                        w1.ShowDialog();
+                        if (MessageBox.Show("Någon utav spelarna finns inte med i databasen. Vill du ändå fortsätta och spela orankat ? ", "Säkert?", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                        {
+                            //do no stuff
+                        }
+                        else
+                        {
+                            PlayGame(nameOne, nameTwo, nameThree, type, g);
+                        }
                     }
 
                 }
@@ -83,6 +87,15 @@ namespace Yatzy183333
             {
                 MessageBox.Show("Du har redan ett spel igång!");
             }
+        }
+        private void PlayGame(string nameOne, string nameTwo, string nameThree, int type, Game g)
+        {
+            this.Hide();
+            ppl = CheckPlayerCount(g, nameOne, nameTwo, nameThree);
+            CheckGame(nameOne, nameTwo, nameThree, type, g);
+            g.InsertRelationTable();
+            MainWindow w1 = new MainWindow(g, ppl, s, type);
+            w1.ShowDialog();
         }
 
         private void btnAddPlayer_Click(object sender, RoutedEventArgs e)
@@ -105,7 +118,7 @@ namespace Yatzy183333
                 two = s.CheckName(nameTwo);
                 if (one == true && two == true)
                 {
-                    sure = 2;
+                    sure = true;
                 }
                 else
                 {
@@ -113,11 +126,19 @@ namespace Yatzy183333
                     {
                         dbl1.Content = "Spelare finns ej i databas";
                     }
+                    else
+                    {
+                        dbl1.Content = "";
+                    }
                     if (two == false)
                     {
                         dbl2.Content = "Spelare finns ej i databas";
                     }
-                    sure ++;
+                    else
+                    {
+                        dbl2.Content = "";
+                    }
+                    sure = false;
                 }
             }
             else if (cbThree.IsChecked == true)
@@ -127,7 +148,7 @@ namespace Yatzy183333
                 three = s.CheckName(nameThree);
                 if (one == true && two == true && three == true)
                 {
-                    sure = 2;
+                    sure = true;
                 }
                 else
                 {
@@ -135,15 +156,27 @@ namespace Yatzy183333
                     {
                         dbl1.Content = "Spelare finns ej i databas";
                     }
+                    else
+                    {
+                        dbl1.Content = "";
+                    }
                     if (two == false)
                     {
                         dbl2.Content = "Spelare finns ej i databas";
+                    }
+                    else
+                    {
+                        dbl2.Content = "";
                     }
                     if (three == false)
                     {
                         dbl3.Content = "Spelare finns ej i databas";
                     }
-                    sure ++;
+                    else
+                    {
+                        dbl3.Content = "";
+                    }
+                    sure = false;
                 }
             }
         }
