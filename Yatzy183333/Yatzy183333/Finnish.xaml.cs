@@ -72,7 +72,6 @@ namespace Yatzy183333
             place = 1;
             foreach (Finnish y in fins)
             {
-                
                 y.place= place;
                 place++;
             }
