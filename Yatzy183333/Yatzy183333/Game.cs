@@ -533,7 +533,7 @@ namespace Yatzy183333
             }
         }
 
-        public void SkipScore(int type)
+        public virtual void SkipScore(int type)
         {
                 foreach (Player y in player)
                 {

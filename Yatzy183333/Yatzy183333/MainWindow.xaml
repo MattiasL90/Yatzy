@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Yatzy" Height="474.643" Width="1031.429">
     <Grid>
-        <DataGrid x:Name="dgList" HorizontalAlignment="Left" Height="184" Margin="29,69,0,0" VerticalAlignment="Top" Width="968"/>
+        <DataGrid x:Name="dgList" HorizontalAlignment="Left" Height="184" Margin="29,69,0,0" VerticalAlignment="Top" Width="968" IsEnabled="False"/>
         <Label x:Name="lblOne" Content="" HorizontalAlignment="Left" Margin="365,293,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
         <Label x:Name="lblTwo" Content="" HorizontalAlignment="Left" Margin="427,293,0,0" VerticalAlignment="Top" Height="32" Width="57"/>
         <Label x:Name="lblThree" Content="" HorizontalAlignment="Left" Margin="489,293,0,0" VerticalAlignment="Top" Height="32" Width="57"/>

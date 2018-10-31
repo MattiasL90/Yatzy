@@ -8,7 +8,10 @@ namespace Yatzy183333
 {
     public class Forced : Game
     {
+        
         bool checko6;
+        public int nextType { get; set; }
+
         public override void SetScore(int type)
         {
             Array.Sort(dices);
@@ -450,6 +453,77 @@ namespace Yatzy183333
                 }  
             }
             return fin;
+        }
+
+        public override void SkipScore(int type)
+        {
+            foreach (Player y in player)
+            {
+                if (y.id == turn)
+                {
+                    if (y.fsave == 0)
+                    {
+                        y.ones = 999;
+                    }
+                    else if (y.fsave == 1)
+                    {
+                        y.twos = 999;
+                    }
+                    else if (y.fsave == 2)
+                    {
+                        y.threes = 999;
+                    }
+                    else if (y.fsave == 3)
+                    {
+                        y.fours = 999;
+                    }
+                    else if (y.fsave == 4)
+                    {
+                        y.fives = 999;
+                    }
+                    else if (y.fsave == 5)
+                    {
+                        y.sixes = 999;
+                    }
+                    else if (y.fsave == 6)
+                    {
+                        y.pair = 999;
+                    }
+                    else if (y.fsave == 7)
+                    {
+                        y.twopair = 999;
+                    }
+                    else if (y.fsave == 8)
+                    {
+                        y.triads = 999;
+                    }
+                    else if (y.fsave == 9)
+                    {
+                        y.quads = 999;
+                    }
+                    else if (y.fsave == 10)
+                    {
+                        y.house = 999;
+                    }
+                    else if (y.fsave == 11)
+                    {
+                        y.ladderl = 999;
+                    }
+                    else if (y.fsave == 12)
+                    {
+                        y.ladderb = 999;
+                    }
+                    else if (y.fsave == 13)
+                    {
+                        y.chance = 999;
+                    }
+                    else if (y.fsave == 14)
+                    {
+                        y.yatzy = 999;
+                    }
+                    y.fsave++;
+                }
+            }
         }
     }
 }

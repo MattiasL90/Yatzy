@@ -339,13 +339,21 @@ namespace Yatzy183333
         private bool CheckIfSkipChecked(int type)
         {
             bool checkIfSkipChecked;
-            if (type > 0 && g.CheckSkip(type) == true)
+            if (logType == 1)
             {
-                checkIfSkipChecked = true;
+                if (type > 0 && g.CheckSkip(type) == true)
+                {
+                    checkIfSkipChecked = true;
+                }
+                else
+                {
+                    checkIfSkipChecked = false;
+                }
+                return checkIfSkipChecked;
             }
             else
             {
-                checkIfSkipChecked = false;
+                checkIfSkipChecked = true;
             }
             return checkIfSkipChecked;
         }
