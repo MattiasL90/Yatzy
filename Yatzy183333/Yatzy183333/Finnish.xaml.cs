@@ -69,9 +69,12 @@ namespace Yatzy183333
 
         private void SetWinner()
         {
+            place = 1;
             foreach (Finnish y in fins)
             {
-                place = y.place;
+                
+                y.place= place;
+                place++;
             }
         }
 
