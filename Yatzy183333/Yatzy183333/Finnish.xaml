@@ -7,10 +7,11 @@
         mc:Ignorable="d"
         Title="Finnish" Height="395.074" Width="621.182">
     <Grid>
-        <DataGrid x:Name="dgHscore" HorizontalAlignment="Left" Margin="37,105,0,0" VerticalAlignment="Top" Height="143" Width="264"/>
-        <DataGrid x:Name="dgGscore" HorizontalAlignment="Left" Margin="321,105,0,0" VerticalAlignment="Top" Height="143" Width="237"/>
-        <Label x:Name="lblHighscoreAll" Content="" HorizontalAlignment="Left" Margin="37,74,0,0" VerticalAlignment="Top" Width="215"/>
-        <Label x:Name="lblHighscoreGame" Content="Poängtavla för spelat spel" HorizontalAlignment="Left" Margin="321,74,0,0" VerticalAlignment="Top" Width="176"/>
+        <DataGrid x:Name="dgHscore" HorizontalAlignment="Left" Margin="42,164,0,0" VerticalAlignment="Top" Height="143" Width="264"/>
+        <DataGrid x:Name="dgGscore" HorizontalAlignment="Left" Margin="326,164,0,0" VerticalAlignment="Top" Height="143" Width="237"/>
+        <Label x:Name="lblHighscoreAll" Content="" HorizontalAlignment="Left" Margin="42,133,0,0" VerticalAlignment="Top" Width="215"/>
+        <Label x:Name="lblHighscoreGame" Content="Poängtavla för spelat spel" HorizontalAlignment="Left" Margin="326,133,0,0" VerticalAlignment="Top" Width="176"/>
+        <Label x:Name="lblWinner" Content="" HorizontalAlignment="Left" Margin="168,36,0,0" VerticalAlignment="Top" Height="58" Width="290" FontSize="20" FontFamily="Comic Sans MS" FontWeight="Bold"/>
 
     </Grid>
 </Window>
