@@ -25,7 +25,7 @@ namespace Yatzy183333
         public int place { get; set; }
         public string name { get; set; }
         public int total { get; set; }
-        List<Finnish> fins = new List<Finnish>();
+        List<Finnish> endScore = new List<Finnish>();
         
 
         public Finnish(Game game, int type)
@@ -37,7 +37,7 @@ namespace Yatzy183333
             AddToScoreBoard(g.player);
             SortList();
             dgGscore.ItemsSource = null;
-            dgGscore.ItemsSource = fins;
+            dgGscore.ItemsSource = endScore;
             dgHscore.ItemsSource = null;
             dgHscore.ItemsSource = s.GetHighScore(logType);
             SetHighscoreLabel();
@@ -58,20 +58,20 @@ namespace Yatzy183333
                     name = y.name,
                     total = y.total
                 };
-                fins.Add(f);
+                endScore.Add(f);
             }
         }
       
         public void SortList()
         {
-            fins = fins.OrderByDescending(x => x.total).ToList();
+            endScore = endScore.OrderByDescending(x => x.total).ToList();
             SetWinner();
         }
 
         private void SetWinner()
         {
             place = 1;
-            foreach (Finnish y in fins)
+            foreach (Finnish y in endScore)
             {
                 y.place= place;
                 place++;
@@ -106,7 +106,7 @@ namespace Yatzy183333
         private void SetWin()
         {
             string winName = "";
-            foreach (Finnish f in fins)
+            foreach (Finnish f in endScore)
             {
                 if (f.place == 1)
                 {
